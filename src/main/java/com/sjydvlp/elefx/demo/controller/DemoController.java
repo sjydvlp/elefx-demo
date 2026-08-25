@@ -6,6 +6,7 @@ import com.sjydvlp.elefx.button.EleFxButtonType;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -85,9 +86,18 @@ public class DemoController implements Initializable {
     }
 
     private void initializeLoader() {
-        VBox vBox = new VBox();
-        vBox.getChildren().addAll(new EleFxButton("示例1"), new EleFxButton("示例2", EleFxButtonType.DANGER));
+        HBox hBox = new HBox();
+        hBox.setPadding(new Insets(20));
+        hBox.setSpacing(10);
+        hBox.getChildren().addAll(
+                new EleFxButton("Default"),
+                new EleFxButton("Primary", EleFxButtonType.PRIMARY),
+                new EleFxButton("Success", EleFxButtonType.SUCCESS),
+                new EleFxButton("Info", EleFxButtonType.INFO),
+                new EleFxButton("Warning", EleFxButtonType.WARNING),
+                new EleFxButton("Danger", EleFxButtonType.DANGER)
+        );
 
-        contentPane.getChildren().add(vBox);
+        contentPane.getChildren().add(hBox);
     }
 }
