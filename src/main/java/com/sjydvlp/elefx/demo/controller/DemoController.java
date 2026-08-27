@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -86,10 +87,10 @@ public class DemoController implements Initializable {
     }
 
     private void initializeLoader() {
-        HBox hBox = new HBox();
-        hBox.setPadding(new Insets(20));
-        hBox.setSpacing(10);
-        hBox.getChildren().addAll(
+        HBox hBox1 = new HBox();
+        hBox1.setPadding(new Insets(20));
+        hBox1.setSpacing(10);
+        hBox1.getChildren().addAll(
                 new EleFxButton("Default"),
                 new EleFxButton("Primary", EleFxButtonType.PRIMARY),
                 new EleFxButton("Success", EleFxButtonType.SUCCESS),
@@ -98,6 +99,21 @@ public class DemoController implements Initializable {
                 new EleFxButton("Danger", EleFxButtonType.DANGER)
         );
 
-        contentPane.getChildren().add(hBox);
+        HBox hBox2 = new HBox();
+        hBox2.setPadding(new Insets(20));
+        hBox2.setSpacing(10);
+        hBox2.getChildren().addAll(
+                new EleFxButton(new Text("a"), EleFxButtonType.DEFAULT, true),
+                new EleFxButton(new Text("a"), EleFxButtonType.PRIMARY, true),
+                new EleFxButton(new Text("a"), EleFxButtonType.SUCCESS, true),
+                new EleFxButton(new Text("a"), EleFxButtonType.INFO, true),
+                new EleFxButton(new Text("a"), EleFxButtonType.WARNING, true),
+                new EleFxButton(new Text("a"), EleFxButtonType.DANGER, true)
+        );
+
+        VBox vBox = new VBox();
+        vBox.getChildren().addAll(hBox1, hBox2);
+
+        contentPane.getChildren().add(vBox);
     }
 }
