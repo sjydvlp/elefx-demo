@@ -2,8 +2,8 @@ package com.sjydvlp.elefx.demo;
 
 import cn.hutool.core.io.resource.ResourceUtil;
 import com.sjydvlp.elefx.demo.controller.DemoController;
-import com.sjydvlp.elefx.theme.EleFxTheme;
-import com.sjydvlp.elefx.theme.JavaFXTheme;
+import com.sjydvlp.elefx.theme.EleFXThemes;
+import com.sjydvlp.elefx.theme.JavaFXThemes;
 import com.sjydvlp.elefx.theme.UserAgentBuilder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +18,8 @@ public class Demo extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         UserAgentBuilder.builder()
-                .themes(JavaFXTheme.MODENA)
-                .themes(EleFxTheme.forAssemble())
+                .themes(JavaFXThemes.MODENA)
+                .themes(EleFXThemes.DEFAULT)
                 .setDeploy(true)
                 .setResolveAssets(true)
                 .build()

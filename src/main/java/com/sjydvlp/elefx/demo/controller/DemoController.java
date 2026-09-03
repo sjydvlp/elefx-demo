@@ -1,8 +1,8 @@
 package com.sjydvlp.elefx.demo.controller;
 
 import cn.hutool.core.io.resource.ResourceUtil;
-import com.sjydvlp.elefx.button.EleFxButton;
-import com.sjydvlp.elefx.button.EleFxButtonType;
+import com.sjydvlp.elefx.component.button.EleFXButton;
+import com.sjydvlp.elefx.component.button.EleFXButtonType;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -91,25 +91,23 @@ public class DemoController implements Initializable {
         hBox1.setPadding(new Insets(20));
         hBox1.setSpacing(10);
         hBox1.getChildren().addAll(
-                new EleFxButton("Default"),
-                new EleFxButton("Primary", EleFxButtonType.PRIMARY),
-                new EleFxButton("Success", EleFxButtonType.SUCCESS),
-                new EleFxButton("Info", EleFxButtonType.INFO),
-                new EleFxButton("Warning", EleFxButtonType.WARNING),
-                new EleFxButton("Danger", EleFxButtonType.DANGER)
-        );
+                new EleFXButton("Default"),
+                new EleFXButton("Primary", EleFXButtonType.PRIMARY),
+                new EleFXButton("Success", EleFXButtonType.SUCCESS),
+                new EleFXButton("Info", EleFXButtonType.INFO),
+                new EleFXButton("Warning", EleFXButtonType.WARNING),
+                new EleFXButton("Danger", EleFXButtonType.DANGER));
 
         HBox hBox2 = new HBox();
         hBox2.setPadding(new Insets(20));
         hBox2.setSpacing(10);
         hBox2.getChildren().addAll(
-                new EleFxButton(new Text("a"), EleFxButtonType.DEFAULT, true),
-                new EleFxButton(new Text("a"), EleFxButtonType.PRIMARY, true),
-                new EleFxButton(new Text("a"), EleFxButtonType.SUCCESS, true),
-                new EleFxButton(new Text("a"), EleFxButtonType.INFO, true),
-                new EleFxButton(new Text("a"), EleFxButtonType.WARNING, true),
-                new EleFxButton(new Text("a"), EleFxButtonType.DANGER, true)
-        );
+                new EleFXButton(new Text("a"), EleFXButtonType.DEFAULT, true),
+                new EleFXButton(new Text("a"), EleFXButtonType.PRIMARY, true),
+                new EleFXButton(new Text("a"), EleFXButtonType.SUCCESS, true),
+                new EleFXButton(new Text("a"), EleFXButtonType.INFO, true),
+                new EleFXButton(new Text("a"), EleFXButtonType.WARNING, true),
+                new EleFXButton(new Text("a"), EleFXButtonType.DANGER, true));
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(hBox1, hBox2);
