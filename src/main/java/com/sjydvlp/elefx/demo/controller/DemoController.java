@@ -3,7 +3,7 @@ package com.sjydvlp.elefx.demo.controller;
 import cn.hutool.core.io.resource.ResourceUtil;
 import com.sjydvlp.elefx.component.button.EleFXButton;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
-import com.sjydvlp.elefx.component.icon.EleFXFilledIconType;
+import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
@@ -99,27 +99,29 @@ public class DemoController implements Initializable {
                 new EleFXButton("Warning", EleFXButtonType.WARNING),
                 new EleFXButton("Danger", EleFXButtonType.DANGER));
 
+        double iconSize = 18.0;
+        
         HBox hBox2 = new HBox();
         hBox2.setPadding(new Insets(20));
         hBox2.setSpacing(10);
         hBox2.getChildren().addAll(
-                new EleFXButton(EleFXIcons.of(EleFXFilledIconType.SEARCH, 20), EleFXButtonType.DEFAULT, true),
-                new EleFXButton(EleFXIcons.of(EleFXFilledIconType.EDIT, 20), EleFXButtonType.PRIMARY, true),
-                new EleFXButton(EleFXIcons.of(EleFXFilledIconType.DELETE, 20), EleFXButtonType.SUCCESS, true),
-                new EleFXButton(EleFXIcons.of(EleFXFilledIconType.ADD, 20), EleFXButtonType.INFO, true),
-                new EleFXButton(EleFXIcons.of(EleFXFilledIconType.IMAGE, 20), EleFXButtonType.WARNING, true),
-                new EleFXButton(EleFXIcons.of(EleFXFilledIconType.FILE, 20), EleFXButtonType.DANGER, true));
+                new EleFXButton(EleFXIcons.of(EleFXIconType.PLUS, iconSize), EleFXButtonType.DEFAULT, true),
+                new EleFXButton(EleFXIcons.of(EleFXIconType.MINUS, iconSize), EleFXButtonType.PRIMARY, true),
+                new EleFXButton(EleFXIcons.of(EleFXIconType.CIRCLE_PLUS, iconSize), EleFXButtonType.SUCCESS, true),
+                new EleFXButton(EleFXIcons.of(EleFXIconType.SEARCH, iconSize), EleFXButtonType.INFO, true),
+                new EleFXButton(EleFXIcons.of(EleFXIconType.CHAT_LINE_SQUARE, iconSize), EleFXButtonType.WARNING, true),
+                new EleFXButton(EleFXIcons.of(EleFXIconType.CIRCLE_CLOSE, iconSize), EleFXButtonType.DANGER, true));
 
         HBox hBox3 = new HBox();
         hBox3.setPadding(new Insets(20));
         hBox3.setSpacing(10);
         hBox3.getChildren().addAll(
-                EleFXIcons.of(EleFXFilledIconType.SEARCH, 20),
-                EleFXIcons.of(EleFXFilledIconType.EDIT, 20),
-                EleFXIcons.of(EleFXFilledIconType.DELETE, 20),
-                EleFXIcons.of(EleFXFilledIconType.ADD, 20),
-                EleFXIcons.of(EleFXFilledIconType.IMAGE, 20),
-                EleFXIcons.of(EleFXFilledIconType.FILE, 20));
+                EleFXIcons.of(EleFXIconType.PLUS, iconSize),
+                EleFXIcons.of(EleFXIconType.MINUS, iconSize),
+                EleFXIcons.of(EleFXIconType.CIRCLE_PLUS, iconSize),
+                EleFXIcons.of(EleFXIconType.SEARCH, iconSize),
+                EleFXIcons.of(EleFXIconType.CHAT_LINE_SQUARE, iconSize),
+                EleFXIcons.of(EleFXIconType.CIRCLE_CLOSE, iconSize));
 
         VBox vBox = new VBox();
         vBox.getChildren().addAll(hBox1, hBox2, hBox3);
