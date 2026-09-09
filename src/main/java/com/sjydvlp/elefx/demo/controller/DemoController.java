@@ -15,6 +15,7 @@ import com.sjydvlp.elefx.component.layout.EleFXRowJustify;
 import com.sjydvlp.elefx.component.link.EleFXLink;
 import com.sjydvlp.elefx.component.link.EleFXLinkType;
 import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
+import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
 import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
@@ -29,6 +30,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -194,10 +196,17 @@ public class DemoController implements Initializable {
         text2.setSize(EleFXTextSize.SMALL);
         text2.setTag(EleFXTextTag.ITALIC);
 
+        // --- scrollbar
+        VBox scrollbarVbox = new VBox();
+        scrollbarVbox.getChildren().addAll(new Text("a"), new Text("b"), new Text("c"), new Text("d"), new Text("e"), new Text("f"), new Text("g"), new Text("h"));
+        EleFXScrollbar scrollbar = new EleFXScrollbar(scrollbarVbox);
+        scrollbar.setPrefHeight(100);
+        scrollbar.setScrollTop(120);
+
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
-        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2);
+        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
