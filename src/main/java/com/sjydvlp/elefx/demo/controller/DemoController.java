@@ -4,6 +4,7 @@ import cn.hutool.core.io.resource.ResourceUtil;
 import com.sjydvlp.elefx.component.button.EleFXButton;
 import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
+import com.sjydvlp.elefx.component.container.*;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
@@ -156,9 +157,25 @@ public class DemoController implements Initializable {
         row3.setJustify(EleFXRowJustify.SPACE_AROUND);
         row3.setAlign(EleFXRowAlign.MIDDLE);
 
+        // --- container
+        EleFXHeader eleFXHeader = new EleFXHeader();
+        eleFXHeader.setStyle("-fx-background-color: #777777;");
+        EleFXFooter eleFXFooter = new EleFXFooter();
+        eleFXFooter.setStyle("-fx-background-color: #aaaeee;");
+        EleFXAside eleFXAside = new EleFXAside();
+        eleFXAside.setPrefWidth(200);
+//        eleFXAside.setPrefHeight(200);
+        eleFXAside.setStyle("-fx-background-color: blue;");
+        EleFXContainer inContainer = new EleFXContainer(eleFXAside, new EleFXMain());
+        EleFXContainer container = new EleFXContainer(
+                eleFXHeader,
+                inContainer,
+                eleFXFooter
+        );
+
         VBox vBox = new VBox();
         vBox.setStyle("-fx-background-color: #ff0000;");
-        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3);
+        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
