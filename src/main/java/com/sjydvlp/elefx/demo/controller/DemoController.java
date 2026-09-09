@@ -15,6 +15,10 @@ import com.sjydvlp.elefx.component.layout.EleFXRowJustify;
 import com.sjydvlp.elefx.component.link.EleFXLink;
 import com.sjydvlp.elefx.component.link.EleFXLinkType;
 import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
+import com.sjydvlp.elefx.component.text.EleFXText;
+import com.sjydvlp.elefx.component.text.EleFXTextSize;
+import com.sjydvlp.elefx.component.text.EleFXTextTag;
+import com.sjydvlp.elefx.component.text.EleFXTextType;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -181,10 +185,19 @@ public class DemoController implements Initializable {
         link.setHref("https://element-plus.org");
         link.setUnderlineMode(EleFXLinkUnderline.ALWAYS);
 
+        // --- text
+        EleFXText text1 = new EleFXText("Important", EleFXTextType.WARNING);
+        text1.setSize(EleFXTextSize.LARGE);
+        text1.setTag(EleFXTextTag.BOLD);
+
+        EleFXText text2 = new EleFXText("Important", EleFXTextType.WARNING);
+        text2.setSize(EleFXTextSize.SMALL);
+        text2.setTag(EleFXTextTag.ITALIC);
+
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
-        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link);
+        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
