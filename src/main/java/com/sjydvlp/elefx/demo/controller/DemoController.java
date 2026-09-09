@@ -12,6 +12,9 @@ import com.sjydvlp.elefx.component.layout.EleFXCol;
 import com.sjydvlp.elefx.component.layout.EleFXRow;
 import com.sjydvlp.elefx.component.layout.EleFXRowAlign;
 import com.sjydvlp.elefx.component.layout.EleFXRowJustify;
+import com.sjydvlp.elefx.component.link.EleFXLink;
+import com.sjydvlp.elefx.component.link.EleFXLinkType;
+import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -173,9 +176,15 @@ public class DemoController implements Initializable {
                 eleFXFooter
         );
 
+        // --- link
+        EleFXLink link = new EleFXLink("Element Plus", EleFXLinkType.PRIMARY);
+        link.setHref("https://element-plus.org");
+        link.setUnderlineMode(EleFXLinkUnderline.ALWAYS);
+
         VBox vBox = new VBox();
-        vBox.setStyle("-fx-background-color: #ff0000;");
-        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
+        vBox.setStyle("-fx-border-color: #ff0000;");
+//        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
+        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
