@@ -1,6 +1,8 @@
 package com.sjydvlp.elefx.demo.controller;
 
 import cn.hutool.core.io.resource.ResourceUtil;
+import cn.hutool.core.lang.Tuple;
+import com.sjydvlp.elefx.component.autocomplete.EleFXAutocomplete;
 import com.sjydvlp.elefx.component.button.EleFXButton;
 import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
@@ -39,6 +41,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DemoController implements Initializable {
@@ -231,13 +234,16 @@ public class DemoController implements Initializable {
         typographySpace.setSpacing(100);
         HBox typographyHbox = new HBox(typographySpace);
 
+        // --- EleFXAutocomplete
+        EleFXAutocomplete<Tuple> eleFXAutocomplete = new EleFXAutocomplete<>(value -> List.of(new Tuple("a")));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
         vBox.getChildren().addAll(
                 hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
-                typographyHbox
+                typographyHbox, eleFXAutocomplete
         );
 
         contentPane.setPadding(new Insets(30));
