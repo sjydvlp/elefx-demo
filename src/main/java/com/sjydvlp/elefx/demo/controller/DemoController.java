@@ -8,6 +8,9 @@ import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
 import com.sjydvlp.elefx.component.cascader.EleFXCascader;
 import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
+import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
+import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxButton;
+import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxGroup;
 import com.sjydvlp.elefx.component.container.*;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
@@ -254,13 +257,28 @@ public class DemoController implements Initializable {
 
         EleFXCascader<String> eleFXCascader = new EleFXCascader<>(a, b);
 
+        // --- EleFXCheckbox
+        EleFXCheckbox<String> eleFXCheckbox1 = new EleFXCheckbox<>("a", "a");
+        EleFXCheckbox<String> eleFXCheckbox2 = new EleFXCheckbox<>("b", "b");
+        EleFXCheckbox<String> eleFXCheckbox3 = new EleFXCheckbox<>("c", "c");
+        EleFXCheckbox<String> eleFXCheckbox4 = new EleFXCheckbox<>("d", "d");
+        EleFXCheckboxButton<String> eleFXCheckboxButton5 = new EleFXCheckboxButton<>("你好，世界", "e");
+        EleFXCheckboxGroup<String> eleFXCheckboxGroup =
+                new EleFXCheckboxGroup<>(eleFXCheckbox3, eleFXCheckbox4, eleFXCheckboxButton5);
+        EleFXSpace eleFxCheckBoxSpace = new EleFXSpace(eleFXCheckbox1, eleFXCheckbox2, eleFXCheckboxGroup);
+        eleFxCheckBoxSpace.setSpacing(50);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
+//        vBox.getChildren().addAll(
+//                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
+//                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
+//        );
         vBox.getChildren().addAll(
-                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
-                typographyHbox, eleFXAutocomplete, eleFXCascader
+                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, eleFXSpace, eleFXSplitter,
+                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
         );
 
         contentPane.setPadding(new Insets(30));
