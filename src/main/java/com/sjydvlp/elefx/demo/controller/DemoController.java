@@ -23,6 +23,8 @@ import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
 import com.sjydvlp.elefx.component.text.EleFXTextType;
+import com.sjydvlp.elefx.component.typography.EleFXTypography;
+import com.sjydvlp.elefx.component.typography.EleFXTypographySize;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -107,7 +109,7 @@ public class DemoController implements Initializable {
     }
 
     private void initializeLoader() {
-        // --- button
+        // --- EleFXButton
         HBox hBox1 = new HBox();
         hBox1.setPadding(new Insets(20));
         hBox1.setSpacing(10);
@@ -147,7 +149,7 @@ public class DemoController implements Initializable {
                 EleFXIcons.of(EleFXIconType.CHAT_LINE_SQUARE, iconSize),
                 EleFXIcons.of(EleFXIconType.CIRCLE_CLOSE, iconSize));
 
-        // --- row
+        // --- EleFXRow
         EleFXCol row1Left = new EleFXCol(12, new EleFXButton("左侧"));
         EleFXCol row1Right = new EleFXCol(12, new EleFXButton("右侧"));
         row1Left.setContentStyle("-fx-background-color: #2196F3;");
@@ -169,7 +171,7 @@ public class DemoController implements Initializable {
         row3.setJustify(EleFXRowJustify.SPACE_AROUND);
         row3.setAlign(EleFXRowAlign.MIDDLE);
 
-        // --- container
+        // --- EleFXContainer
         EleFXHeader eleFXHeader = new EleFXHeader();
         eleFXHeader.setStyle("-fx-background-color: #777777;");
         EleFXFooter eleFXFooter = new EleFXFooter();
@@ -185,12 +187,12 @@ public class DemoController implements Initializable {
                 eleFXFooter
         );
 
-        // --- link
+        // --- EleFXLink
         EleFXLink link = new EleFXLink("Element Plus", EleFXLinkType.PRIMARY);
         link.setHref("https://element-plus.org");
         link.setUnderlineMode(EleFXLinkUnderline.ALWAYS);
 
-        // --- text
+        // --- EleFXText
         EleFXText text1 = new EleFXText("Important", EleFXTextType.WARNING);
         text1.setSize(EleFXTextSize.LARGE);
         text1.setTag(EleFXTextTag.BOLD);
@@ -199,7 +201,7 @@ public class DemoController implements Initializable {
         text2.setSize(EleFXTextSize.SMALL);
         text2.setTag(EleFXTextTag.ITALIC);
 
-        // --- scrollbar
+        // --- EleFXScrollbar
         VBox scrollbarVbox = new VBox();
         scrollbarVbox.getChildren().addAll(
                 new Text("a"), new Text("b"), new Text("c"), new Text("d"),
@@ -209,24 +211,34 @@ public class DemoController implements Initializable {
         scrollbar.setPrefHeight(100);
         scrollbar.setScrollTop(120);
 
-        // --- space
+        // --- EleFXSpace
         EleFXSpace eleFXSpace = new EleFXSpace(
                 new Text("a"), new Text("b"), new Text("c"), new Text("d"),
                 new Text("e"), new Text("f"), new Text("g"), new Text("h")
         );
         eleFXSpace.setSpacing(100);
 
-        // --- space
+        // --- EleFXSplitter
         EleFXSplitter eleFXSplitter = new EleFXSplitter(
                 new EleFXSplitterPanel(new EleFXButton("a", EleFXButtonType.INFO, EleFXButtonSize.SMALL)),
                 new EleFXSplitterPanel(new EleFXButton("b", EleFXButtonType.DANGER, EleFXButtonSize.SMALL))
         );
 
+        // --- EleFXTypography
+        EleFXTypography eleFXTypography1 = new EleFXTypography("你好，世界", EleFXTypographySize.EXTRA_LARGE);
+        EleFXTypography eleFXTypography2 = new EleFXTypography("你好，世界", EleFXTypographySize.BASE);
+        EleFXSpace typographySpace = new EleFXSpace(eleFXTypography1, eleFXTypography2);
+        typographySpace.setSpacing(100);
+        HBox typographyHbox = new HBox(typographySpace);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
-        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter);
+        vBox.getChildren().addAll(
+                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
+                typographyHbox
+        );
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
