@@ -6,6 +6,8 @@ import com.sjydvlp.elefx.component.autocomplete.EleFXAutocomplete;
 import com.sjydvlp.elefx.component.button.EleFXButton;
 import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
+import com.sjydvlp.elefx.component.cascader.EleFXCascader;
+import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.container.*;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
@@ -237,13 +239,28 @@ public class DemoController implements Initializable {
         // --- EleFXAutocomplete
         EleFXAutocomplete<Tuple> eleFXAutocomplete = new EleFXAutocomplete<>(value -> List.of(new Tuple("a")));
 
+        // --- EleFXCascader
+        EleFXCascaderOption<String> aaa = new EleFXCascaderOption<>("aaa", "l_aaa");
+        EleFXCascaderOption<String> aba = new EleFXCascaderOption<>("aba", "l_aba");
+        EleFXCascaderOption<String> aa = new EleFXCascaderOption<>("aa", "l_aa", aaa);
+        EleFXCascaderOption<String> ab = new EleFXCascaderOption<>("ab", "l_ab", aba);
+        EleFXCascaderOption<String> a = new EleFXCascaderOption<>("a", "l_a", aa, ab);
+
+        EleFXCascaderOption<String> baa = new EleFXCascaderOption<>("baa", "l_baa");
+        EleFXCascaderOption<String> bba = new EleFXCascaderOption<>("bba", "l_bba");
+        EleFXCascaderOption<String> ba = new EleFXCascaderOption<>("ba", "l_ba", baa);
+        EleFXCascaderOption<String> bb = new EleFXCascaderOption<>("bb", "l_bb", bba);
+        EleFXCascaderOption<String> b = new EleFXCascaderOption<>("b", "l_b", ba, bb);
+
+        EleFXCascader<String> eleFXCascader = new EleFXCascader<>(a, b);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
         vBox.getChildren().addAll(
                 hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
-                typographyHbox, eleFXAutocomplete
+                typographyHbox, eleFXAutocomplete, eleFXCascader
         );
 
         contentPane.setPadding(new Insets(30));
