@@ -17,6 +17,8 @@ import com.sjydvlp.elefx.component.link.EleFXLinkType;
 import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
 import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
 import com.sjydvlp.elefx.component.space.EleFXSpace;
+import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
+import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
 import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
@@ -214,11 +216,17 @@ public class DemoController implements Initializable {
         );
         eleFXSpace.setSpacing(100);
 
+        // --- space
+        EleFXSplitter eleFXSplitter = new EleFXSplitter(
+                new EleFXSplitterPanel(new EleFXButton("a", EleFXButtonType.INFO, EleFXButtonSize.SMALL)),
+                new EleFXSplitterPanel(new EleFXButton("b", EleFXButtonType.DANGER, EleFXButtonSize.SMALL))
+        );
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
-        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace);
+        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
