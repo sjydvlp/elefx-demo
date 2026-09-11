@@ -11,6 +11,7 @@ import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxButton;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxGroup;
+import com.sjydvlp.elefx.component.colorpicker.EleFXColorPickerPanel;
 import com.sjydvlp.elefx.component.container.*;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
@@ -41,6 +42,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -268,6 +270,17 @@ public class DemoController implements Initializable {
         EleFXSpace eleFxCheckBoxSpace = new EleFXSpace(eleFXCheckbox1, eleFXCheckbox2, eleFXCheckboxGroup);
         eleFxCheckBoxSpace.setSpacing(50);
 
+        // --- EleFXColorPickerPanel
+        EleFXColorPickerPanel colorPickerPanel = new EleFXColorPickerPanel(Color.web("#409EFF"));
+        colorPickerPanel.setShowAlpha(true);
+        colorPickerPanel.setBorder(Boolean.TRUE);
+        VBox.setMargin(colorPickerPanel, new Insets(20));
+        colorPickerPanel.getPredefinedColors().addAll(
+                Color.web("#ff4500"),
+                Color.web("#1e90ff"),
+                Color.web("#c71585")
+        );
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -276,10 +289,7 @@ public class DemoController implements Initializable {
 //                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
-        vBox.getChildren().addAll(
-                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, eleFXSpace, eleFXSplitter,
-                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
-        );
+        vBox.getChildren().addAll(colorPickerPanel);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
