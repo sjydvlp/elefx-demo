@@ -11,7 +11,8 @@ import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxButton;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxGroup;
-import com.sjydvlp.elefx.component.colorpicker.EleFXColorPickerPanel;
+import com.sjydvlp.elefx.component.colorpicker.EleFXColorPicker;
+import com.sjydvlp.elefx.component.colorpickerpanel.EleFXColorPickerPanel;
 import com.sjydvlp.elefx.component.container.*;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
@@ -281,6 +282,9 @@ public class DemoController implements Initializable {
                 Color.web("#c71585")
         );
 
+        // --- EleFXColorPicker
+        EleFXColorPicker colorPicker = new EleFXColorPicker(Color.valueOf("#409EFF"));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -289,7 +293,7 @@ public class DemoController implements Initializable {
 //                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
-        vBox.getChildren().addAll(colorPickerPanel);
+        vBox.getChildren().addAll(colorPickerPanel, colorPicker);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
