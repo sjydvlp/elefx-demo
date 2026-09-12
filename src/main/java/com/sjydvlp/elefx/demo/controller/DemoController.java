@@ -14,8 +14,10 @@ import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxGroup;
 import com.sjydvlp.elefx.component.colorpicker.EleFXColorPicker;
 import com.sjydvlp.elefx.component.colorpickerpanel.EleFXColorPickerPanel;
 import com.sjydvlp.elefx.component.container.*;
+import com.sjydvlp.elefx.component.datepicker.EleFXDatePicker;
+import com.sjydvlp.elefx.component.datepicker.EleFXDatePickerType;
 import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanel;
-import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerType;
+import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanelType;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
@@ -290,34 +292,9 @@ public class DemoController implements Initializable {
         EleFXColorPicker colorPicker = new EleFXColorPicker(Color.valueOf("#409EFF"));
 
         // --- EleFXDatePickerPanel
-        EleFXDatePickerPanel datePickerPanel = new EleFXDatePickerPanel();
-        datePickerPanel.setType(EleFXDatePickerType.values()[0]);
-//        datePickerPanel.setDisable(true);
-
-        AtomicInteger dateIndex = new AtomicInteger();
-        EleFXButton datePreButton = new EleFXButton("切换成前一个");
-        datePreButton.setOnMouseClicked(event -> {
-            System.out.println(dateIndex);
-            if (dateIndex.get() <= 0) {
-                datePickerPanel.setType(EleFXDatePickerType.values()[0]);
-            } else {
-                datePickerPanel.setType(EleFXDatePickerType.values()[dateIndex.decrementAndGet()]);
-            }
-        });
-        EleFXButton dateNextButton = new EleFXButton("切换成后一个");
-        dateNextButton.setOnMouseClicked(event -> {
-            System.out.println(dateIndex);
-            if (dateIndex.get() >= 14) {
-                datePickerPanel.setType(EleFXDatePickerType.values()[14]);
-            } else {
-                datePickerPanel.setType(EleFXDatePickerType.values()[dateIndex.incrementAndGet()]);
-            }
-        });
-        EleFXSpace dateButtonSpace = new EleFXSpace(datePreButton, dateNextButton);
-        dateButtonSpace.setSpacing(80);
-
-        EleFXSpace dateSpace = new EleFXSpace(dateButtonSpace, datePickerPanel);
-        dateSpace.setDirection(Orientation.VERTICAL);
+        EleFXSpace datePickerPanelContainer = getDatePickerPanelContainer();
+        // --- EleFXDatePicker
+        EleFXSpace datePickerContainer = getDatePickerContainer();
 
         // 添加
         VBox vBox = new VBox();
@@ -328,9 +305,74 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(dateSpace);
+        vBox.getChildren().addAll(datePickerPanelContainer, datePickerContainer);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
+    }
+
+    private EleFXSpace getDatePickerPanelContainer() {
+        EleFXDatePickerPanel datePickerPanel = new EleFXDatePickerPanel();
+        datePickerPanel.setType(EleFXDatePickerPanelType.values()[0]);
+//        datePickerPanel.setDisable(true);
+
+        AtomicInteger dateIndex = new AtomicInteger();
+        EleFXButton datePreButton = new EleFXButton("切换成前一个");
+        datePreButton.setOnMouseClicked(event -> {
+            System.out.println(dateIndex);
+            if (dateIndex.get() <= 0) {
+                datePickerPanel.setType(EleFXDatePickerPanelType.values()[0]);
+            } else {
+                datePickerPanel.setType(EleFXDatePickerPanelType.values()[dateIndex.decrementAndGet()]);
+            }
+        });
+        EleFXButton dateNextButton = new EleFXButton("切换成后一个");
+        dateNextButton.setOnMouseClicked(event -> {
+            System.out.println(dateIndex);
+            if (dateIndex.get() >= 14) {
+                datePickerPanel.setType(EleFXDatePickerPanelType.values()[14]);
+            } else {
+                datePickerPanel.setType(EleFXDatePickerPanelType.values()[dateIndex.incrementAndGet()]);
+            }
+        });
+        EleFXSpace dateButtonSpace = new EleFXSpace(datePreButton, dateNextButton);
+        dateButtonSpace.setSpacing(80);
+
+        EleFXSpace dateSpace = new EleFXSpace(dateButtonSpace, datePickerPanel);
+        dateSpace.setDirection(Orientation.VERTICAL);
+
+        return dateSpace;
+    }
+
+    private EleFXSpace getDatePickerContainer() {
+        EleFXDatePicker datePicker = new EleFXDatePicker();
+        datePicker.setType(EleFXDatePickerType.DATE);
+        datePicker.setShowConfirm(false);
+//        datePicker.setSinglePanel(true);
+
+        AtomicInteger datePickerIndex = new AtomicInteger();
+        EleFXButton datePickerPreButton = new EleFXButton("切换成前一个");
+        datePickerPreButton.setOnMouseClicked(event -> {
+            if (datePickerIndex.get() <= 0) {
+                datePicker.setType(EleFXDatePickerType.values()[0]);
+            } else {
+                datePicker.setType(EleFXDatePickerType.values()[datePickerIndex.decrementAndGet()]);
+            }
+        });
+        EleFXButton datePickerNextButton = new EleFXButton("切换成后一个");
+        datePickerNextButton.setOnMouseClicked(event -> {
+            if (datePickerIndex.get() >= 14) {
+                datePicker.setType(EleFXDatePickerType.values()[14]);
+            } else {
+                datePicker.setType(EleFXDatePickerType.values()[datePickerIndex.incrementAndGet()]);
+            }
+        });
+        EleFXSpace datePickerButtonSpace = new EleFXSpace(datePickerPreButton, datePickerNextButton);
+        datePickerButtonSpace.setSpacing(80);
+
+        EleFXSpace datePickerSpace = new EleFXSpace(datePickerButtonSpace, datePicker);
+        datePickerSpace.setDirection(Orientation.VERTICAL);
+
+        return datePickerSpace;
     }
 }
