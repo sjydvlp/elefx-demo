@@ -18,6 +18,9 @@ import com.sjydvlp.elefx.component.datepicker.EleFXDatePicker;
 import com.sjydvlp.elefx.component.datepicker.EleFXDatePickerType;
 import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanel;
 import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanelType;
+import com.sjydvlp.elefx.component.form.EleFXForm;
+import com.sjydvlp.elefx.component.form.EleFXFormItem;
+import com.sjydvlp.elefx.component.form.EleFXFormLabelPosition;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
@@ -43,6 +46,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -296,6 +300,9 @@ public class DemoController implements Initializable {
         // --- EleFXDatePicker
         EleFXSpace datePickerContainer = getDatePickerContainer();
 
+        // --- EleFXForm
+        EleFXForm eleFXForm = getEleFXForm();
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -305,7 +312,7 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(datePickerPanelContainer, datePickerContainer);
+        vBox.getChildren().addAll(datePickerPanelContainer, datePickerContainer, eleFXForm);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
@@ -374,5 +381,32 @@ public class DemoController implements Initializable {
         datePickerSpace.setDirection(Orientation.VERTICAL);
 
         return datePickerSpace;
+    }
+
+    private EleFXForm getEleFXForm() {
+        EleFXForm form = new EleFXForm();
+        form.setLabelPosition(EleFXFormLabelPosition.LEFT);
+        form.setStyle("-fx-border-color: #ff0000;");
+        form.setLabelWidth(100); // 自动对齐到最长标签
+        form.setInline(true);
+//        form.setMaxWidth(600);
+
+        TextField name = new TextField();
+        EleFXFormItem nameItem = new EleFXFormItem("Name", name);
+        nameItem.setProp("name");
+        nameItem.setRequired(false);
+
+        TextField age = new TextField();
+        EleFXFormItem ageItem = new EleFXFormItem("Age", age);
+        ageItem.setProp("age");
+        ageItem.setRequired(true);
+
+        form.getItems().addAll(nameItem, ageItem);
+
+        if (form.validate()) {
+            // submit
+        }
+
+        return form;
     }
 }
