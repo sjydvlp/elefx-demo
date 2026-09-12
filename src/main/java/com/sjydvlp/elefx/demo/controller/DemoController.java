@@ -14,6 +14,8 @@ import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxGroup;
 import com.sjydvlp.elefx.component.colorpicker.EleFXColorPicker;
 import com.sjydvlp.elefx.component.colorpickerpanel.EleFXColorPickerPanel;
 import com.sjydvlp.elefx.component.container.*;
+import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanel;
+import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerType;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
@@ -38,6 +40,7 @@ import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -51,6 +54,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class DemoController implements Initializable {
 
@@ -285,6 +289,36 @@ public class DemoController implements Initializable {
         // --- EleFXColorPicker
         EleFXColorPicker colorPicker = new EleFXColorPicker(Color.valueOf("#409EFF"));
 
+        // --- EleFXDatePickerPanel
+        EleFXDatePickerPanel datePickerPanel = new EleFXDatePickerPanel();
+        datePickerPanel.setType(EleFXDatePickerType.values()[0]);
+//        datePickerPanel.setDisable(true);
+
+        AtomicInteger dateIndex = new AtomicInteger();
+        EleFXButton datePreButton = new EleFXButton("切换成前一个");
+        datePreButton.setOnMouseClicked(event -> {
+            System.out.println(dateIndex);
+            if (dateIndex.get() <= 0) {
+                datePickerPanel.setType(EleFXDatePickerType.values()[0]);
+            } else {
+                datePickerPanel.setType(EleFXDatePickerType.values()[dateIndex.decrementAndGet()]);
+            }
+        });
+        EleFXButton dateNextButton = new EleFXButton("切换成后一个");
+        dateNextButton.setOnMouseClicked(event -> {
+            System.out.println(dateIndex);
+            if (dateIndex.get() >= 14) {
+                datePickerPanel.setType(EleFXDatePickerType.values()[14]);
+            } else {
+                datePickerPanel.setType(EleFXDatePickerType.values()[dateIndex.incrementAndGet()]);
+            }
+        });
+        EleFXSpace dateButtonSpace = new EleFXSpace(datePreButton, dateNextButton);
+        dateButtonSpace.setSpacing(80);
+
+        EleFXSpace dateSpace = new EleFXSpace(dateButtonSpace, datePickerPanel);
+        dateSpace.setDirection(Orientation.VERTICAL);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -293,7 +327,8 @@ public class DemoController implements Initializable {
 //                hBox1, hBox2, hBox3, row1, row2, row3, link, text1, text2, scrollbar, eleFXSpace, eleFXSplitter,
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
-        vBox.getChildren().addAll(colorPickerPanel, colorPicker);
+//        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
+        vBox.getChildren().addAll(dateSpace);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
