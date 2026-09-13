@@ -27,6 +27,9 @@ import com.sjydvlp.elefx.component.icon.EleFXIcons;
 import com.sjydvlp.elefx.component.input.EleFXInput;
 import com.sjydvlp.elefx.component.input.EleFXInputSize;
 import com.sjydvlp.elefx.component.input.EleFXInputType;
+import com.sjydvlp.elefx.component.inputnumber.EleFXInputNumber;
+import com.sjydvlp.elefx.component.inputnumber.EleFXInputNumberControlsPosition;
+import com.sjydvlp.elefx.component.inputnumber.EleFXInputNumberSize;
 import com.sjydvlp.elefx.component.layout.EleFXCol;
 import com.sjydvlp.elefx.component.layout.EleFXRow;
 import com.sjydvlp.elefx.component.layout.EleFXRowAlign;
@@ -325,7 +328,6 @@ public class DemoController implements Initializable {
         input1.setMaxLength(100);
         input1.setShowWordLimit(true);
 
-
         EleFXInput input2 = new EleFXInput();
         input2.setDisable(true);
         input2.setSize(EleFXInputSize.SMALL);
@@ -356,6 +358,33 @@ public class DemoController implements Initializable {
         HBox inputHbox2 = new HBox();
         inputHbox2.getChildren().addAll(input3, input4);
 
+        // EleFXInputNumber
+        EleFXInputNumber inputNumber1 = new EleFXInputNumber();
+//        inputNumber1.setDisable(true);
+        inputNumber1.setStep(0.01);
+        inputNumber1.setStepStrictly(true);
+        inputNumber1.setPrecision(2);
+
+        EleFXInputNumber inputNumber2 = new EleFXInputNumber();
+        inputNumber2.setStep(0.01);
+        inputNumber2.setPrecision(2);
+        inputNumber2.setSize(EleFXInputNumberSize.LARGE);
+        inputNumber2.setControlsPosition(EleFXInputNumberControlsPosition.RIGHT);
+        inputNumber2.setIncreaseIcon(new EleFXIcon(EleFXIconType.AIM));
+        inputNumber2.setIncreaseIcon(new EleFXIcon(EleFXIconType.APPLE));
+        inputNumber2.setPrefix(new EleFXIcon(EleFXIconType.AIM));
+        inputNumber2.setSuffix(new Label("RMB"));
+        inputNumber2.setFormatter(value ->
+                ("$ " + value).replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",")
+        );
+        inputNumber2.setParser(value ->
+                value.replaceAll("\\$\\s?|,+", "")
+        );
+
+        HBox inputNumberHbox = new HBox(inputNumber1, inputNumber2);
+        inputNumberHbox.setPadding(new Insets(10));
+        inputNumberHbox.setSpacing(5);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -365,7 +394,7 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2, eleFXSelect3, inputHbox1, inputHbox2);
+        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2, eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
