@@ -24,6 +24,9 @@ import com.sjydvlp.elefx.component.form.EleFXFormLabelPosition;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
+import com.sjydvlp.elefx.component.input.EleFXInput;
+import com.sjydvlp.elefx.component.input.EleFXInputSize;
+import com.sjydvlp.elefx.component.input.EleFXInputType;
 import com.sjydvlp.elefx.component.layout.EleFXCol;
 import com.sjydvlp.elefx.component.layout.EleFXRow;
 import com.sjydvlp.elefx.component.layout.EleFXRowAlign;
@@ -50,6 +53,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -312,6 +316,46 @@ public class DemoController implements Initializable {
         EleFXSelect<String> eleFXSelect2 = getEleFXSelect2();
         EleFXSelect<String> eleFXSelect3 = getEleFXSelect3();
 
+        // --- EleFXInput
+        EleFXInput input1 = new EleFXInput();
+        input1.setType(EleFXInputType.TEXTAREA);
+        input1.setRows(2);
+        input1.setAutoSize(true);
+        input1.setAutoSizeMaxRows(5);
+        input1.setMaxLength(100);
+        input1.setShowWordLimit(true);
+
+
+        EleFXInput input2 = new EleFXInput();
+        input2.setDisable(true);
+        input2.setSize(EleFXInputSize.SMALL);
+
+        EleFXInput input3 = new EleFXInput();
+        input3.setClearable(true);
+        input3.setPrefix(new EleFXIcon(EleFXIconType.ADD_LOCATION));
+        input3.setSuffix(new EleFXIcon(EleFXIconType.PLUS));
+        input3.setSize(EleFXInputSize.LARGE);
+        input3.setMaxLength(5);
+        input3.setPrepend(new Label("Http://"));
+        input3.setAppend(new Label(".com"));
+        input3.setShowWordLimit(true);
+
+        EleFXInput input4 = new EleFXInput();
+        input4.setClearable(true);
+        input4.setClearIcon(new EleFXIcon(EleFXIconType.ADD_LOCATION));
+        input4.setFormatter(value ->
+                ("$ " + value).replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",")
+        );
+        input4.setParser(value ->
+                value.replaceAll("\\$\\s?|,+", "")
+        );
+
+        HBox inputHbox1 = new HBox();
+        inputHbox1.getChildren().addAll(input1, input2);
+
+        HBox inputHbox2 = new HBox();
+        inputHbox2.getChildren().addAll(input3, input4);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -321,7 +365,7 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2, eleFXSelect3);
+        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2, eleFXSelect3, inputHbox1, inputHbox2);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
