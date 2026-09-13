@@ -41,6 +41,8 @@ import com.sjydvlp.elefx.component.radio.EleFXRadio;
 import com.sjydvlp.elefx.component.radio.EleFXRadioButton;
 import com.sjydvlp.elefx.component.radio.EleFXRadioGroup;
 import com.sjydvlp.elefx.component.radio.EleFXRadioSize;
+import com.sjydvlp.elefx.component.rate.EleFXRate;
+import com.sjydvlp.elefx.component.rate.EleFXRateSize;
 import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
 import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
@@ -68,6 +70,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -412,6 +415,23 @@ public class DemoController implements Initializable {
         radioHbox.setPadding(new Insets(10));
         radioHbox.setSpacing(5);
 
+        // EleFXRate
+        EleFXRate rate1 = new EleFXRate();
+        EleFXRate rate2 = new EleFXRate();
+        rate2.setColors(List.of(Paint.valueOf("#eee111"), Paint.valueOf("#ff0000"), Paint.valueOf("#FF9900")));
+        EleFXRate rate3 = new EleFXRate();
+        rate3.setSize(EleFXRateSize.SMALL);
+        rate3.setAllowHalf(true);
+        rate3.setShowText(true);
+        rate3.setClearable(true);
+        rate3.setVoidIcon(new EleFXIcon(EleFXIconType.CALENDAR));
+        rate3.setIcons(List.of(new EleFXIcon(EleFXIconType.AIM), new EleFXIcon(EleFXIconType.APPLE), new EleFXIcon(EleFXIconType.BICYCLE)));
+//        rate3.setDisable(true);
+
+        HBox rateHbox = new HBox(rate1, rate2, rate3);
+        rateHbox.setPadding(new Insets(10));
+        rateHbox.setSpacing(20);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -422,7 +442,7 @@ public class DemoController implements Initializable {
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
         vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2,
-                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox, radioHbox);
+                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox, radioHbox, rateHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
