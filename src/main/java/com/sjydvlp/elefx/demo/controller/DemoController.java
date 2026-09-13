@@ -482,6 +482,10 @@ public class DemoController implements Initializable {
         select.setFilterable(true);
         select.setRemote(true);
 
+        EleFXIcon eleFXIcon = new EleFXIcon(EleFXIconType.SEARCH);
+        eleFXIcon.setLoading(true);
+        select.setLoadingNode(eleFXIcon);
+
         select.setRemoteMethod(keyword -> {
             select.setLoading(true);
 
