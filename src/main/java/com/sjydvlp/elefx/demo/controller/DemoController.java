@@ -32,6 +32,10 @@ import com.sjydvlp.elefx.component.link.EleFXLink;
 import com.sjydvlp.elefx.component.link.EleFXLinkType;
 import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
 import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
+import com.sjydvlp.elefx.component.select.EleFXSelect;
+import com.sjydvlp.elefx.component.select.EleFXSelectOption;
+import com.sjydvlp.elefx.component.select.EleFXSelectOptionGroup;
+import com.sjydvlp.elefx.component.select.EleFXSelectSize;
 import com.sjydvlp.elefx.component.space.EleFXSpace;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
@@ -303,6 +307,11 @@ public class DemoController implements Initializable {
         // --- EleFXForm
         EleFXForm eleFXForm = getEleFXForm();
 
+        // --- EleFXSelect
+        EleFXSelect<String> eleFXSelect = getEleFXSelect();
+        EleFXSelect<String> eleFXSelect2 = getEleFXSelect2();
+        EleFXSelect<String> eleFXSelect3 = getEleFXSelect3();
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -312,7 +321,7 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(datePickerPanelContainer, datePickerContainer, eleFXForm);
+        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2, eleFXSelect3);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
@@ -408,5 +417,80 @@ public class DemoController implements Initializable {
         }
 
         return form;
+    }
+
+    private EleFXSelect<String> getEleFXSelect() {
+        EleFXSelectOption<String> option1 = new EleFXSelectOption<>("a", "l_a");
+        EleFXSelectOption<String> option2 = new EleFXSelectOption<>("b", "l_b");
+//        option2.setDisabled(true);
+        EleFXSelectOption<String> option3 = new EleFXSelectOption<>("c", "l_c");
+        EleFXSelectOption<String> option4 = new EleFXSelectOption<>("d", "l_d");
+        EleFXSelectOption<String> option5 = new EleFXSelectOption<>("e", "l_e");
+        EleFXSelectOption<String> option6 = new EleFXSelectOption<>("f", "l_f");
+        EleFXSelectOption<String> option7 = new EleFXSelectOption<>("g", "l_g");
+        EleFXSelectOption<String> option8 = new EleFXSelectOption<>("h", "l_h");
+
+        EleFXSelect<String> select = new EleFXSelect<>(
+                option1, option2, option3, option4,
+                option5, option6, option7, option8
+        );
+        select.setSize(EleFXSelectSize.SMALL);
+        select.setPrefWidth(200);
+//        select.setStyle("-fx-border-color: #ff0000;");
+//        select.setDisable(true);
+        select.setClearable(true);
+        select.setMultiple(true);
+        select.setCollapseTags(true);
+        select.setMaxCollapseTags(3);
+        select.setCollapseTagsTooltip(true);
+        return select;
+    }
+
+    private EleFXSelect<String> getEleFXSelect2() {
+        EleFXSelectOption<String> option1 = new EleFXSelectOption<>("a", "l_a");
+        EleFXSelectOption<String> option2 = new EleFXSelectOption<>("b", "l_b");
+        EleFXSelectOptionGroup<String> group1 = new EleFXSelectOptionGroup<>("g1");
+        group1.addOptions(option1, option2);
+
+        EleFXSelectOption<String> option3 = new EleFXSelectOption<>("c", "l_c");
+        EleFXSelectOption<String> option4 = new EleFXSelectOption<>("d", "l_d");
+        EleFXSelectOption<String> option5 = new EleFXSelectOption<>("e", "l_e");
+        EleFXSelectOptionGroup<String> group2 = new EleFXSelectOptionGroup<>("g2");
+        group2.addOptions(option3, option4, option5);
+
+        EleFXSelect<String> select = new EleFXSelect<>();
+        select.addOptionGroups(group1, group2);
+        select.setSize(EleFXSelectSize.SMALL);
+        select.setPrefWidth(200);
+        select.setClearable(true);
+        select.setMultiple(true);
+
+        return select;
+    }
+
+    private EleFXSelect<String> getEleFXSelect3() {
+        EleFXSelectOption<String> option1 = new EleFXSelectOption<>("a", "l_a");
+        EleFXSelectOption<String> option2 = new EleFXSelectOption<>("b", "l_b");
+        EleFXSelectOption<String> option3 = new EleFXSelectOption<>("c", "l_c");
+        EleFXSelectOption<String> option4 = new EleFXSelectOption<>("d", "l_d");
+        EleFXSelectOption<String> option5 = new EleFXSelectOption<>("e", "l_e");
+
+        EleFXSelect<String> select = new EleFXSelect<>(option1, option2, option3, option4, option5);
+        select.setSize(EleFXSelectSize.SMALL);
+        select.setPrefWidth(200);
+        select.setClearable(true);
+        select.setFilterable(true);
+        select.setRemote(true);
+
+        select.setRemoteMethod(keyword -> {
+            select.setLoading(true);
+
+            // 异步请求……
+            // Platform.runLater(() -> {
+            //     select.getOptions().setAll(results);
+            //     select.setLoading(false);
+            // });
+        });
+        return select;
     }
 }
