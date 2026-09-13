@@ -37,6 +37,10 @@ import com.sjydvlp.elefx.component.layout.EleFXRowJustify;
 import com.sjydvlp.elefx.component.link.EleFXLink;
 import com.sjydvlp.elefx.component.link.EleFXLinkType;
 import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
+import com.sjydvlp.elefx.component.radio.EleFXRadio;
+import com.sjydvlp.elefx.component.radio.EleFXRadioButton;
+import com.sjydvlp.elefx.component.radio.EleFXRadioGroup;
+import com.sjydvlp.elefx.component.radio.EleFXRadioSize;
 import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
 import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
@@ -385,6 +389,29 @@ public class DemoController implements Initializable {
         inputNumberHbox.setPadding(new Insets(10));
         inputNumberHbox.setSpacing(5);
 
+        // EleFXRadio
+        EleFXRadio<String> radioA = new EleFXRadio<>("r_a", "a");
+        EleFXRadio<String> radioB = new EleFXRadio<>("r_b", "b");
+        EleFXRadioButton<String> radioC = new EleFXRadioButton<>("r_c", "c");
+        EleFXRadioButton<String> radioD = new EleFXRadioButton<>("r_d", "d");
+        radioD.setSize(EleFXRadioSize.SMALL);
+        EleFXRadioGroup<String> radioGroup1 = new EleFXRadioGroup<>(radioA, radioB, radioC, radioD);
+
+        EleFXRadio<String> radioAA = new EleFXRadio<>("r_aa", "aa");
+        radioAA.setBorder(true);
+        EleFXRadio<String> radioBB = new EleFXRadio<>("r_bb", "bb");
+        radioBB.setBorder(true);
+        EleFXRadio<String> radioCC = new EleFXRadio<>("r_cc", "cc");
+        radioCC.setBorder(true);
+        radioCC.setDisable(true);
+        EleFXRadioGroup<String> radioGroup2 = new EleFXRadioGroup<>(radioAA, radioBB, radioCC);
+//        radioGroup2.setDisable(true);
+//        radioGroup2.setStyle("-fx-border-color: #ff0000;");
+
+        HBox radioHbox = new HBox(radioGroup1, radioGroup2);
+        radioHbox.setPadding(new Insets(10));
+        radioHbox.setSpacing(5);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -394,7 +421,8 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2, eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox);
+        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2,
+                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox, radioHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
