@@ -48,6 +48,7 @@ import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
 import com.sjydvlp.elefx.component.select.EleFXSelectOptionGroup;
 import com.sjydvlp.elefx.component.select.EleFXSelectSize;
+import com.sjydvlp.elefx.component.slider.*;
 import com.sjydvlp.elefx.component.space.EleFXSpace;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
@@ -77,6 +78,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -432,6 +434,35 @@ public class DemoController implements Initializable {
         rateHbox.setPadding(new Insets(10));
         rateHbox.setSpacing(20);
 
+        // --- EleFXSlider
+        EleFXSlider slider1 = new EleFXSlider();
+        slider1.setPrefWidth(300);
+        slider1.setShowTooltip(true);
+        slider1.setFormatTooltip(value -> value.toString() + "%");
+
+        EleFXSlider slider2 = new EleFXSlider();
+        slider2.setStep(10);
+//        slider2.setShowStops(true);
+        slider2.setShowInput(true);
+        slider2.setPrecision(0);
+        slider2.setTooltipPlacement(EleFXSliderTooltipPlacement.BOTTOM);
+        slider2.setRange(true);
+//        slider2.setVertical(true);
+
+        EleFXSlider slider3 = new EleFXSlider();
+        slider3.setSize(EleFXSliderSize.LARGE);
+        slider3.setShowInput(true);
+
+        VBox sliderVbox = new VBox(slider1, slider2, slider3);
+        sliderVbox.setPadding(new Insets(10));
+        sliderVbox.setSpacing(20);
+
+        EleFXSlider slider4 = new EleFXSlider();
+        slider4.setVertical(true);
+        slider4.setMarks(Map.of(0.0, new EleFXSliderMark("0.0cm"), 30.0, new EleFXSliderMark("30.0cm")));
+//        slider4.setStep(EleFXSliderStep.MARK);
+        slider4.setShowTooltip(false);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -441,8 +472,10 @@ public class DemoController implements Initializable {
 //                typographyHbox, eleFXAutocomplete, eleFXCascader, eleFxCheckBoxSpace
 //        );
 //        vBox.getChildren().addAll(colorPickerPanel, colorPicker, datePickerPanel1, datePickerPanel2, datePickerPanel3);
-        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2,
-                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox, radioHbox, rateHbox);
+//        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2,
+//                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox,
+//                radioHbox, rateHbox, sliderVbox, slider4);
+        vBox.getChildren().addAll(sliderVbox, slider4);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
