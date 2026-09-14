@@ -48,12 +48,14 @@ import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
 import com.sjydvlp.elefx.component.select.EleFXSelectOptionGroup;
 import com.sjydvlp.elefx.component.select.EleFXSelectSize;
-import com.sjydvlp.elefx.component.slider.*;
+import com.sjydvlp.elefx.component.slider.EleFXSlider;
+import com.sjydvlp.elefx.component.slider.EleFXSliderMark;
+import com.sjydvlp.elefx.component.slider.EleFXSliderSize;
+import com.sjydvlp.elefx.component.slider.EleFXSliderTooltipPlacement;
 import com.sjydvlp.elefx.component.space.EleFXSpace;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
 import com.sjydvlp.elefx.component.switcher.EleFXSwitch;
-import com.sjydvlp.elefx.component.switcher.EleFXSwitchSize;
 import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
@@ -469,17 +471,25 @@ public class DemoController implements Initializable {
         EleFXSwitch eleFXSwitch1 = new EleFXSwitch();
         eleFXSwitch1.setActiveColor(Color.RED);
         eleFXSwitch1.setInactiveColor(Color.GREEN);
+        eleFXSwitch1.setDisable(true);
 
         EleFXSwitch eleFXSwitch2 = new EleFXSwitch();
 //        eleFXSwitch2.setActiveColor(Color.RED);
 //        eleFXSwitch2.setInactiveColor(Color.GREEN);
-        eleFXSwitch2.setSize(EleFXSwitchSize.SMALL);
+//        eleFXSwitch2.setSize(EleFXSwitchSize.SMALL);
         eleFXSwitch2.setActiveText("hello");
         eleFXSwitch2.setInactiveText("hi");
-        eleFXSwitch2.setInlinePrompt(false);
+        eleFXSwitch2.setInlinePrompt(true);
         eleFXSwitch2.setSwitchWidth(300);
-        eleFXSwitch2.setActiveIcon(new EleFXIcon(EleFXIconType.CHECK, 12));
-        eleFXSwitch2.setInactiveIcon(new EleFXIcon(EleFXIconType.CLOSE, 12));
+//        eleFXSwitch2.setActiveIcon(new EleFXIcon(EleFXIconType.CHECK, 12));
+//        eleFXSwitch2.setInactiveIcon(new EleFXIcon(EleFXIconType.AIM, 12));
+        eleFXSwitch2.setActiveValue(100);
+        eleFXSwitch2.setInactiveValue(0);
+        eleFXSwitch2.setOnChange(e -> {
+            System.out.println(e.getValue());
+        });
+//        eleFXSwitch2.setLoading(true);
+        eleFXSwitch2.setBeforeChange(() -> false);
 
         HBox switchHbox = new HBox(eleFXSwitch1, eleFXSwitch2);
         switchHbox.setPadding(new Insets(10));
