@@ -52,6 +52,8 @@ import com.sjydvlp.elefx.component.slider.*;
 import com.sjydvlp.elefx.component.space.EleFXSpace;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
+import com.sjydvlp.elefx.component.switcher.EleFXSwitch;
+import com.sjydvlp.elefx.component.switcher.EleFXSwitchSize;
 import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
@@ -463,6 +465,26 @@ public class DemoController implements Initializable {
 //        slider4.setStep(EleFXSliderStep.MARK);
         slider4.setShowTooltip(false);
 
+        // EleFXSwitch
+        EleFXSwitch eleFXSwitch1 = new EleFXSwitch();
+        eleFXSwitch1.setActiveColor(Color.RED);
+        eleFXSwitch1.setInactiveColor(Color.GREEN);
+
+        EleFXSwitch eleFXSwitch2 = new EleFXSwitch();
+//        eleFXSwitch2.setActiveColor(Color.RED);
+//        eleFXSwitch2.setInactiveColor(Color.GREEN);
+        eleFXSwitch2.setSize(EleFXSwitchSize.SMALL);
+        eleFXSwitch2.setActiveText("hello");
+        eleFXSwitch2.setInactiveText("hi");
+        eleFXSwitch2.setInlinePrompt(false);
+        eleFXSwitch2.setSwitchWidth(300);
+        eleFXSwitch2.setActiveIcon(new EleFXIcon(EleFXIconType.CHECK, 12));
+        eleFXSwitch2.setInactiveIcon(new EleFXIcon(EleFXIconType.CLOSE, 12));
+
+        HBox switchHbox = new HBox(eleFXSwitch1, eleFXSwitch2);
+        switchHbox.setPadding(new Insets(10));
+        switchHbox.setSpacing(20);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -475,7 +497,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2,
 //                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox,
 //                radioHbox, rateHbox, sliderVbox, slider4);
-        vBox.getChildren().addAll(sliderVbox, slider4);
+        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
