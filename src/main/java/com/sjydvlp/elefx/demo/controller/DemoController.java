@@ -60,6 +60,8 @@ import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
 import com.sjydvlp.elefx.component.text.EleFXTextType;
+import com.sjydvlp.elefx.component.transfer.EleFXTransfer;
+import com.sjydvlp.elefx.component.transfer.EleFXTransferItem;
 import com.sjydvlp.elefx.component.typography.EleFXTypography;
 import com.sjydvlp.elefx.component.typography.EleFXTypographySize;
 import javafx.beans.binding.Bindings;
@@ -495,6 +497,15 @@ public class DemoController implements Initializable {
         switchHbox.setPadding(new Insets(10));
         switchHbox.setSpacing(20);
 
+        // --- EleFXTransfer
+        EleFXTransferItem<String> transferItem1 = new EleFXTransferItem<>("a", "t_a");
+        EleFXTransferItem<String> transferItem2 = new EleFXTransferItem<>("b", "t_b");
+        EleFXTransferItem<String> transferItem3 = new EleFXTransferItem<>("c", "t_c");
+        EleFXTransfer<String> transfer = new EleFXTransfer<>(transferItem1, transferItem2, transferItem3);
+        transfer.setFilterable(true);
+        transfer.setToLeftIcon(new EleFXIcon(EleFXIconType.AIM));
+        transfer.setToRightIcon(new EleFXIcon(EleFXIconType.CHECKED));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -507,7 +518,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(eleFXForm, eleFXSelect, eleFXSelect2,
 //                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox,
 //                radioHbox, rateHbox, sliderVbox, slider4);
-        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox);
+//        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox, transfer);
+        vBox.getChildren().addAll(transfer);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
