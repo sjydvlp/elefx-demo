@@ -64,6 +64,8 @@ import com.sjydvlp.elefx.component.transfer.EleFXTransfer;
 import com.sjydvlp.elefx.component.transfer.EleFXTransferItem;
 import com.sjydvlp.elefx.component.typography.EleFXTypography;
 import com.sjydvlp.elefx.component.typography.EleFXTypographySize;
+import com.sjydvlp.elefx.component.upload.EleFXUpload;
+import com.sjydvlp.elefx.component.upload.EleFXUploadListType;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -506,6 +508,16 @@ public class DemoController implements Initializable {
         transfer.setToLeftIcon(new EleFXIcon(EleFXIconType.AIM));
         transfer.setToRightIcon(new EleFXIcon(EleFXIconType.CHECKED));
 
+        // --- EleFXUpload
+        EleFXUpload upload = new EleFXUpload();
+        upload.setTipText("jpg/png files with a size less than 500KB.");
+        upload.setLimit(2);
+        upload.setListType(EleFXUploadListType.PICTURE);
+        upload.setOnSuccess(e -> {
+            System.out.println(e.getFiles().size());
+        });
+        upload.setDrag(true);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-color: #ff0000;");
@@ -519,7 +531,7 @@ public class DemoController implements Initializable {
 //                eleFXSelect3, inputHbox1, inputHbox2, inputNumberHbox,
 //                radioHbox, rateHbox, sliderVbox, slider4);
 //        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox, transfer);
-        vBox.getChildren().addAll(transfer);
+        vBox.getChildren().addAll(transfer, upload);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
