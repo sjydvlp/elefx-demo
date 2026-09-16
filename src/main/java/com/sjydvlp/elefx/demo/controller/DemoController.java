@@ -28,6 +28,7 @@ import com.sjydvlp.elefx.component.descriptions.EleFXDescriptions;
 import com.sjydvlp.elefx.component.descriptions.EleFXDescriptionsDirection;
 import com.sjydvlp.elefx.component.descriptions.EleFXDescriptionsItem;
 import com.sjydvlp.elefx.component.descriptions.EleFXDescriptionsSize;
+import com.sjydvlp.elefx.component.empty.EleFXEmpty;
 import com.sjydvlp.elefx.component.form.EleFXForm;
 import com.sjydvlp.elefx.component.form.EleFXFormItem;
 import com.sjydvlp.elefx.component.form.EleFXFormLabelPosition;
@@ -607,7 +608,7 @@ public class DemoController implements Initializable {
         carousel1.setType(EleFXCarouselType.CARD);
         carousel1.setInterval(800);
 
-        // EleFXCollapse
+        // --- EleFXCollapse
         EleFXCollapseItem collapseItem11 = new EleFXCollapseItem("hello", new EleFXIcon(EleFXIconType.ADD_LOCATION));
         collapseItem11.setTitleNode(new EleFXIcon(EleFXIconType.BURGER));
         collapseItem11.setExpandIcon(new EleFXIcon(EleFXIconType.FOOTBALL));
@@ -622,7 +623,7 @@ public class DemoController implements Initializable {
         collapse1.setExpandIconFactory(() -> new EleFXIcon(EleFXIconType.CIRCLE_CHECK));
         collapse1.setCollapseIconFactory(() -> new EleFXIcon(EleFXIconType.DOCUMENT_ADD));
 
-        // EleFXDescriptions
+        // --- EleFXDescriptions
         EleFXDescriptionsItem descriptionsItem11 = new EleFXDescriptionsItem("Username", new Label("kooriookami"));
         EleFXDescriptionsItem descriptionsItem12 = new EleFXDescriptionsItem("Telephone", new Label("18100000000"));
         EleFXDescriptionsItem descriptionsItem13 = new EleFXDescriptionsItem("Place", new Label("Suzhou"));
@@ -647,6 +648,12 @@ public class DemoController implements Initializable {
 //        descriptions2.setSize(EleFXDescriptionsSize.DEFAULT);
         descriptions2.setDirection(EleFXDescriptionsDirection.HORIZONTAL);
 
+        // --- EleFXEmpty
+        EleFXEmpty empty = new EleFXEmpty("description");
+        empty.setImage("https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png");
+        empty.setImageSize(100.0);
+        empty.getBottomChildren().add(new EleFXButton("按钮"));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -665,7 +672,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(transfer, upload, avatar);
 //        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2, carousel1);
 //        vBox.getChildren().addAll(carousel1);
-        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2);
+        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
