@@ -24,6 +24,10 @@ import com.sjydvlp.elefx.component.datepicker.EleFXDatePicker;
 import com.sjydvlp.elefx.component.datepicker.EleFXDatePickerType;
 import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanel;
 import com.sjydvlp.elefx.component.datepickerpanel.EleFXDatePickerPanelType;
+import com.sjydvlp.elefx.component.descriptions.EleFXDescriptions;
+import com.sjydvlp.elefx.component.descriptions.EleFXDescriptionsDirection;
+import com.sjydvlp.elefx.component.descriptions.EleFXDescriptionsItem;
+import com.sjydvlp.elefx.component.descriptions.EleFXDescriptionsSize;
 import com.sjydvlp.elefx.component.form.EleFXForm;
 import com.sjydvlp.elefx.component.form.EleFXFormItem;
 import com.sjydvlp.elefx.component.form.EleFXFormLabelPosition;
@@ -618,6 +622,31 @@ public class DemoController implements Initializable {
         collapse1.setExpandIconFactory(() -> new EleFXIcon(EleFXIconType.CIRCLE_CHECK));
         collapse1.setCollapseIconFactory(() -> new EleFXIcon(EleFXIconType.DOCUMENT_ADD));
 
+        // EleFXDescriptions
+        EleFXDescriptionsItem descriptionsItem11 = new EleFXDescriptionsItem("Username", new Label("kooriookami"));
+        EleFXDescriptionsItem descriptionsItem12 = new EleFXDescriptionsItem("Telephone", new Label("18100000000"));
+        EleFXDescriptionsItem descriptionsItem13 = new EleFXDescriptionsItem("Place", new Label("Suzhou"));
+        EleFXDescriptionsItem descriptionsItem14 = new EleFXDescriptionsItem("Remarks", new Label("18100000000"));
+        EleFXDescriptionsItem descriptionsItem15 = new EleFXDescriptionsItem("Address", new Label("No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province"));
+        EleFXDescriptions descriptions1 = new EleFXDescriptions("User Info", descriptionsItem11, descriptionsItem12, descriptionsItem13, descriptionsItem14, descriptionsItem15);
+        descriptions1.setColumn(3);
+        descriptions1.setBorder(true);
+        descriptions1.setSize(EleFXDescriptionsSize.DEFAULT);
+
+        EleFXDescriptionsItem descriptionsItem21 = new EleFXDescriptionsItem("Username", new Label("kooriookami"));
+        descriptionsItem21.setRowSpan(2);
+        EleFXDescriptionsItem descriptionsItem22 = new EleFXDescriptionsItem("Telephone", new Label("18100000000"));
+        EleFXDescriptionsItem descriptionsItem23 = new EleFXDescriptionsItem("Place", new Label("Suzhou"));
+        EleFXDescriptionsItem descriptionsItem24 = new EleFXDescriptionsItem("Remarks", new Label("18100000000"));
+        EleFXDescriptionsItem descriptionsItem25 = new EleFXDescriptionsItem("Address", new Label("No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province"));
+        EleFXDescriptions descriptions2 = new EleFXDescriptions("User Info", descriptionsItem21, descriptionsItem22, descriptionsItem23, descriptionsItem24, descriptionsItem25);
+        descriptions2.setColumn(3);
+        descriptions2.setBorder(true);
+        descriptions2.setSize(EleFXDescriptionsSize.SMALL);
+//        descriptions2.setSize(EleFXDescriptionsSize.LARGE);
+//        descriptions2.setSize(EleFXDescriptionsSize.DEFAULT);
+        descriptions2.setDirection(EleFXDescriptionsDirection.HORIZONTAL);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -636,7 +665,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(transfer, upload, avatar);
 //        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2, carousel1);
 //        vBox.getChildren().addAll(carousel1);
-        vBox.getChildren().addAll(collapse1);
+        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
