@@ -9,6 +9,8 @@ import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
 import com.sjydvlp.elefx.component.card.EleFXCard;
 import com.sjydvlp.elefx.component.card.EleFXCardShadow;
+import com.sjydvlp.elefx.component.carousel.EleFXCarousel;
+import com.sjydvlp.elefx.component.carousel.EleFXCarouselItem;
 import com.sjydvlp.elefx.component.cascader.EleFXCascader;
 import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
@@ -574,6 +576,21 @@ public class DemoController implements Initializable {
         card2.getBodyChildren().addAll(new EleFXIcon(EleFXIconType.HANDBAG));
         card2.setMaxWidth(480);
 
+        // --- EleFXCarousel
+        EleFXCarouselItem carouselItem11 = new EleFXCarouselItem();
+        carouselItem11.setStyle("-fx-background-color: #ff0000;");
+        EleFXCarouselItem carouselItem12 = new EleFXCarouselItem();
+        carouselItem12.setStyle("-fx-background-color: #00ff00;");
+        EleFXCarouselItem carouselItem13 = new EleFXCarouselItem();
+        carouselItem13.setStyle("-fx-background-color: #0000ff;");
+        EleFXCarouselItem carouselItem14 = new EleFXCarouselItem();
+        carouselItem14.setStyle("-fx-background-color: #ff00ff;");
+
+        EleFXCarousel carousel1 = new EleFXCarousel(carouselItem11, carouselItem12, carouselItem13, carouselItem14);
+        carousel1.setPrefHeight(150);
+        carousel1.setPreviousIcon(new EleFXIcon(EleFXIconType.ARROW_LEFT, 18));
+        carousel1.setNextIcon(new EleFXIcon(EleFXIconType.ARROW_RIGHT, 18));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -590,7 +607,8 @@ public class DemoController implements Initializable {
 //                radioHbox, rateHbox, sliderVbox, slider4);
 //        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox, transfer);
 //        vBox.getChildren().addAll(transfer, upload, avatar);
-        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2);
+//        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2, carousel1);
+        vBox.getChildren().addAll(carousel1);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
