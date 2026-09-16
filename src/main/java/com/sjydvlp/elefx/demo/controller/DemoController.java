@@ -9,8 +9,7 @@ import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
 import com.sjydvlp.elefx.component.card.EleFXCard;
 import com.sjydvlp.elefx.component.card.EleFXCardShadow;
-import com.sjydvlp.elefx.component.carousel.EleFXCarousel;
-import com.sjydvlp.elefx.component.carousel.EleFXCarouselItem;
+import com.sjydvlp.elefx.component.carousel.*;
 import com.sjydvlp.elefx.component.cascader.EleFXCascader;
 import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
@@ -577,19 +576,29 @@ public class DemoController implements Initializable {
         card2.setMaxWidth(480);
 
         // --- EleFXCarousel
-        EleFXCarouselItem carouselItem11 = new EleFXCarouselItem();
+        EleFXCarouselItem carouselItem11 = new EleFXCarouselItem(new Label("1"));
         carouselItem11.setStyle("-fx-background-color: #ff0000;");
-        EleFXCarouselItem carouselItem12 = new EleFXCarouselItem();
+        EleFXCarouselItem carouselItem12 = new EleFXCarouselItem(new Label("2"));
         carouselItem12.setStyle("-fx-background-color: #00ff00;");
-        EleFXCarouselItem carouselItem13 = new EleFXCarouselItem();
+        EleFXCarouselItem carouselItem13 = new EleFXCarouselItem(new Label("3"));
         carouselItem13.setStyle("-fx-background-color: #0000ff;");
-        EleFXCarouselItem carouselItem14 = new EleFXCarouselItem();
+        EleFXCarouselItem carouselItem14 = new EleFXCarouselItem(new Label("4"));
         carouselItem14.setStyle("-fx-background-color: #ff00ff;");
+        EleFXCarouselItem carouselItem15 = new EleFXCarouselItem(new Label("5"));
+        carouselItem15.setStyle("-fx-background-color: #ffff00;");
 
-        EleFXCarousel carousel1 = new EleFXCarousel(carouselItem11, carouselItem12, carouselItem13, carouselItem14);
-        carousel1.setPrefHeight(150);
+        EleFXCarousel carousel1 = new EleFXCarousel(carouselItem11, carouselItem12, carouselItem13, carouselItem14, carouselItem15);
+        carousel1.setPrefHeight(360);
         carousel1.setPreviousIcon(new EleFXIcon(EleFXIconType.ARROW_LEFT, 18));
         carousel1.setNextIcon(new EleFXIcon(EleFXIconType.ARROW_RIGHT, 18));
+        carousel1.setTrigger(EleFXCarouselTrigger.HOVER);
+        carousel1.setAutoplay(true);
+        carousel1.setMotionBlur(true);
+        carousel1.setDirection(EleFXCarouselDirection.VERTICAL);
+//        carousel1.setArrow(EleFXCarouselArrow.NEVER);
+        carousel1.setIndicatorPosition(EleFXCarouselIndicatorPosition.INSIDE);
+        carousel1.setType(EleFXCarouselType.CARD);
+        carousel1.setInterval(800);
 
         // 添加
         VBox vBox = new VBox();
