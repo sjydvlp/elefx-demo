@@ -15,6 +15,8 @@ import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxButton;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckboxGroup;
+import com.sjydvlp.elefx.component.collapse.EleFXCollapse;
+import com.sjydvlp.elefx.component.collapse.EleFXCollapseItem;
 import com.sjydvlp.elefx.component.colorpicker.EleFXColorPicker;
 import com.sjydvlp.elefx.component.colorpickerpanel.EleFXColorPickerPanel;
 import com.sjydvlp.elefx.component.container.*;
@@ -87,6 +89,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.List;
@@ -600,10 +603,25 @@ public class DemoController implements Initializable {
         carousel1.setType(EleFXCarouselType.CARD);
         carousel1.setInterval(800);
 
+        // EleFXCollapse
+        EleFXCollapseItem collapseItem11 = new EleFXCollapseItem("hello", new EleFXIcon(EleFXIconType.ADD_LOCATION));
+        collapseItem11.setTitleNode(new EleFXIcon(EleFXIconType.BURGER));
+        collapseItem11.setExpandIcon(new EleFXIcon(EleFXIconType.FOOTBALL));
+        collapseItem11.setCollapseIcon(new EleFXIcon(EleFXIconType.NOTEBOOK));
+        EleFXCollapseItem collapseItem12 = new EleFXCollapseItem("hi", new EleFXIcon(EleFXIconType.BASEBALL));
+        EleFXCollapseItem collapseItem13 = new EleFXCollapseItem("good", new EleFXIcon(EleFXIconType.CHAT_LINE_SQUARE));
+        EleFXCollapse collapse1 = new EleFXCollapse(collapseItem11, collapseItem12, collapseItem13);
+//        collapse1.setAccordion(true);
+        collapse1.setAnimationDuration(Duration.millis(300));
+//        collapse1.setExpandIconPosition(EleFXCollapseIconPosition.LEFT);
+        collapse1.setBeforeCollapse(param -> true);
+        collapse1.setExpandIconFactory(() -> new EleFXIcon(EleFXIconType.CIRCLE_CHECK));
+        collapse1.setCollapseIconFactory(() -> new EleFXIcon(EleFXIconType.DOCUMENT_ADD));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
-        vBox.setPadding(new Insets(5));
+        vBox.setPadding(new Insets(10));
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
 //        vBox.getChildren().addAll(
@@ -617,7 +635,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox, transfer);
 //        vBox.getChildren().addAll(transfer, upload, avatar);
 //        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2, carousel1);
-        vBox.getChildren().addAll(carousel1);
+//        vBox.getChildren().addAll(carousel1);
+        vBox.getChildren().addAll(collapse1);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
