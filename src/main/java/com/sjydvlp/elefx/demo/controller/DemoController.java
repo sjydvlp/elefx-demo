@@ -7,6 +7,8 @@ import com.sjydvlp.elefx.component.avatar.*;
 import com.sjydvlp.elefx.component.button.EleFXButton;
 import com.sjydvlp.elefx.component.button.EleFXButtonSize;
 import com.sjydvlp.elefx.component.button.EleFXButtonType;
+import com.sjydvlp.elefx.component.card.EleFXCard;
+import com.sjydvlp.elefx.component.card.EleFXCardShadow;
 import com.sjydvlp.elefx.component.cascader.EleFXCascader;
 import com.sjydvlp.elefx.component.cascader.EleFXCascaderOption;
 import com.sjydvlp.elefx.component.checkbox.EleFXCheckbox;
@@ -552,8 +554,30 @@ public class DemoController implements Initializable {
         avatarGroup.setCollapseAvatarsTooltip(true);
 //        avatarGroup.setCollapseStyle();
 
+        // --- EleFXCard
+        EleFXCard card1 = new EleFXCard();
+        card1.setHeaderText("Card name");
+        card1.setFooterText("Footer content");
+        card1.setShadow(EleFXCardShadow.HOVER);
+        card1.getBodyChildren().addAll(
+                new Label("List item 1"),
+                new Label("List item 2")
+        );
+        card1.setMaxWidth(480);
+
+        EleFXCard card2 = new EleFXCard();
+        card2.setShadow(EleFXCardShadow.ALWAYS);
+//        card2.getBodyChildren().addAll(
+//                new Label("List item 1"),
+//                new Label("List item 2")
+//        );
+        card2.getBodyChildren().addAll(new EleFXIcon(EleFXIconType.HANDBAG));
+        card2.setMaxWidth(480);
+
         // 添加
         VBox vBox = new VBox();
+        vBox.setSpacing(10);
+        vBox.setPadding(new Insets(5));
         vBox.setStyle("-fx-border-color: #ff0000;");
 //        vBox.getChildren().addAll(hBox1, hBox2, hBox3, row1, row2, row3, container);
 //        vBox.getChildren().addAll(
@@ -566,7 +590,7 @@ public class DemoController implements Initializable {
 //                radioHbox, rateHbox, sliderVbox, slider4);
 //        vBox.getChildren().addAll(sliderVbox, slider4, switchHbox, transfer);
 //        vBox.getChildren().addAll(transfer, upload, avatar);
-        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup);
+        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
