@@ -55,6 +55,8 @@ import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
 import com.sjydvlp.elefx.component.pagination.EleFXPagination;
 import com.sjydvlp.elefx.component.pagination.EleFXPaginationLayout;
 import com.sjydvlp.elefx.component.pagination.EleFXPaginationSize;
+import com.sjydvlp.elefx.component.progress.EleFXProgress;
+import com.sjydvlp.elefx.component.progress.EleFXProgressStatus;
 import com.sjydvlp.elefx.component.radio.EleFXRadio;
 import com.sjydvlp.elefx.component.radio.EleFXRadioButton;
 import com.sjydvlp.elefx.component.radio.EleFXRadioGroup;
@@ -106,6 +108,7 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -729,6 +732,58 @@ public class DemoController implements Initializable {
 //        pagination3.setHideOnSinglePage(true);
         pagination3.setDisable(true);
 
+        // --- EleFXProgress
+        EleFXProgress progress1 = new EleFXProgress();
+        progress1.setPercentage(50);
+
+        EleFXProgress progress2 = new EleFXProgress();
+        progress2.setPercentage(100);
+        progress2.setFormat(percentage -> {
+            if (Objects.equals(100.0, percentage)) {
+                return "Full";
+            } else {
+                return percentage + "%";
+            }
+        });
+
+        EleFXProgress progress3 = new EleFXProgress();
+        progress3.setPercentage(100);
+        progress3.setStatus(EleFXProgressStatus.SUCCESS);
+
+        EleFXProgress progress4 = new EleFXProgress();
+        progress4.setPercentage(100);
+        progress4.setStatus(EleFXProgressStatus.WARNING);
+
+        EleFXProgress progress5 = new EleFXProgress();
+        progress5.setPercentage(100);
+        progress5.setStatus(EleFXProgressStatus.EXCEPTION);
+
+        EleFXProgress progress6 = new EleFXProgress();
+        progress6.setPercentage(70);
+        progress6.setStrokeWidth(26);
+        progress6.setTextInside(true);
+
+        EleFXProgress progress7 = new EleFXProgress();
+        progress7.setPercentage(100);
+        progress7.setStrokeWidth(24);
+        progress7.setTextInside(true);
+        progress7.setStatus(EleFXProgressStatus.SUCCESS);
+
+        EleFXProgress progress8 = new EleFXProgress();
+        progress8.setPercentage(80);
+        progress8.setStrokeWidth(22);
+        progress8.setTextInside(true);
+        progress8.setStatus(EleFXProgressStatus.WARNING);
+
+        EleFXProgress progress9 = new EleFXProgress();
+        progress9.setPercentage(50);
+        progress9.setStrokeWidth(20);
+        progress9.setTextInside(true);
+        progress9.setStatus(EleFXProgressStatus.EXCEPTION);
+
+        VBox progressVbox = new VBox(progress1, progress2, progress3, progress4, progress5, progress6, progress7, progress8, progress9);
+        progressVbox.setSpacing(8);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -749,7 +804,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(carousel1);
 //        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
 //        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
-        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3);
+        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3, progressVbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
