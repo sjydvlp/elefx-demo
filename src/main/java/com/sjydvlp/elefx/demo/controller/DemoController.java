@@ -52,6 +52,9 @@ import com.sjydvlp.elefx.component.layout.EleFXRowJustify;
 import com.sjydvlp.elefx.component.link.EleFXLink;
 import com.sjydvlp.elefx.component.link.EleFXLinkType;
 import com.sjydvlp.elefx.component.link.EleFXLinkUnderline;
+import com.sjydvlp.elefx.component.pagination.EleFXPagination;
+import com.sjydvlp.elefx.component.pagination.EleFXPaginationLayout;
+import com.sjydvlp.elefx.component.pagination.EleFXPaginationSize;
 import com.sjydvlp.elefx.component.radio.EleFXRadio;
 import com.sjydvlp.elefx.component.radio.EleFXRadioButton;
 import com.sjydvlp.elefx.component.radio.EleFXRadioGroup;
@@ -713,6 +716,19 @@ public class DemoController implements Initializable {
         infiniteScroll.setPrefHeight(50);
         infiniteScroll.setOnLoad(() -> infiniteScroll.setContent(infiniteScrollVbox2));
 
+        // --- EleFXPagination
+        EleFXPagination pagination1 = new EleFXPagination(50);
+        pagination1.setLayout(EleFXPaginationLayout.SIZES, EleFXPaginationLayout.PREV, EleFXPaginationLayout.PAGER, EleFXPaginationLayout.NEXT, EleFXPaginationLayout.JUMPER, EleFXPaginationLayout.TOTAL);
+        EleFXPagination pagination2 = new EleFXPagination(1000);
+        pagination2.setLayout(EleFXPaginationLayout.PREV, EleFXPaginationLayout.PAGER, EleFXPaginationLayout.NEXT);
+        pagination2.setPageSize(20);
+        pagination2.setPagerCount(11);
+        pagination2.setBackground(true);
+        pagination2.setSize(EleFXPaginationSize.SMALL);
+        EleFXPagination pagination3 = new EleFXPagination(3);
+//        pagination3.setHideOnSinglePage(true);
+        pagination3.setDisable(true);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -733,7 +749,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(carousel1);
 //        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
 //        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
-        vBox.getChildren().addAll(infiniteScroll);
+        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
