@@ -38,6 +38,7 @@ import com.sjydvlp.elefx.component.icon.EleFXIcons;
 import com.sjydvlp.elefx.component.image.EleFXImage;
 import com.sjydvlp.elefx.component.image.EleFXImageFit;
 import com.sjydvlp.elefx.component.image.EleFXImageViewer;
+import com.sjydvlp.elefx.component.infinitescroll.EleFXInfiniteScroll;
 import com.sjydvlp.elefx.component.input.EleFXInput;
 import com.sjydvlp.elefx.component.input.EleFXInputSize;
 import com.sjydvlp.elefx.component.input.EleFXInputType;
@@ -704,6 +705,14 @@ public class DemoController implements Initializable {
         EleFXButton imageViewerButton = new EleFXButton("preview controlled");
         imageViewerButton.setOnAction(event -> imageViewer.show(stage));
 
+        // --- EleFXInfiniteScroll
+        VBox infiniteScrollVbox = new VBox(new Label("a"), new Label("b"), new Label("c"), new Label("d"), new Label("e"));
+        VBox infiniteScrollVbox2 = new VBox(new Label("a"), new Label("b"), new Label("c"), new Label("d"), new Label("e"), new Label("f"), new Label("g"), new Label("h"), new Label("i"));
+
+        EleFXInfiniteScroll infiniteScroll = new EleFXInfiniteScroll(infiniteScrollVbox);
+        infiniteScroll.setPrefHeight(50);
+        infiniteScroll.setOnLoad(() -> infiniteScroll.setContent(infiniteScrollVbox2));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -723,7 +732,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2, carousel1);
 //        vBox.getChildren().addAll(carousel1);
 //        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
-        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
+//        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
+        vBox.getChildren().addAll(infiniteScroll);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
