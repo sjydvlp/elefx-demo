@@ -35,6 +35,9 @@ import com.sjydvlp.elefx.component.form.EleFXFormLabelPosition;
 import com.sjydvlp.elefx.component.icon.EleFXIcon;
 import com.sjydvlp.elefx.component.icon.EleFXIconType;
 import com.sjydvlp.elefx.component.icon.EleFXIcons;
+import com.sjydvlp.elefx.component.image.EleFXImage;
+import com.sjydvlp.elefx.component.image.EleFXImageFit;
+import com.sjydvlp.elefx.component.image.EleFXImageViewer;
 import com.sjydvlp.elefx.component.input.EleFXInput;
 import com.sjydvlp.elefx.component.input.EleFXInputSize;
 import com.sjydvlp.elefx.component.input.EleFXInputType;
@@ -654,6 +657,53 @@ public class DemoController implements Initializable {
         empty.setImageSize(100.0);
         empty.getBottomChildren().add(new EleFXButton("按钮"));
 
+        // --- EleFXImage
+        String imageUrl = "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg";
+        EleFXImage imageA = new EleFXImage(imageUrl);
+        imageA.setPrefSize(100, 100);
+        imageA.setFit(EleFXImageFit.FILL);
+        imageA.setPreviewEnabled(true);
+        imageA.setLazy(true);
+        EleFXImage imageB = new EleFXImage(imageUrl);
+        imageB.setPrefSize(100, 100);
+        imageB.setFit(EleFXImageFit.CONTAIN);
+        imageB.setLazy(true);
+        EleFXImage imageC = new EleFXImage(imageUrl);
+        imageC.setPrefSize(100, 100);
+        imageC.setFit(EleFXImageFit.COVER);
+        imageC.setLazy(true);
+        EleFXImage imageD = new EleFXImage(imageUrl);
+        imageD.setPrefSize(100, 100);
+        imageD.setFit(EleFXImageFit.NONE);
+        imageD.setLazy(true);
+        EleFXImage imageE = new EleFXImage(imageUrl);
+        imageE.setPrefSize(100, 100);
+        imageE.setFit(EleFXImageFit.SCALE_DOWN);
+        imageE.setLazy(true);
+        HBox imageHbox = new HBox(imageA, imageB, imageC, imageD, imageE);
+        VBox imageVbox = new VBox(imageA, imageB, imageC, imageD, imageE);
+        EleFXScrollbar imageScrollbar = new EleFXScrollbar(imageVbox);
+        imageScrollbar.setPrefHeight(100);
+
+        String imageUrl1 = "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg";
+        String imageUrl2 = "https://empty";
+        String imageUrl3 = "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png";
+
+        EleFXImage image = new EleFXImage(imageUrl2);
+        image.setPlaceholderNode(new Label("加载中..."));
+        image.setErrorNode(new Label("加载失败"));
+        image.setPreviewEnabled(true);
+        image.getImageViewer().setPreviewSrcList(List.of(imageUrl1, imageUrl2, imageUrl3));
+        image.getImageViewer().setShowProgress(true);
+        image.getImageViewer().setErrorNode(new Label("加载失败"));
+
+        EleFXImageViewer imageViewer = new EleFXImageViewer();
+        imageViewer.setPreviewSrcList(List.of(imageUrl1, imageUrl2, imageUrl3));
+        imageViewer.setErrorNode(new EleFXIcon(EleFXIconType.DOCUMENT_DELETE));
+
+        EleFXButton imageViewerButton = new EleFXButton("preview controlled");
+        imageViewerButton.setOnAction(event -> imageViewer.show(stage));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -672,7 +722,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(transfer, upload, avatar);
 //        vBox.getChildren().addAll(avatar1, avatar2, avatar3, avatarGroup, card1, card2, carousel1);
 //        vBox.getChildren().addAll(carousel1);
-        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
+//        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
+        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
