@@ -65,6 +65,8 @@ import com.sjydvlp.elefx.component.radio.EleFXRadioGroup;
 import com.sjydvlp.elefx.component.radio.EleFXRadioSize;
 import com.sjydvlp.elefx.component.rate.EleFXRate;
 import com.sjydvlp.elefx.component.rate.EleFXRateSize;
+import com.sjydvlp.elefx.component.result.EleFXResult;
+import com.sjydvlp.elefx.component.result.EleFXResultIcon;
 import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
 import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
@@ -832,6 +834,10 @@ public class DemoController implements Initializable {
                 progress5, progress6, progress7, progress8, progress9, new HBox(progressMinus, progressPlus));
         progressVbox.setSpacing(8);
 
+        // fx
+        EleFXResult result = new EleFXResult(EleFXResultIcon.PRIMARY, "hello", "hello everyone!");
+        result.setExtra(new EleFXButton("返回"));
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -852,7 +858,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(carousel1);
 //        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
 //        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
-        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3, progressVbox);
+//        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3, progressVbox);
+        vBox.getChildren().addAll(result);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
