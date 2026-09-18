@@ -90,7 +90,6 @@ import com.sjydvlp.elefx.component.typography.EleFXTypography;
 import com.sjydvlp.elefx.component.typography.EleFXTypographySize;
 import com.sjydvlp.elefx.component.upload.EleFXUpload;
 import com.sjydvlp.elefx.component.upload.EleFXUploadListType;
-import javafx.animation.Animation;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -835,8 +834,24 @@ public class DemoController implements Initializable {
         progressVbox.setSpacing(8);
 
         // fx
-        EleFXResult result = new EleFXResult(EleFXResultIcon.PRIMARY, "hello", "hello everyone!");
-        result.setExtra(new EleFXButton("返回"));
+        EleFXResult result1 = new EleFXResult(EleFXResultIcon.PRIMARY, "Primary Tip", "Please follow the instructions");
+        result1.setExtra(new EleFXButton("Back"));
+        EleFXResult result2 = new EleFXResult(EleFXResultIcon.SUCCESS, "Success Tip", "Please follow the instructions");
+        result2.setExtra(new EleFXButton("Back"));
+        EleFXResult result3 = new EleFXResult(EleFXResultIcon.WARNING, "Warning Tip", "Please follow the instructions");
+        result3.setExtra(new EleFXButton("Back"));
+        EleFXResult result4 = new EleFXResult(EleFXResultIcon.ERROR, "Error Tip", "Please follow the instructions");
+        result4.setExtra(new EleFXButton("Back"));
+        EleFXResult result5 = new EleFXResult(EleFXResultIcon.INFO, "Info Tip", "Please follow the instructions");
+        result5.setExtra(new EleFXButton("Back"));
+        EleFXResult result6 = new EleFXResult();
+        result6.setIconNode(new EleFXImage("https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"));
+        result6.setTitle("404");
+        result6.setSubTitle("Sorry, request error");
+        result6.setExtra(new EleFXButton("Back"));
+
+//        HBox resultHbox = new HBox(result1, result2, result3, result4, result5);
+        HBox resultHbox = new HBox(result6);
 
         // 添加
         VBox vBox = new VBox();
@@ -859,7 +874,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
 //        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
 //        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3, progressVbox);
-        vBox.getChildren().addAll(result);
+        vBox.getChildren().addAll(resultHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
