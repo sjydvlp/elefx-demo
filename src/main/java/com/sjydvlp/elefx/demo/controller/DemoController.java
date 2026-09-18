@@ -72,6 +72,9 @@ import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
 import com.sjydvlp.elefx.component.select.EleFXSelectOptionGroup;
 import com.sjydvlp.elefx.component.select.EleFXSelectSize;
+import com.sjydvlp.elefx.component.skeleton.EleFXSkeleton;
+import com.sjydvlp.elefx.component.skeleton.EleFXSkeletonItem;
+import com.sjydvlp.elefx.component.skeleton.EleFXSkeletonItemVariant;
 import com.sjydvlp.elefx.component.slider.EleFXSlider;
 import com.sjydvlp.elefx.component.slider.EleFXSliderMark;
 import com.sjydvlp.elefx.component.slider.EleFXSliderSize;
@@ -90,6 +93,7 @@ import com.sjydvlp.elefx.component.typography.EleFXTypography;
 import com.sjydvlp.elefx.component.typography.EleFXTypographySize;
 import com.sjydvlp.elefx.component.upload.EleFXUpload;
 import com.sjydvlp.elefx.component.upload.EleFXUploadListType;
+import javafx.animation.PauseTransition;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -100,6 +104,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -833,7 +838,7 @@ public class DemoController implements Initializable {
                 progress5, progress6, progress7, progress8, progress9, new HBox(progressMinus, progressPlus));
         progressVbox.setSpacing(8);
 
-        // fx
+        // --- EleFXResult
         EleFXResult result1 = new EleFXResult(EleFXResultIcon.PRIMARY, "Primary Tip", "Please follow the instructions");
         result1.setExtra(new EleFXButton("Back"));
         EleFXResult result2 = new EleFXResult(EleFXResultIcon.SUCCESS, "Success Tip", "Please follow the instructions");
@@ -852,6 +857,51 @@ public class DemoController implements Initializable {
 
 //        HBox resultHbox = new HBox(result1, result2, result3, result4, result5);
         HBox resultHbox = new HBox(result6);
+
+        // --- EleFXSkeleton
+        EleFXSkeleton skeleton1 = new EleFXSkeleton();
+
+        EleFXSkeletonItem skeletonItem1 = new EleFXSkeletonItem(EleFXSkeletonItemVariant.CIRCLE);
+        skeletonItem1.setPrefSize(100, 100);
+        EleFXSkeleton skeleton2 = new EleFXSkeleton();
+        skeleton2.getTemplateChildren().addAll(skeletonItem1);
+
+        EleFXSkeleton skeleton3 = new EleFXSkeleton();
+        skeleton3.setRows(2);
+        skeleton3.setAnimated(true);
+
+        // 自定义骨架
+        EleFXSkeletonItem skeletonItem2 = new EleFXSkeletonItem(EleFXSkeletonItemVariant.IMAGE);
+        skeletonItem2.setPrefSize(240, 240);
+
+        EleFXSkeletonItem skeletonItem3 = new EleFXSkeletonItem(EleFXSkeletonItemVariant.P);
+        skeletonItem3.setWidthPercent(50);
+
+        EleFXSkeletonItem skeletonItem4 = new EleFXSkeletonItem(EleFXSkeletonItemVariant.TEXT);
+        EleFXSkeletonItem skeletonItem5 = new EleFXSkeletonItem(EleFXSkeletonItemVariant.TEXT);
+        skeletonItem5.setWidthPercent(30);
+        HBox skeletonInnerHbox = new HBox(16, skeletonItem4, skeletonItem5);
+        HBox.setHgrow(skeletonItem4, Priority.ALWAYS);
+
+        VBox skeletonOuterVbox = new VBox(skeletonItem3, skeletonInnerHbox);
+        skeletonOuterVbox.setSpacing(10);
+
+        EleFXSkeleton skeleton4 = new EleFXSkeleton();
+        skeleton4.getTemplateChildren().addAll(skeletonItem2, skeletonOuterVbox);
+        skeleton4.setPrefWidth(240);
+        skeleton4.setAnimated(true);
+        skeleton4.getContentChildren().addAll(new Label("加载出的内容"));
+//        skeleton4.setLoading(false);
+        skeleton4.setThrottle(2000);
+
+        EleFXButton skeletonButton = new EleFXButton("点击加载");
+        skeletonButton.setOnAction(event -> {
+            skeleton4.setLoading(true);
+
+            PauseTransition delay = new PauseTransition(Duration.seconds(6));
+            delay.setOnFinished(e -> skeleton4.setLoading(false));
+            delay.play();
+        });
 
         // 添加
         VBox vBox = new VBox();
@@ -874,7 +924,9 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(collapse1, descriptions1, descriptions2, empty);
 //        vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
 //        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3, progressVbox);
-        vBox.getChildren().addAll(resultHbox);
+//        vBox.getChildren().addAll(resultHbox);
+//        vBox.getChildren().addAll(skeleton1, skeleton2, skeleton3, skeleton4);
+        vBox.getChildren().addAll(skeleton4, skeletonButton);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
