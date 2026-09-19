@@ -82,6 +82,8 @@ import com.sjydvlp.elefx.component.slider.EleFXSliderTooltipPlacement;
 import com.sjydvlp.elefx.component.space.EleFXSpace;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
+import com.sjydvlp.elefx.component.statistic.EleFXCountdown;
+import com.sjydvlp.elefx.component.statistic.EleFXStatistic;
 import com.sjydvlp.elefx.component.switcher.EleFXSwitch;
 import com.sjydvlp.elefx.component.tag.EleFXTag;
 import com.sjydvlp.elefx.component.tag.EleFXTagEffect;
@@ -946,6 +948,20 @@ public class DemoController implements Initializable {
         timeline1.setMode(EleFXTimelineMode.ALTERNATE_REVERSE);
 //        timeline1.setReverse(true);
 
+        // --- EleFXStatistic
+        EleFXStatistic statistic1 = new EleFXStatistic("Daily active users", 268500);
+        EleFXStatistic statistic2 = new EleFXStatistic(138);
+//        statistic2.setTitleNode(EleFXIcons.of(EleFXIconType.APPLE));
+        statistic2.setTitle("aaaa");
+//        statistic2.setSuffix("/100");
+        statistic2.setSuffixNode(EleFXIcons.of(EleFXIconType.COFFEE_CUP));
+        EleFXCountdown countdown1 = new EleFXCountdown("Start to grab", System.currentTimeMillis() +  + 1000 * 60 * 60 * 7);
+        EleFXCountdown countdown2 = new EleFXCountdown("Remaining VIP time", System.currentTimeMillis() +  + 1000 * 60 * 60 * 24 * 2);
+        countdown2.setFormat("HH:mm:ss");
+
+        HBox statisticHbox = new HBox(statistic1, statistic2, countdown1, countdown2);
+        statisticHbox.setSpacing(10);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -970,7 +986,7 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(resultHbox);
 //        vBox.getChildren().addAll(skeleton1, skeleton2, skeleton3, skeleton4);
 //        vBox.getChildren().addAll(skeleton4, skeletonButton);
-        vBox.getChildren().addAll(tagHbox, timeline1);
+        vBox.getChildren().addAll(tagHbox, timeline1, statisticHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
