@@ -83,6 +83,10 @@ import com.sjydvlp.elefx.component.space.EleFXSpace;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitter;
 import com.sjydvlp.elefx.component.splitter.EleFXSplitterPanel;
 import com.sjydvlp.elefx.component.switcher.EleFXSwitch;
+import com.sjydvlp.elefx.component.tag.EleFXTag;
+import com.sjydvlp.elefx.component.tag.EleFXTagEffect;
+import com.sjydvlp.elefx.component.tag.EleFXTagSize;
+import com.sjydvlp.elefx.component.tag.EleFXTagType;
 import com.sjydvlp.elefx.component.text.EleFXText;
 import com.sjydvlp.elefx.component.text.EleFXTextSize;
 import com.sjydvlp.elefx.component.text.EleFXTextTag;
@@ -903,6 +907,28 @@ public class DemoController implements Initializable {
             delay.play();
         });
 
+        // --- EleFXTag
+        EleFXTag tag1 = new EleFXTag("Tag 1", EleFXTagType.PRIMARY);
+        tag1.setSize(EleFXTagSize.LARGE);
+        tag1.setTagEffect(EleFXTagEffect.DARK);
+        tag1.setRound(true);
+        EleFXTag tag2 = new EleFXTag("Tag 2", EleFXTagType.SUCCESS);
+        EleFXTag tag3 = new EleFXTag("Tag 3", EleFXTagType.INFO);
+        tag3.setSize(EleFXTagSize.SMALL);
+        EleFXTag tag4 = new EleFXTag("Tag 4", EleFXTagType.WARNING);
+        tag4.setTagEffect(EleFXTagEffect.PLAIN);
+        EleFXTag tag5 = new EleFXTag("Tag 5", EleFXTagType.DANGER);
+        tag5.setClosable(true);
+        tag5.setTagEffect(EleFXTagEffect.LIGHT);
+        HBox tagHbox = new HBox(tag1, tag2, tag3, tag4, tag5);
+        tagHbox.setSpacing(8);
+        tagHbox.setFillHeight(false);
+
+        tag5.setOnClose(event -> {
+            tagHbox.getChildren().remove(tag5);
+        });
+
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -926,7 +952,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(infiniteScroll, pagination1, pagination2, pagination3, progressVbox);
 //        vBox.getChildren().addAll(resultHbox);
 //        vBox.getChildren().addAll(skeleton1, skeleton2, skeleton3, skeleton4);
-        vBox.getChildren().addAll(skeleton4, skeletonButton);
+//        vBox.getChildren().addAll(skeleton4, skeletonButton);
+        vBox.getChildren().addAll(tagHbox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
