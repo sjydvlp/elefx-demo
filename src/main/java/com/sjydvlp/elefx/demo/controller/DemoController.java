@@ -68,6 +68,9 @@ import com.sjydvlp.elefx.component.rate.EleFXRateSize;
 import com.sjydvlp.elefx.component.result.EleFXResult;
 import com.sjydvlp.elefx.component.result.EleFXResultIcon;
 import com.sjydvlp.elefx.component.scrollbar.EleFXScrollbar;
+import com.sjydvlp.elefx.component.segmented.EleFXSegmented;
+import com.sjydvlp.elefx.component.segmented.EleFXSegmentedDirection;
+import com.sjydvlp.elefx.component.segmented.EleFXSegmentedItem;
 import com.sjydvlp.elefx.component.select.EleFXSelect;
 import com.sjydvlp.elefx.component.select.EleFXSelectOption;
 import com.sjydvlp.elefx.component.select.EleFXSelectOptionGroup;
@@ -106,6 +109,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -962,6 +966,39 @@ public class DemoController implements Initializable {
         HBox statisticHbox = new HBox(statistic1, statistic2, countdown1, countdown2);
         statisticHbox.setSpacing(10);
 
+        // --- EleFXSegmented
+        EleFXSegmented<EleFXIconType> fruits = new EleFXSegmented<>();
+
+        EleFXSegmentedItem<EleFXIconType> watermelon =
+                new EleFXSegmentedItem<>("Watermelon", EleFXIconType.WATERMELON);
+        watermelon.setDisabled(true);
+
+        fruits.getItems().setAll(
+                new EleFXSegmentedItem<>("Apple", EleFXIconType.APPLE),
+                new EleFXSegmentedItem<>("Cherry", EleFXIconType.CHERRY),
+                new EleFXSegmentedItem<>("Grape", EleFXIconType.GRAPE),
+                new EleFXSegmentedItem<>("Orange", EleFXIconType.ORANGE),
+                new EleFXSegmentedItem<>("Pear", EleFXIconType.PEAR),
+                watermelon
+        );
+
+        fruits.setItemRenderer(item -> {
+            EleFXIcon icon = new EleFXIcon(item.getValue(), 20);
+            Label label = new Label(item.getLabel());
+
+            VBox content = new VBox(6, icon, label);
+            content.setAlignment(Pos.CENTER);
+            content.setPadding(new Insets(8, 0, 8, 0));
+            return content;
+        });
+
+        fruits.setValue(EleFXIconType.ORANGE);
+        fruits.setDirection(EleFXSegmentedDirection.VERTICAL);
+
+        // 像截图一样让所有项目等宽
+//        fruits.setBlock(true);
+//        fruits.setPrefWidth(640);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -986,7 +1023,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(resultHbox);
 //        vBox.getChildren().addAll(skeleton1, skeleton2, skeleton3, skeleton4);
 //        vBox.getChildren().addAll(skeleton4, skeletonButton);
-        vBox.getChildren().addAll(tagHbox, timeline1, statisticHbox);
+//        vBox.getChildren().addAll(tagHbox, timeline1, statisticHbox, segmented1);
+        vBox.getChildren().addAll(fruits);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
