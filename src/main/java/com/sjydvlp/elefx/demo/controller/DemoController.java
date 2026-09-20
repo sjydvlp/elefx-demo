@@ -2,6 +2,8 @@ package com.sjydvlp.elefx.demo.controller;
 
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.lang.Tuple;
+import com.sjydvlp.elefx.component.affix.EleFXAffix;
+import com.sjydvlp.elefx.component.affix.EleFXAffixPosition;
 import com.sjydvlp.elefx.component.autocomplete.EleFXAutocomplete;
 import com.sjydvlp.elefx.component.avatar.*;
 import com.sjydvlp.elefx.component.button.EleFXButton;
@@ -999,6 +1001,34 @@ public class DemoController implements Initializable {
 //        fruits.setBlock(true);
 //        fruits.setPrefWidth(640);
 
+        // --- EleFXAffix
+        VBox affixVbox = new VBox();
+
+        for (int i = 0; i < 100; i++) {
+            affixVbox.getChildren().add(new Label("label_" + i));
+
+            if (i == 50) {
+                VBox vbox = new VBox();
+                vbox.setPrefHeight(400);
+
+                EleFXAffix affix = new EleFXAffix(new EleFXButton("Offset top 120px", EleFXButtonType.PRIMARY));
+                affix.setPosition(EleFXAffixPosition.TOP);
+                affix.setOffset(120);
+                affix.setTarget(vbox);
+                vbox.getChildren().add(affix);
+
+                affixVbox.getChildren().add(vbox);
+
+                EleFXAffix affix2 = new EleFXAffix(new EleFXButton("Offset bottom 120px", EleFXButtonType.DANGER));
+                affix2.setPosition(EleFXAffixPosition.BOTTOM);
+                affix2.setOffset(120);
+
+                affixVbox.getChildren().add(affix2);
+            }
+        }
+
+        EleFXScrollbar affixScrollbar = new EleFXScrollbar(affixVbox);
+
         // 添加
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -1024,7 +1054,8 @@ public class DemoController implements Initializable {
 //        vBox.getChildren().addAll(skeleton1, skeleton2, skeleton3, skeleton4);
 //        vBox.getChildren().addAll(skeleton4, skeletonButton);
 //        vBox.getChildren().addAll(tagHbox, timeline1, statisticHbox, segmented1);
-        vBox.getChildren().addAll(fruits);
+//        vBox.getChildren().addAll(fruits);
+        vBox.getChildren().addAll(affixScrollbar);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
