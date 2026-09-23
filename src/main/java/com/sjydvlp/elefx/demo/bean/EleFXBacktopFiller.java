@@ -21,6 +21,17 @@ public class EleFXBacktopFiller {
 
         EleFXScrollbar scrollPane = new EleFXScrollbar(labelVbox);
         EleFXBacktop backtop = new EleFXBacktop(scrollPane);
+//        backtop.setVisibilityHeight(10);
+
+//        Label upLabel = new Label("UP");
+//        upLabel.setPrefSize(40, 40);
+//        upLabel.setAlignment(Pos.CENTER);
+//        upLabel.setStyle("""
+//    -fx-background-color: -elefx-co-overlay-bg;
+//    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 12, 0, 0, 0);
+//    -fx-text-fill: #1989fa;
+//    """);
+//        backtop.setContent(upLabel);
 
         vBox.getChildren().addAll(scrollPane, backtop);
     }
