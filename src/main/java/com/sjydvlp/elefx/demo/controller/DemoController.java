@@ -1,7 +1,7 @@
 package com.sjydvlp.elefx.demo.controller;
 
 import cn.hutool.core.io.resource.ResourceUtil;
-import com.sjydvlp.elefx.demo.bean.EleFXBacktopFiller;
+import com.sjydvlp.elefx.demo.bean.EleFXBreadcrumbFiller;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -134,7 +134,8 @@ public class DemoController implements Initializable {
 //        EleFXSegmentedFiller.fill(vBox);
 //        EleFXAffixFiller.fill(vBox);
 //        EleFXAnchorFiller.fill(vBox);
-        EleFXBacktopFiller.fill(vBox);
+//        EleFXBacktopFiller.fill(vBox);
+        EleFXBreadcrumbFiller.fill(vBox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
