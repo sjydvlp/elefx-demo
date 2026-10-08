@@ -1,7 +1,7 @@
 package com.sjydvlp.elefx.demo.controller;
 
 import cn.hutool.core.io.resource.ResourceUtil;
-import com.sjydvlp.elefx.demo.bean.EleFXMenuFiller;
+import com.sjydvlp.elefx.demo.bean.EleFXPageHeaderFiller;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -137,7 +137,8 @@ public class DemoController implements Initializable {
 //        EleFXBacktopFiller.fill(vBox);
 //        EleFXBreadcrumbFiller.fill(vBox);
 //        EleFXDropdownFiller.fill(vBox);
-        EleFXMenuFiller.fill(vBox);
+//        EleFXMenuFiller.fill(vBox);
+        EleFXPageHeaderFiller.fill(vBox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
