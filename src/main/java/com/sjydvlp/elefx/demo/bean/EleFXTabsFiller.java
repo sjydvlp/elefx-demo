@@ -8,6 +8,7 @@ import com.sjydvlp.elefx.component.tabs.EleFXTabPane;
 import com.sjydvlp.elefx.component.tabs.EleFXTabs;
 import com.sjydvlp.elefx.component.tabs.EleFXTabsPosition;
 import com.sjydvlp.elefx.component.tabs.EleFXTabsType;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -128,12 +129,19 @@ public class EleFXTabsFiller {
             tabs.setCurrentName(name);
         });
         tabs.setOnTabRemove(event -> {
-            Object currentName = tabs.getCurrentName();
+            ObservableList<EleFXTabPane> panes = tabs.getPanes();
+            EleFXTabPane removed = event.getPane();
 
-            Object waitRemoveName = event.getPane().getName();
-            if (Objects.equals(currentName, waitRemoveName)) {
-
+            int index = panes.indexOf(removed);
+            if (index < 0) {
+                return;
             }
+
+            if (Objects.equals(tabs.getCurrentName(), removed.getName()) && panes.size() > 1) {
+                EleFXTabPane nextPane = panes.get(index + 1 < panes.size() ? index + 1 : index - 1);
+                tabs.setCurrentName(nextPane.getName());
+            }
+            panes.remove(removed);
         });
 
         VBox vBox = new VBox();
