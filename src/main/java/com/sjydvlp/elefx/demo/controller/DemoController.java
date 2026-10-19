@@ -142,7 +142,7 @@ public class DemoController implements Initializable {
 //        EleFXStepsFiller.fill(vBox);
 //        EleFXTabsFiller.fill(vBox);
 //        EleFXAlertFiller.fill(vBox);
-        EleFXDialogFiller.fill(vBox, stage);
+        EleFXDialogFiller.fill(vBox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
