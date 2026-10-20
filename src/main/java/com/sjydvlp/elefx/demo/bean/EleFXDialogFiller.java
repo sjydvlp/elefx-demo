@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * EleFXAlertFiller
+ * EleFXDialogFiller
  *
  * @author sjydvlp@163.com
  * @date 2026/9/20 23:24

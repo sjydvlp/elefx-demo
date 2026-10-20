@@ -24,9 +24,9 @@
 **************************************************/
 .rootPane {
 	-fx-background-color: white;
-	-fx-background-radius: 10;
+	-fx-background-radius: 0;
 	-fx-border-color: #ebebeb;
-	-fx-border-radius: 10;
+	-fx-border-radius: 0;
 }
 
 /**************************************************
