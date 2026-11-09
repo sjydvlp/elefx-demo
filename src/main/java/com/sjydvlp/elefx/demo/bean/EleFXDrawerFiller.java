@@ -49,8 +49,7 @@ public class EleFXDrawerFiller {
                 new EleFXRadio<>("left to right", EleFXDrawerDirection.LTR),
                 new EleFXRadio<>("right to left", EleFXDrawerDirection.RTL),
                 new EleFXRadio<>("top to bottom", EleFXDrawerDirection.TTB),
-                new EleFXRadio<>("bottom to top", EleFXDrawerDirection.BTT)
-        );
+                new EleFXRadio<>("bottom to top", EleFXDrawerDirection.BTT));
         directions.setValue(EleFXDrawerDirection.LTR);
         directions.setHgap(12);
         directions.setVgap(8);
@@ -58,25 +57,19 @@ public class EleFXDrawerFiller {
         // 普通抽屉：关闭前确认
         EleFXDrawer drawer = new EleFXDrawer(new Label("Hi, there!"));
         drawer.setTitle("I am the title");
-        drawer.setBeforeClose(done ->
-                EleFXMessageBox.confirm(
-                        "Are you sure you want to close this?", "Confirm"
-                ).thenAccept(result -> {
+        drawer.setBeforeClose(done -> EleFXMessageBox.confirm(
+                "Are you sure you want to close this?", "Confirm").thenAccept(result -> {
                     if (result.confirmed()) {
                         Platform.runLater(done);
                     }
-                })
-        );
+                }));
 
         // 带页脚的抽屉
         EleFXRadioGroup<String> options = new EleFXRadioGroup<>(
                 new EleFXRadio<>("Option 1", "Option 1"),
-                new EleFXRadio<>("Option 2", "Option 2")
-        );
+                new EleFXRadio<>("Option 2", "Option 2"));
         options.setValue("Option 1");
-        options.getRadios().forEach(radio ->
-                radio.setSize(EleFXRadioSize.LARGE)
-        );
+        options.getRadios().forEach(radio -> radio.setSize(EleFXRadioSize.LARGE));
 
         EleFXDrawer drawerWithFooter = new EleFXDrawer(options);
         drawerWithFooter.setHeader(new Label("set title by slot"));
@@ -85,18 +78,14 @@ public class EleFXDrawerFiller {
         cancel.setOnAction(event -> drawerWithFooter.close());
 
         EleFXButton confirm = new EleFXButton(
-                "confirm", EleFXButtonType.PRIMARY
-        );
-        confirm.setOnAction(event ->
-                EleFXMessageBox.confirm(
-                        "Are you confirm to chose " + options.getValue() + " ?",
-                        "Confirm"
-                ).thenAccept(result -> {
+                "confirm", EleFXButtonType.PRIMARY);
+        confirm.setOnAction(event -> EleFXMessageBox.confirm(
+                "Are you confirm to chose " + options.getValue() + " ?",
+                "Confirm").thenAccept(result -> {
                     if (result.confirmed()) {
                         Platform.runLater(drawerWithFooter::close);
                     }
-                })
-        );
+                }));
 
         HBox footer = new HBox(12, cancel, confirm);
         footer.setAlignment(Pos.CENTER_RIGHT);
@@ -107,26 +96,22 @@ public class EleFXDrawerFiller {
                 (observable, oldValue, direction) -> {
                     drawer.setDirection(direction);
                     drawerWithFooter.setDirection(direction);
-                }
-        );
+                });
         drawer.setDirection(directions.getValue());
         drawerWithFooter.setDirection(directions.getValue());
 
         EleFXButton open = new EleFXButton(
-                "open", EleFXButtonType.PRIMARY
-        );
+                "open", EleFXButtonType.PRIMARY);
         open.setOnAction(event -> drawer.show(open.getScene().getWindow()));
 
         EleFXButton openWithFooter = new EleFXButton(
-                "with footer", EleFXButtonType.PRIMARY
-        );
+                "with footer", EleFXButtonType.PRIMARY);
         openWithFooter.setOnAction(event -> drawerWithFooter.show(openWithFooter.getScene().getWindow()));
 
         VBox root = new VBox(
                 20,
                 directions,
-                new HBox(16, open, openWithFooter)
-        );
+                new HBox(16, open, openWithFooter));
         root.setPadding(new Insets(24));
 
         return root;
@@ -148,8 +133,7 @@ public class EleFXDrawerFiller {
 
     private static VBox customizedHeaderTest() {
         EleFXDrawer drawer = new EleFXDrawer(
-                new Label("This is drawer content.")
-        );
+                new Label("This is drawer content."));
         drawer.setShowClose(false);
 
         Label title = new Label("This is a custom header!");
@@ -158,8 +142,7 @@ public class EleFXDrawerFiller {
         EleFXButton close = new EleFXButton(
                 "Close",
                 new EleFXIcon(EleFXIconType.CIRCLE_CLOSE_FILLED, 16),
-                EleFXButtonType.DANGER
-        );
+                EleFXButtonType.DANGER);
         close.setOnAction(event -> drawer.requestClose());
 
         HBox header = new HBox(12, title, close);
@@ -167,8 +150,7 @@ public class EleFXDrawerFiller {
         drawer.setHeader(header);
 
         EleFXButton open = new EleFXButton(
-                "Open Drawer with customized header"
-        );
+                "Open Drawer with customized header");
         open.setOnAction(event -> drawer.show(open.getScene().getWindow()));
 
         return new VBox(open);
@@ -176,17 +158,14 @@ public class EleFXDrawerFiller {
 
     private static VBox resizableDrawerTest() {
         EleFXDrawer drawer = new EleFXDrawer(
-                new Label("This is drawer content.")
-        );
+                new Label("This is drawer content."));
         drawer.setResizable(true);
 
-        EleFXRadioGroup<EleFXDrawerDirection> directions =
-                new EleFXRadioGroup<>(
-                        new EleFXRadioButton<>("top", EleFXDrawerDirection.TTB),
-                        new EleFXRadioButton<>("right", EleFXDrawerDirection.RTL),
-                        new EleFXRadioButton<>("bottom", EleFXDrawerDirection.BTT),
-                        new EleFXRadioButton<>("left", EleFXDrawerDirection.LTR)
-                );
+        EleFXRadioGroup<EleFXDrawerDirection> directions = new EleFXRadioGroup<>(
+                new EleFXRadioButton<>("top", EleFXDrawerDirection.TTB),
+                new EleFXRadioButton<>("right", EleFXDrawerDirection.RTL),
+                new EleFXRadioButton<>("bottom", EleFXDrawerDirection.BTT),
+                new EleFXRadioButton<>("left", EleFXDrawerDirection.LTR));
 
         directions.valueProperty().addListener(
                 (observable, oldValue, direction) -> {
@@ -194,8 +173,7 @@ public class EleFXDrawerFiller {
                         drawer.setDirection(direction);
                         drawer.show(directions.getScene().getWindow());
                     }
-                }
-        );
+                });
 
         VBox root = new VBox(directions);
         root.setPadding(new Insets(24));
@@ -205,32 +183,25 @@ public class EleFXDrawerFiller {
 
     private static VBox nestedDrawerTest() {
         EleFXDrawer innerDrawer = new EleFXDrawer(
-                new Label("_(:зゝ∠)_")
-        );
+                new Label("_(:зゝ∠)_"));
         innerDrawer.setTitle("I'm inner Drawer");
-        innerDrawer.setBeforeClose(done ->
-                EleFXMessageBox.confirm(
-                        "You still have unsaved data, proceed?",
-                        "Confirm"
-                ).thenAccept(result -> {
+        innerDrawer.setBeforeClose(done -> EleFXMessageBox.confirm(
+                "You still have unsaved data, proceed?",
+                "Confirm").thenAccept(result -> {
                     if (result.confirmed()) {
                         Platform.runLater(done);
                     }
-                })
-        );
+                }));
 
         EleFXButton openInner = new EleFXButton("Click me!");
-        openInner.setOnAction(event ->
-                innerDrawer.show(openInner.getScene().getWindow())
-        );
+        openInner.setOnAction(event -> innerDrawer.show(openInner.getScene().getWindow()));
 
         EleFXDrawer outerDrawer = new EleFXDrawer(openInner);
         outerDrawer.setTitle("I'm outer Drawer");
         outerDrawer.setSize("50%");
 
         EleFXButton openOuter = new EleFXButton(
-                "open", EleFXButtonType.PRIMARY
-        );
+                "open", EleFXButtonType.PRIMARY);
         openOuter.setOnAction(event -> outerDrawer.show(openOuter.getScene().getWindow()));
 
         return new VBox(openOuter);
@@ -238,8 +209,7 @@ public class EleFXDrawerFiller {
 
     private static VBox modalTest() {
         EleFXDrawer drawer = new EleFXDrawer(
-                new Label("It's a modal Drawer")
-        );
+                new Label("It's a modal Drawer"));
         drawer.setModal(false);
         drawer.setModalPenetrable(true);
 
@@ -247,8 +217,7 @@ public class EleFXDrawerFiller {
         cancel.setOnAction(event -> drawer.close());
 
         EleFXButton confirm = new EleFXButton(
-                "Confirm", EleFXButtonType.PRIMARY
-        );
+                "Confirm", EleFXButtonType.PRIMARY);
         confirm.setOnAction(event -> drawer.close());
 
         HBox footer = new HBox(12, cancel, confirm);

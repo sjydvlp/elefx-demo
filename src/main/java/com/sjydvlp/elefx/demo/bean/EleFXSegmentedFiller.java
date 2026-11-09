@@ -21,8 +21,7 @@ public class EleFXSegmentedFiller {
     public static void fill(VBox vBox) {
         EleFXSegmented<EleFXIconType> fruits = new EleFXSegmented<>();
 
-        EleFXSegmentedItem<EleFXIconType> watermelon =
-                new EleFXSegmentedItem<>("Watermelon", EleFXIconType.WATERMELON);
+        EleFXSegmentedItem<EleFXIconType> watermelon = new EleFXSegmentedItem<>("Watermelon", EleFXIconType.WATERMELON);
         watermelon.setDisabled(true);
 
         fruits.getItems().setAll(
@@ -31,8 +30,7 @@ public class EleFXSegmentedFiller {
                 new EleFXSegmentedItem<>("Grape", EleFXIconType.GRAPE),
                 new EleFXSegmentedItem<>("Orange", EleFXIconType.ORANGE),
                 new EleFXSegmentedItem<>("Pear", EleFXIconType.PEAR),
-                watermelon
-        );
+                watermelon);
 
         fruits.setItemRenderer(item -> {
             EleFXIcon icon = new EleFXIcon(item.getValue(), 20);
@@ -48,11 +46,12 @@ public class EleFXSegmentedFiller {
         fruits.setDirection(EleFXSegmentedDirection.VERTICAL);
 
         // 像截图一样让所有项目等宽
-//        fruits.setBlock(true);
-//        fruits.setPrefWidth(640);
+        // fruits.setBlock(true);
+        // fruits.setPrefWidth(640);
 
         vBox.getChildren().addAll(fruits);
     }
 
-    private EleFXSegmentedFiller() {}
+    private EleFXSegmentedFiller() {
+    }
 }

@@ -81,7 +81,6 @@ public class EleFXDialogFiller {
     private static HBox customizedContentTest() {
         // dialog1
 
-
         EleFXDialog dialog1 = new EleFXDialog();
         dialog1.setTitle("Shipping address");
         dialog1.setBody(new Label("This is a message"));
@@ -126,7 +125,8 @@ public class EleFXDialogFiller {
         EleFXDialog dialog = new EleFXDialog();
 
         Label headerLabel = new Label("This is a custom header!");
-        EleFXButton headerBtn = new EleFXButton("Close", EleFXIcons.of(EleFXIconType.CIRCLE_CLOSE_FILLED), EleFXButtonType.DANGER);
+        EleFXButton headerBtn = new EleFXButton("Close", EleFXIcons.of(EleFXIconType.CIRCLE_CLOSE_FILLED),
+                EleFXButtonType.DANGER);
         headerBtn.setOnAction(event -> {
             dialog.requestClose();
         });
@@ -163,19 +163,14 @@ public class EleFXDialogFiller {
         EleFXButton cancel = new EleFXButton("Cancel");
         cancel.setOnAction(e -> outer.requestClose());
 
-        EleFXButton openInner =
-                new EleFXButton("Open the inner Dialog", EleFXButtonType.PRIMARY);
-        openInner.setOnAction(e ->
-                inner.show(openInner.getScene().getWindow())
-        );
+        EleFXButton openInner = new EleFXButton("Open the inner Dialog", EleFXButtonType.PRIMARY);
+        openInner.setOnAction(e -> inner.show(openInner.getScene().getWindow()));
 
         outer.setFooter(new HBox(12, cancel, openInner));
 
         EleFXButton openOuter = new EleFXButton("Open the outer Dialog");
         openOuter.setType(EleFXButtonType.DEFAULT);
-        openOuter.setOnAction(e ->
-                outer.show(openOuter.getScene().getWindow())
-        );
+        openOuter.setOnAction(e -> outer.show(openOuter.getScene().getWindow()));
 
         return new VBox(openOuter);
     }
@@ -187,8 +182,7 @@ public class EleFXDialogFiller {
         dialog.setCenter(true); // 标题和底部区域居中
 
         dialog.setBody(new Label(
-                "It should be noted that the content will not be aligned in center by default"
-        ));
+                "It should be noted that the content will not be aligned in center by default"));
 
         EleFXButton cancel = new EleFXButton("Cancel");
         EleFXButton confirm = new EleFXButton("Confirm", EleFXButtonType.PRIMARY);
@@ -200,9 +194,7 @@ public class EleFXDialogFiller {
 
         EleFXButton openButton = new EleFXButton("Click to open the Dialog");
         openButton.setType(EleFXButtonType.DEFAULT);
-        openButton.setOnAction(e ->
-                dialog.show(openButton.getScene().getWindow())
-        );
+        openButton.setOnAction(e -> dialog.show(openButton.getScene().getWindow()));
 
         return new VBox(openButton);
     }
@@ -222,9 +214,7 @@ public class EleFXDialogFiller {
 
         EleFXButton openButton = new EleFXButton("Click to open the Dialog");
         openButton.setType(EleFXButtonType.DEFAULT);
-        openButton.setOnAction(e ->
-                dialog.show(openButton.getScene().getWindow())
-        );
+        openButton.setOnAction(e -> dialog.show(openButton.getScene().getWindow()));
 
         return new VBox(openButton);
     }
@@ -245,12 +235,9 @@ public class EleFXDialogFiller {
         custom.setDraggable(true);
         installDraggingStyle(custom);
 
-        EleFXButton openNormal =
-                openButton("Open a draggable Dialog", normal);
-        EleFXButton openOverflow =
-                openButton("Open an overflow draggable Dialog", overflow);
-        EleFXButton openCustom =
-                openButton("Open a custom dragging style Dialog", custom);
+        EleFXButton openNormal = openButton("Open a draggable Dialog", normal);
+        EleFXButton openOverflow = openButton("Open an overflow draggable Dialog", overflow);
+        EleFXButton openCustom = openButton("Open a custom dragging style Dialog", custom);
 
         return new VBox(10, openNormal, openOverflow, openCustom);
     }
@@ -261,19 +248,15 @@ public class EleFXDialogFiller {
         dialog.setBody(new Label("It's a fullscreen Dialog"));
 
         EleFXButton cancel = new EleFXButton("Cancel");
-        EleFXButton confirm =
-                new EleFXButton("Confirm", EleFXButtonType.PRIMARY);
+        EleFXButton confirm = new EleFXButton("Confirm", EleFXButtonType.PRIMARY);
 
         cancel.setOnAction(e -> dialog.close());
         confirm.setOnAction(e -> dialog.close());
         dialog.setFooter(new HBox(12, cancel, confirm));
 
-        EleFXButton openButton =
-                new EleFXButton("Open the fullscreen Dialog");
+        EleFXButton openButton = new EleFXButton("Open the fullscreen Dialog");
         openButton.setType(EleFXButtonType.DEFAULT);
-        openButton.setOnAction(e ->
-                dialog.show(openButton.getScene().getWindow())
-        );
+        openButton.setOnAction(e -> dialog.show(openButton.getScene().getWindow()));
 
         return new VBox(openButton);
     }
@@ -298,9 +281,7 @@ public class EleFXDialogFiller {
         AtomicInteger clicks = new AtomicInteger();
         Label counter = new Label("背景点击次数：0");
         EleFXButton backgroundButton = new EleFXButton("背景按钮");
-        backgroundButton.setOnAction(e ->
-                counter.setText("背景点击次数：" + clicks.incrementAndGet())
-        );
+        backgroundButton.setOnAction(e -> counter.setText("背景点击次数：" + clicks.incrementAndGet()));
 
         return new VBox(16, openButton, backgroundButton, counter);
     }
@@ -312,8 +293,7 @@ public class EleFXDialogFiller {
         dialog.setBody(new Label(message));
 
         EleFXButton cancel = new EleFXButton("Cancel");
-        EleFXButton confirm =
-                new EleFXButton("Confirm", EleFXButtonType.PRIMARY);
+        EleFXButton confirm = new EleFXButton("Confirm", EleFXButtonType.PRIMARY);
 
         cancel.setOnAction(e -> dialog.close());
         confirm.setOnAction(e -> dialog.close());
@@ -323,11 +303,10 @@ public class EleFXDialogFiller {
     }
 
     private static EleFXButton openButton(
-            String text, EleFXDialog dialog) {
+                                          String text, EleFXDialog dialog) {
         EleFXButton button = new EleFXButton(text);
         button.setType(EleFXButtonType.DEFAULT);
-        button.setOnAction(e ->
-                dialog.show(button.getScene().getWindow()));
+        button.setOnAction(e -> dialog.show(button.getScene().getWindow()));
         return button;
     }
 

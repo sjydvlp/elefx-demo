@@ -26,5 +26,6 @@ public class EleFXTextFiller {
         vBox.getChildren().addAll(text1, text2);
     }
 
-    private EleFXTextFiller() {}
+    private EleFXTextFiller() {
+    }
 }

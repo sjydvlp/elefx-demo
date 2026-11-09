@@ -23,8 +23,7 @@ import java.util.Map;
  */
 public class EleFXMessageFiller {
 
-    private static final Map<EleFXMessagePlacement, Integer> counts =
-            new EnumMap<>(EleFXMessagePlacement.class);
+    private static final Map<EleFXMessagePlacement, Integer> counts = new EnumMap<>(EleFXMessagePlacement.class);
 
     public static void fill(VBox vBox) {
         HBox basisUsageTest = basisUsageTest();
@@ -45,9 +44,7 @@ public class EleFXMessageFiller {
 
     private static HBox basisUsageTest() {
         Button showMessage = new Button("Show message");
-        showMessage.setOnAction(event ->
-                EleFXMessage.show("This is a message.")
-        );
+        showMessage.setOnAction(event -> EleFXMessage.show("This is a message."));
 
         Button showNode = new Button("VNode");
         showNode.setOnAction(event -> {
@@ -60,8 +57,7 @@ public class EleFXMessageFiller {
             EleFXMessage.show(
                     new EleFXMessageOptions()
                             .messageNode(content)
-                            .owner(showNode.getScene().getWindow())
-            );
+                            .owner(showNode.getScene().getWindow()));
         });
 
         HBox root = new HBox(8, showMessage, showNode);
@@ -72,29 +68,19 @@ public class EleFXMessageFiller {
 
     private static HBox typesTest() {
         Button primary = new Button("Primary");
-        primary.setOnAction(e ->
-                EleFXMessage.primary("This is a primary message.")
-        );
+        primary.setOnAction(e -> EleFXMessage.primary("This is a primary message."));
 
         Button success = new Button("Success");
-        success.setOnAction(e ->
-                EleFXMessage.success("Congrats, this is a success message.")
-        );
+        success.setOnAction(e -> EleFXMessage.success("Congrats, this is a success message."));
 
         Button warning = new Button("Warning");
-        warning.setOnAction(e ->
-                EleFXMessage.warning("Warning, this is a warning message.")
-        );
+        warning.setOnAction(e -> EleFXMessage.warning("Warning, this is a warning message."));
 
         Button info = new Button("Info");
-        info.setOnAction(e ->
-                EleFXMessage.info("This is an info message.")
-        );
+        info.setOnAction(e -> EleFXMessage.info("This is an info message."));
 
         Button error = new Button("Error");
-        error.setOnAction(e ->
-                EleFXMessage.error("Oops, this is an error message.")
-        );
+        error.setOnAction(e -> EleFXMessage.error("Oops, this is an error message."));
 
         HBox root = new HBox(8, primary, success, warning, info, error);
         root.setPadding(new Insets(20));
@@ -108,8 +94,7 @@ public class EleFXMessageFiller {
                 messageButton("Success", "Congrats, this is a success message.", EleFXMessageType.SUCCESS, false),
                 messageButton("Warning", "Warning, this is a warning message.", EleFXMessageType.WARNING, false),
                 messageButton("Info", "This is an info message.", EleFXMessageType.INFO, false),
-                messageButton("Error", "Oops, this is an error message.", EleFXMessageType.ERROR, false)
-        );
+                messageButton("Error", "Oops, this is an error message.", EleFXMessageType.ERROR, false));
         root.setPadding(new Insets(20));
 
         return root;
@@ -121,18 +106,14 @@ public class EleFXMessageFiller {
                 messageButton("Success", "Congrats, this is a success message.", EleFXMessageType.SUCCESS, true),
                 messageButton("Warning", "Warning, this is a warning message.", EleFXMessageType.WARNING, true),
                 messageButton("Info", "This is an info message.", EleFXMessageType.INFO, true),
-                messageButton("Error", "Oops, this is an error message.", EleFXMessageType.ERROR, true)
-        );
+                messageButton("Error", "Oops, this is an error message.", EleFXMessageType.ERROR, true));
 
         Button persistent = new Button("Won't close automatically");
-        persistent.setOnAction(event ->
-                EleFXMessage.show(
-                        new EleFXMessageOptions()
-                                .message("Oops, this is a message that does not automatically close.")
-                                .showClose(true)
-                                .duration(0)
-                )
-        );
+        persistent.setOnAction(event -> EleFXMessage.show(
+                new EleFXMessageOptions()
+                        .message("Oops, this is a message that does not automatically close.")
+                        .showClose(true)
+                        .duration(0)));
         root.getChildren().add(persistent);
         root.setPadding(new Insets(20));
 
@@ -164,8 +145,7 @@ public class EleFXMessageFiller {
                 button("Top Right", EleFXMessagePlacement.TOP_RIGHT),
                 button("Bottom", EleFXMessagePlacement.BOTTOM),
                 button("Bottom Left", EleFXMessagePlacement.BOTTOM_LEFT),
-                button("Bottom Right", EleFXMessagePlacement.BOTTOM_RIGHT)
-        );
+                button("Bottom Right", EleFXMessagePlacement.BOTTOM_RIGHT));
         root.setPadding(new Insets(20));
 
         return new VBox(root);
@@ -173,15 +153,12 @@ public class EleFXMessageFiller {
 
     private static Button messageButton(String title, String text, EleFXMessageType type, boolean showClose) {
         Button button = new Button(title);
-        button.setOnAction(event ->
-                EleFXMessage.show(
-                        new EleFXMessageOptions()
-                                .message(text)
-                                .type(type)
-                                .plain(true)
-                                .showClose(showClose)
-                )
-        );
+        button.setOnAction(event -> EleFXMessage.show(
+                new EleFXMessageOptions()
+                        .message(text)
+                        .type(type)
+                        .plain(true)
+                        .showClose(showClose)));
         return button;
     }
 
@@ -210,8 +187,7 @@ public class EleFXMessageFiller {
                 new EleFXMessageOptions()
                         .message("This is a message from the " + position + " " + count)
                         .type(type)
-                        .placement(placement)
-        );
+                        .placement(placement));
     }
 
     private EleFXMessageFiller() {

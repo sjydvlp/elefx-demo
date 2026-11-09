@@ -43,12 +43,8 @@ public class EleFXInputFiller {
         EleFXInput input4 = new EleFXInput();
         input4.setClearable(true);
         input4.setClearIcon(new EleFXIcon(EleFXIconType.ADD_LOCATION));
-        input4.setFormatter(value ->
-                ("$ " + value).replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",")
-        );
-        input4.setParser(value ->
-                value.replaceAll("\\$\\s?|,+", "")
-        );
+        input4.setFormatter(value -> ("$ " + value).replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
+        input4.setParser(value -> value.replaceAll("\\$\\s?|,+", ""));
 
         HBox inputHbox1 = new HBox();
         inputHbox1.getChildren().addAll(input1, input2);
@@ -59,5 +55,6 @@ public class EleFXInputFiller {
         vBox.getChildren().addAll(inputHbox1, inputHbox2);
     }
 
-    private EleFXInputFiller() {}
+    private EleFXInputFiller() {
+    }
 }

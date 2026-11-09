@@ -72,11 +72,9 @@ public class EleFXAnchorFiller {
         anchor.setBound(15);
         anchor.setDuration(300);
         anchor.setDirection(EleFXAnchorDirection.HORIZONTAL);
-//        anchor.setType(EleFXAnchorType.UNDERLINE);
+        // anchor.setType(EleFXAnchorType.UNDERLINE);
 
-        anchor.setOnChange(event ->
-                System.out.println("当前锚点：" + event.getHref())
-        );
+        anchor.setOnChange(event -> System.out.println("当前锚点：" + event.getHref()));
 
         anchor.setOnClick(event -> {
             System.out.println("点击：" + event.getHref());
@@ -107,11 +105,12 @@ public class EleFXAnchorFiller {
         anchorScrollbar.setPrefViewportHeight(100);
 
         // 放入布局
-//        HBox root = new HBox(32, scrollbar, anchor);
+        // HBox root = new HBox(32, scrollbar, anchor);
         HBox root = new HBox(32, scrollbar, anchorScrollbar);
 
         vBox.getChildren().addAll(root);
     }
 
-    private EleFXAnchorFiller() {}
+    private EleFXAnchorFiller() {
+    }
 }

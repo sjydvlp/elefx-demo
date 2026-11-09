@@ -32,8 +32,8 @@ public class EleFXRadioFiller {
         radioCC.setBorder(true);
         radioCC.setDisable(true);
         EleFXRadioGroup<String> radioGroup2 = new EleFXRadioGroup<>(radioAA, radioBB, radioCC);
-//        radioGroup2.setDisable(true);
-//        radioGroup2.setStyle("-fx-border-color: #ff0000;");
+        // radioGroup2.setDisable(true);
+        // radioGroup2.setStyle("-fx-border-color: #ff0000;");
 
         HBox radioHbox = new HBox(radioGroup1, radioGroup2);
         radioHbox.setPadding(new Insets(10));
@@ -42,5 +42,6 @@ public class EleFXRadioFiller {
         vBox.getChildren().addAll(radioHbox);
     }
 
-    private EleFXRadioFiller() {}
+    private EleFXRadioFiller() {
+    }
 }

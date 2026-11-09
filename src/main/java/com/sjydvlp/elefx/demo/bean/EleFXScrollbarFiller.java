@@ -16,8 +16,7 @@ public class EleFXScrollbarFiller {
         VBox scrollbarVbox = new VBox();
         scrollbarVbox.getChildren().addAll(
                 new Text("a"), new Text("b"), new Text("c"), new Text("d"),
-                new Text("e"), new Text("f"), new Text("g"), new Text("h")
-        );
+                new Text("e"), new Text("f"), new Text("g"), new Text("h"));
         EleFXScrollbar scrollbar = new EleFXScrollbar(scrollbarVbox);
         scrollbar.setPrefHeight(100);
         scrollbar.setScrollTop(120);
@@ -25,5 +24,6 @@ public class EleFXScrollbarFiller {
         vBox.getChildren().addAll(scrollbar);
     }
 
-    private EleFXScrollbarFiller() {}
+    private EleFXScrollbarFiller() {
+    }
 }

@@ -21,11 +21,11 @@ public class EleFXColorPickerPanelFiller {
         colorPickerPanel.getPredefinedColors().addAll(
                 Color.web("#ff4500"),
                 Color.web("#1e90ff"),
-                Color.web("#c71585")
-        );
+                Color.web("#c71585"));
 
         vBox.getChildren().addAll(colorPickerPanel);
     }
 
-    private EleFXColorPickerPanelFiller() {}
+    private EleFXColorPickerPanelFiller() {
+    }
 }

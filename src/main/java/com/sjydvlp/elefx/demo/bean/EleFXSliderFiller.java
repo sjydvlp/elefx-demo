@@ -25,12 +25,12 @@ public class EleFXSliderFiller {
 
         EleFXSlider slider2 = new EleFXSlider();
         slider2.setStep(10);
-//        slider2.setShowStops(true);
+        // slider2.setShowStops(true);
         slider2.setShowInput(true);
         slider2.setPrecision(0);
         slider2.setTooltipPlacement(EleFXSliderTooltipPlacement.BOTTOM);
         slider2.setRange(true);
-//        slider2.setVertical(true);
+        // slider2.setVertical(true);
 
         EleFXSlider slider3 = new EleFXSlider();
         slider3.setSize(EleFXSliderSize.LARGE);
@@ -43,11 +43,12 @@ public class EleFXSliderFiller {
         EleFXSlider slider4 = new EleFXSlider();
         slider4.setVertical(true);
         slider4.setMarks(Map.of(0.0, new EleFXSliderMark("0.0cm"), 30.0, new EleFXSliderMark("30.0cm")));
-//        slider4.setStep(EleFXSliderStep.MARK);
+        // slider4.setStep(EleFXSliderStep.MARK);
         slider4.setShowTooltip(false);
 
         vBox.getChildren().addAll(sliderVbox, slider4);
     }
 
-    private EleFXSliderFiller() {}
+    private EleFXSliderFiller() {
+    }
 }

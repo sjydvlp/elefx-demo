@@ -22,21 +22,21 @@ public class EleFXCardFiller {
         card1.setShadow(EleFXCardShadow.HOVER);
         card1.getBodyChildren().addAll(
                 new Label("List item 1"),
-                new Label("List item 2")
-        );
+                new Label("List item 2"));
         card1.setMaxWidth(480);
 
         EleFXCard card2 = new EleFXCard();
         card2.setShadow(EleFXCardShadow.ALWAYS);
-//        card2.getBodyChildren().addAll(
-//                new Label("List item 1"),
-//                new Label("List item 2")
-//        );
+        // card2.getBodyChildren().addAll(
+        // new Label("List item 1"),
+        // new Label("List item 2")
+        // );
         card2.getBodyChildren().addAll(new EleFXIcon(EleFXIconType.HANDBAG));
         card2.setMaxWidth(480);
 
         vBox.getChildren().addAll(card1, card2);
     }
 
-    private EleFXCardFiller() {}
+    private EleFXCardFiller() {
+    }
 }

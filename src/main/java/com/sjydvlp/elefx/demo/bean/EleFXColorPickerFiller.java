@@ -18,5 +18,6 @@ public class EleFXColorPickerFiller {
         vBox.getChildren().addAll(colorPicker);
     }
 
-    private EleFXColorPickerFiller() {}
+    private EleFXColorPickerFiller() {
+    }
 }

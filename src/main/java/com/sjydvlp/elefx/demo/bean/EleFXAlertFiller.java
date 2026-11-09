@@ -25,10 +25,10 @@ public class EleFXAlertFiller {
         VBox withDescTest = withDescTest();
 
         vBox.getChildren().add(basisUsageTest);
-//        vBox.getChildren().add(themeTest);
-//        vBox.getChildren().add(closeBtnTest);
-//        vBox.getChildren().add(showIconTest);
-//        vBox.getChildren().add(centeredTextTest);
+        // vBox.getChildren().add(themeTest);
+        // vBox.getChildren().add(closeBtnTest);
+        // vBox.getChildren().add(showIconTest);
+        // vBox.getChildren().add(centeredTextTest);
         vBox.getChildren().add(withDescTest);
         vBox.setSpacing(20);
     }
@@ -43,7 +43,7 @@ public class EleFXAlertFiller {
         VBox vBox = new VBox();
         vBox.setSpacing(10);
         vBox.getChildren().addAll(alert1, alert2, alert3, alert4, alert5);
-//        vBox.setMaxWidth(600);
+        // vBox.setMaxWidth(600);
         return vBox;
     }
 
@@ -136,13 +136,14 @@ public class EleFXAlertFiller {
         alert1.setCenter(true);
         EleFXAlert alert2 = new EleFXAlert("Success alert", EleFXAlertType.SUCCESS);
         alert2.setShowIcon(false);
-//        alert2.setCenter(true);
-        alert2.setDescription("This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.");
+        // alert2.setCenter(true);
+        alert2.setDescription(
+                "This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.");
         EleFXAlert alert3 = new EleFXAlert("Info alert", EleFXAlertType.INFO);
         alert3.setShowIcon(true);
-//        alert3.setCenter(true);
-        alert3.setDescription("This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.");
-
+        // alert3.setCenter(true);
+        alert3.setDescription(
+                "This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.This is a description.");
 
         VBox vBox = new VBox();
         vBox.setSpacing(10);
@@ -150,5 +151,6 @@ public class EleFXAlertFiller {
         return vBox;
     }
 
-    private EleFXAlertFiller() {}
+    private EleFXAlertFiller() {
+    }
 }

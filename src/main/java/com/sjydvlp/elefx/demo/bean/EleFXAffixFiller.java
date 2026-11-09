@@ -47,5 +47,6 @@ public class EleFXAffixFiller {
         vBox.getChildren().addAll(affixScrollbar);
     }
 
-    private EleFXAffixFiller() {}
+    private EleFXAffixFiller() {
+    }
 }

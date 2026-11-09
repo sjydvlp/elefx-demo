@@ -53,8 +53,7 @@ public class EleFXLoadingFiller {
                             .setFullscreen(false)
                             .setTarget(area)
                             .setText("正在获取数据…")
-                            .setLock(true)
-            );
+                            .setLock(true));
 
             PauseTransition delay = new PauseTransition(Duration.seconds(2));
             delay.setOnFinished(e -> loading.close());

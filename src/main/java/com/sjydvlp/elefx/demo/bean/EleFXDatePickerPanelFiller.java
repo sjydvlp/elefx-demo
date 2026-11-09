@@ -20,7 +20,7 @@ public class EleFXDatePickerPanelFiller {
     public static void fill(VBox vBox) {
         EleFXDatePickerPanel datePickerPanel = new EleFXDatePickerPanel();
         datePickerPanel.setType(EleFXDatePickerPanelType.values()[0]);
-//        datePickerPanel.setDisable(true);
+        // datePickerPanel.setDisable(true);
 
         AtomicInteger dateIndex = new AtomicInteger();
         EleFXButton datePreButton = new EleFXButton("切换成前一个");
@@ -50,5 +50,6 @@ public class EleFXDatePickerPanelFiller {
         vBox.getChildren().addAll(datePickerPanelContainer);
     }
 
-    private EleFXDatePickerPanelFiller() {}
+    private EleFXDatePickerPanelFiller() {
+    }
 }

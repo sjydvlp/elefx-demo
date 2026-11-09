@@ -20,7 +20,7 @@ public class EleFXInputNumberFiller {
 
     public static void fill(VBox vBox) {
         EleFXInputNumber inputNumber1 = new EleFXInputNumber();
-//        inputNumber1.setDisable(true);
+        // inputNumber1.setDisable(true);
         inputNumber1.setStep(0.01);
         inputNumber1.setStepStrictly(true);
         inputNumber1.setPrecision(2);
@@ -34,12 +34,8 @@ public class EleFXInputNumberFiller {
         inputNumber2.setIncreaseIcon(new EleFXIcon(EleFXIconType.APPLE));
         inputNumber2.setPrefix(new EleFXIcon(EleFXIconType.AIM));
         inputNumber2.setSuffix(new Label("RMB"));
-        inputNumber2.setFormatter(value ->
-                ("$ " + value).replaceAll("\\B(?=(\\d{3})+(?!\\d))", ",")
-        );
-        inputNumber2.setParser(value ->
-                value.replaceAll("\\$\\s?|,+", "")
-        );
+        inputNumber2.setFormatter(value -> ("$ " + value).replaceAll("\\B(?=(\\d{3})+(?!\\d))", ","));
+        inputNumber2.setParser(value -> value.replaceAll("\\$\\s?|,+", ""));
 
         HBox inputNumberHbox = new HBox(inputNumber1, inputNumber2);
         inputNumberHbox.setPadding(new Insets(10));
@@ -48,5 +44,6 @@ public class EleFXInputNumberFiller {
         vBox.getChildren().addAll(inputNumberHbox);
     }
 
-    private EleFXInputNumberFiller() {}
+    private EleFXInputNumberFiller() {
+    }
 }

@@ -18,17 +18,17 @@ public class EleFXContainerFiller {
         eleFXFooter.setStyle("-fx-background-color: #aaaeee;");
         EleFXAside eleFXAside = new EleFXAside();
         eleFXAside.setPrefWidth(200);
-//        eleFXAside.setPrefHeight(200);
+        // eleFXAside.setPrefHeight(200);
         eleFXAside.setStyle("-fx-background-color: blue;");
         EleFXContainer inContainer = new EleFXContainer(eleFXAside, new EleFXMain());
         EleFXContainer container = new EleFXContainer(
                 eleFXHeader,
                 inContainer,
-                eleFXFooter
-        );
+                eleFXFooter);
 
         vBox.getChildren().addAll(container);
     }
 
-    private EleFXContainerFiller() {}
+    private EleFXContainerFiller() {
+    }
 }

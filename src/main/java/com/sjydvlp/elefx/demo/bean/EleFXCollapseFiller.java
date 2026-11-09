@@ -23,9 +23,9 @@ public class EleFXCollapseFiller {
         EleFXCollapseItem collapseItem12 = new EleFXCollapseItem("hi", new EleFXIcon(EleFXIconType.BASEBALL));
         EleFXCollapseItem collapseItem13 = new EleFXCollapseItem("good", new EleFXIcon(EleFXIconType.CHAT_LINE_SQUARE));
         EleFXCollapse collapse1 = new EleFXCollapse(collapseItem11, collapseItem12, collapseItem13);
-//        collapse1.setAccordion(true);
+        // collapse1.setAccordion(true);
         collapse1.setAnimationDuration(Duration.millis(300));
-//        collapse1.setExpandIconPosition(EleFXCollapseIconPosition.LEFT);
+        // collapse1.setExpandIconPosition(EleFXCollapseIconPosition.LEFT);
         collapse1.setBeforeCollapse(param -> true);
         collapse1.setExpandIconFactory(() -> new EleFXIcon(EleFXIconType.CIRCLE_CHECK));
         collapse1.setCollapseIconFactory(() -> new EleFXIcon(EleFXIconType.DOCUMENT_ADD));
@@ -33,5 +33,6 @@ public class EleFXCollapseFiller {
         vBox.getChildren().addAll(collapse1);
     }
 
-    private EleFXCollapseFiller() {}
+    private EleFXCollapseFiller() {
+    }
 }

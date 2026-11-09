@@ -27,16 +27,18 @@ public class EleFXResultFiller {
         EleFXResult result5 = new EleFXResult(EleFXResultIcon.INFO, "Info Tip", "Please follow the instructions");
         result5.setExtra(new EleFXButton("Back"));
         EleFXResult result6 = new EleFXResult();
-        result6.setIconNode(new EleFXImage("https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"));
+        result6.setIconNode(new EleFXImage(
+                "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"));
         result6.setTitle("404");
         result6.setSubTitle("Sorry, request error");
         result6.setExtra(new EleFXButton("Back"));
 
-//        HBox resultHbox = new HBox(result1, result2, result3, result4, result5);
+        // HBox resultHbox = new HBox(result1, result2, result3, result4, result5);
         HBox resultHbox = new HBox(result6);
 
         vBox.getChildren().addAll(resultHbox);
     }
 
-    private EleFXResultFiller() {}
+    private EleFXResultFiller() {
+    }
 }

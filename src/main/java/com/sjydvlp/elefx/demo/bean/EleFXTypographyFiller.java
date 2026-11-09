@@ -24,5 +24,6 @@ public class EleFXTypographyFiller {
         vBox.getChildren().addAll(typographyHbox);
     }
 
-    private EleFXTypographyFiller() {}
+    private EleFXTypographyFiller() {
+    }
 }

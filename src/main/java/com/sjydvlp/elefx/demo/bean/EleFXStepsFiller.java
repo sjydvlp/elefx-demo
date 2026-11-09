@@ -63,7 +63,7 @@ public class EleFXStepsFiller {
         steps.setFinishStatus(EleFXStepStatus.SUCCESS);
         steps.setActive(1);
         steps.setSpace(150);
-//        steps.setAlignCenter(true);
+        // steps.setAlignCenter(true);
         steps.setMaxWidth(100);
 
         EleFXButton stepBtn = new EleFXButton("Next step");
@@ -140,5 +140,6 @@ public class EleFXStepsFiller {
         return vBox;
     }
 
-    private EleFXStepsFiller() {}
+    private EleFXStepsFiller() {
+    }
 }

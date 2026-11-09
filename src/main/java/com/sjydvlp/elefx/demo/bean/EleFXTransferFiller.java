@@ -26,5 +26,6 @@ public class EleFXTransferFiller {
         vBox.getChildren().addAll(transfer);
     }
 
-    private EleFXTransferFiller() {}
+    private EleFXTransferFiller() {
+    }
 }

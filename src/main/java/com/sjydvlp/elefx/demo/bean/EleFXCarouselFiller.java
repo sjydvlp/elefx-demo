@@ -26,7 +26,8 @@ public class EleFXCarouselFiller {
         EleFXCarouselItem carouselItem15 = new EleFXCarouselItem(new Label("5"));
         carouselItem15.setStyle("-fx-background-color: #ffff00;");
 
-        EleFXCarousel carousel1 = new EleFXCarousel(carouselItem11, carouselItem12, carouselItem13, carouselItem14, carouselItem15);
+        EleFXCarousel carousel1 = new EleFXCarousel(carouselItem11, carouselItem12, carouselItem13, carouselItem14,
+                carouselItem15);
         carousel1.setPrefHeight(360);
         carousel1.setPreviousIcon(new EleFXIcon(EleFXIconType.ARROW_LEFT, 18));
         carousel1.setNextIcon(new EleFXIcon(EleFXIconType.ARROW_RIGHT, 18));
@@ -34,7 +35,7 @@ public class EleFXCarouselFiller {
         carousel1.setAutoplay(true);
         carousel1.setMotionBlur(true);
         carousel1.setDirection(EleFXCarouselDirection.VERTICAL);
-//        carousel1.setArrow(EleFXCarouselArrow.NEVER);
+        // carousel1.setArrow(EleFXCarouselArrow.NEVER);
         carousel1.setIndicatorPosition(EleFXCarouselIndicatorPosition.INSIDE);
         carousel1.setType(EleFXCarouselType.CARD);
         carousel1.setInterval(800);
@@ -42,5 +43,6 @@ public class EleFXCarouselFiller {
         vBox.getChildren().addAll(carousel1);
     }
 
-    private EleFXCarouselFiller() {}
+    private EleFXCarouselFiller() {
+    }
 }

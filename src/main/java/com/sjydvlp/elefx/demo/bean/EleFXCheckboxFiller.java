@@ -20,13 +20,14 @@ public class EleFXCheckboxFiller {
         EleFXCheckbox<String> eleFXCheckbox3 = new EleFXCheckbox<>("c", "c");
         EleFXCheckbox<String> eleFXCheckbox4 = new EleFXCheckbox<>("d", "d");
         EleFXCheckboxButton<String> eleFXCheckboxButton5 = new EleFXCheckboxButton<>("你好，世界", "e");
-        EleFXCheckboxGroup<String> eleFXCheckboxGroup =
-                new EleFXCheckboxGroup<>(eleFXCheckbox3, eleFXCheckbox4, eleFXCheckboxButton5);
+        EleFXCheckboxGroup<String> eleFXCheckboxGroup = new EleFXCheckboxGroup<>(eleFXCheckbox3, eleFXCheckbox4,
+                eleFXCheckboxButton5);
         EleFXSpace eleFxCheckBoxSpace = new EleFXSpace(eleFXCheckbox1, eleFXCheckbox2, eleFXCheckboxGroup);
         eleFxCheckBoxSpace.setSpacing(50);
 
         vBox.getChildren().addAll(eleFxCheckBoxSpace);
     }
 
-    private EleFXCheckboxFiller() {}
+    private EleFXCheckboxFiller() {
+    }
 }

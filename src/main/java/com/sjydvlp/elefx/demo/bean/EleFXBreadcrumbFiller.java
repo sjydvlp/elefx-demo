@@ -22,13 +22,12 @@ public class EleFXBreadcrumbFiller {
 
         EleFXBreadcrumb breadcrumb = new EleFXBreadcrumb(breadcrumbItem1, breadcrumbItem2,
                 breadcrumbItem3, breadcrumbItem4);
-//        breadcrumb.setSeparatorIcon(EleFXIcons.of(EleFXIconType.ARROW_RIGHT, 14));
-        breadcrumb.setOnNavigate(event ->
-                System.out.println(event.getItem().getTo())
-        );
+        // breadcrumb.setSeparatorIcon(EleFXIcons.of(EleFXIconType.ARROW_RIGHT, 14));
+        breadcrumb.setOnNavigate(event -> System.out.println(event.getItem().getTo()));
 
         vBox.getChildren().addAll(breadcrumb);
     }
 
-    private EleFXBreadcrumbFiller() {}
+    private EleFXBreadcrumbFiller() {
+    }
 }

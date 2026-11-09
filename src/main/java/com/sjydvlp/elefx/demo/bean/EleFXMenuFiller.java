@@ -18,7 +18,7 @@ public class EleFXMenuFiller {
         EleFXMenu menu1 = buildMenu1();
         EleFXMenu menu2 = buildMenu2();
         EleFXMenu menu3 = buildMenu3();
-//        menu3.setPopperOffset(200);
+        // menu3.setPopperOffset(200);
 
         EleFXButton toggleCollapseBtn = new EleFXButton("切换Collapse");
         toggleCollapseBtn.setOnAction(event -> {
@@ -47,9 +47,9 @@ public class EleFXMenuFiller {
         EleFXMenu menu = new EleFXMenu(menuItem1, menuItem2, menuItem3, menuItem4);
         menu.setActiveIndex("2-4-1");
         menu.setMode(EleFXMenuMode.HORIZONTAL);
-//        menu.setBackgroundColor("#545c64");
-//        menu.setTextColor("#ffffff");
-//        menu.setActiveTextColor("#ffd04b");
+        // menu.setBackgroundColor("#545c64");
+        // menu.setTextColor("#ffffff");
+        // menu.setActiveTextColor("#ffd04b");
         menu.setEllipsis(true);
 
         return menu;
@@ -106,9 +106,9 @@ public class EleFXMenuFiller {
         EleFXMenu menu = new EleFXMenu(menuItem1, menuItem2, menuItem3, menuItem4);
         menu.setActiveIndex("2");
         menu.setMaxWidth(200);
-//        menu.setBackgroundColor("#545c64");
-//        menu.setTextColor("#ffffff");
-//        menu.setActiveTextColor("#ffd04b");
+        // menu.setBackgroundColor("#545c64");
+        // menu.setTextColor("#ffffff");
+        // menu.setActiveTextColor("#ffd04b");
         menu.setOnOpen(event -> {
             System.out.println(event.getIndex());
         });
@@ -122,5 +122,6 @@ public class EleFXMenuFiller {
         return menu;
     }
 
-    private EleFXMenuFiller() {}
+    private EleFXMenuFiller() {
+    }
 }

@@ -21,21 +21,21 @@ public class EleFXSwitchFiller {
         eleFXSwitch1.setDisable(true);
 
         EleFXSwitch eleFXSwitch2 = new EleFXSwitch();
-//        eleFXSwitch2.setActiveColor(Color.RED);
-//        eleFXSwitch2.setInactiveColor(Color.GREEN);
-//        eleFXSwitch2.setSize(EleFXSwitchSize.SMALL);
+        // eleFXSwitch2.setActiveColor(Color.RED);
+        // eleFXSwitch2.setInactiveColor(Color.GREEN);
+        // eleFXSwitch2.setSize(EleFXSwitchSize.SMALL);
         eleFXSwitch2.setActiveText("hello");
         eleFXSwitch2.setInactiveText("hi");
         eleFXSwitch2.setInlinePrompt(true);
         eleFXSwitch2.setSwitchWidth(300);
-//        eleFXSwitch2.setActiveIcon(new EleFXIcon(EleFXIconType.CHECK, 12));
-//        eleFXSwitch2.setInactiveIcon(new EleFXIcon(EleFXIconType.AIM, 12));
+        // eleFXSwitch2.setActiveIcon(new EleFXIcon(EleFXIconType.CHECK, 12));
+        // eleFXSwitch2.setInactiveIcon(new EleFXIcon(EleFXIconType.AIM, 12));
         eleFXSwitch2.setActiveValue(100);
         eleFXSwitch2.setInactiveValue(0);
         eleFXSwitch2.setOnChange(e -> {
             System.out.println(e.getValue());
         });
-//        eleFXSwitch2.setLoading(true);
+        // eleFXSwitch2.setLoading(true);
         eleFXSwitch2.setBeforeChange(() -> false);
 
         HBox switchHbox = new HBox(eleFXSwitch1, eleFXSwitch2);
@@ -45,5 +45,6 @@ public class EleFXSwitchFiller {
         vBox.getChildren().addAll(switchHbox);
     }
 
-    private EleFXSwitchFiller() {}
+    private EleFXSwitchFiller() {
+    }
 }

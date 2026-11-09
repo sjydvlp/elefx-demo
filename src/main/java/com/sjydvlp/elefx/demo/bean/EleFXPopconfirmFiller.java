@@ -109,8 +109,7 @@ public class EleFXPopconfirmFiller {
                 EleFXButton button = new EleFXButton(labels[rowIndex][column]);
 
                 EleFXPopconfirm popconfirm = new EleFXPopconfirm(
-                        button, titles[rowIndex][column]
-                );
+                        button, titles[rowIndex][column]);
                 popconfirm.setPlacement(placements[rowIndex][column]);
 
                 row.getChildren().add(button);
@@ -138,8 +137,7 @@ public class EleFXPopconfirmFiller {
         EleFXButton button = new EleFXButton("Delete");
 
         EleFXPopconfirm popconfirm = new EleFXPopconfirm(
-                button, "Are you sure to delete this?"
-        );
+                button, "Are you sure to delete this?");
         popconfirm.setWidth(220);
         popconfirm.setIcon(new EleFXIcon(EleFXIconType.INFO_FILLED, 14));
         popconfirm.setIconColor(Color.web("#626AEF"));
@@ -147,13 +145,11 @@ public class EleFXPopconfirmFiller {
         BooleanProperty clicked = new SimpleBooleanProperty(false);
 
         EleFXButton cancel = new EleFXButton(
-                "No!", EleFXButtonType.DEFAULT, EleFXButtonSize.SMALL
-        );
+                "No!", EleFXButtonType.DEFAULT, EleFXButtonSize.SMALL);
         cancel.setOnAction(event -> popconfirm.cancel());
 
         EleFXButton confirm = new EleFXButton(
-                "Yes?", EleFXButtonType.DANGER, EleFXButtonSize.SMALL
-        );
+                "Yes?", EleFXButtonType.DANGER, EleFXButtonSize.SMALL);
         confirm.disableProperty().bind(clicked.not());
         confirm.setOnAction(event -> popconfirm.confirm());
 
@@ -166,16 +162,6 @@ public class EleFXPopconfirmFiller {
         HBox root = new HBox(8);
         root.setPadding(new Insets(10));
         root.getChildren().addAll(button);
-
-        return root;
-    }
-
-    private static HBox customPositionTest() {
-
-
-        HBox root = new HBox(8);
-        root.setPadding(new Insets(10));
-        root.getChildren().addAll();
 
         return root;
     }

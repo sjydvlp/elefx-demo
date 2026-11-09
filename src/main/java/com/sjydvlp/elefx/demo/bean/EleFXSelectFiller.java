@@ -27,7 +27,7 @@ public class EleFXSelectFiller {
     private static EleFXSelect<String> getEleFXSelect() {
         EleFXSelectOption<String> option1 = new EleFXSelectOption<>("a", "l_a");
         EleFXSelectOption<String> option2 = new EleFXSelectOption<>("b", "l_b");
-//        option2.setDisabled(true);
+        // option2.setDisabled(true);
         EleFXSelectOption<String> option3 = new EleFXSelectOption<>("c", "l_c");
         EleFXSelectOption<String> option4 = new EleFXSelectOption<>("d", "l_d");
         EleFXSelectOption<String> option5 = new EleFXSelectOption<>("e", "l_e");
@@ -37,12 +37,11 @@ public class EleFXSelectFiller {
 
         EleFXSelect<String> select = new EleFXSelect<>(
                 option1, option2, option3, option4,
-                option5, option6, option7, option8
-        );
+                option5, option6, option7, option8);
         select.setSize(EleFXSelectSize.SMALL);
         select.setPrefWidth(200);
-//        select.setStyle("-fx-border-color: #ff0000;");
-//        select.setDisable(true);
+        // select.setStyle("-fx-border-color: #ff0000;");
+        // select.setDisable(true);
         select.setClearable(true);
         select.setMultiple(true);
         select.setCollapseTags(true);
@@ -96,12 +95,13 @@ public class EleFXSelectFiller {
 
             // 异步请求……
             // Platform.runLater(() -> {
-            //     select.getOptions().setAll(results);
-            //     select.setLoading(false);
+            // select.getOptions().setAll(results);
+            // select.setLoading(false);
             // });
         });
         return select;
     }
 
-    private EleFXSelectFiller() {}
+    private EleFXSelectFiller() {
+    }
 }

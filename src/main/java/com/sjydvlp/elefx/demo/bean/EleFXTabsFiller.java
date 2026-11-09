@@ -43,7 +43,7 @@ public class EleFXTabsFiller {
 
         EleFXTabs tabs = new EleFXTabs(tabPane1, tabPane2, tabPane3, tabPane4);
         tabs.setCurrentName("second");
-//        tabs.setType(EleFXTabsType.CARD);
+        // tabs.setType(EleFXTabsType.CARD);
         tabs.setType(EleFXTabsType.BORDER_CARD);
         tabs.setOnTabClick(event -> {
             System.out.println(event.getPane().getName());
@@ -70,7 +70,8 @@ public class EleFXTabsFiller {
         EleFXRadioButton<EleFXTabsPosition> rightRadioBtn = new EleFXRadioButton<>("right", EleFXTabsPosition.RIGHT);
         EleFXRadioButton<EleFXTabsPosition> bottomRadioBtn = new EleFXRadioButton<>("bottom", EleFXTabsPosition.BOTTOM);
         EleFXRadioButton<EleFXTabsPosition> leftRadioBtn = new EleFXRadioButton<>("left", EleFXTabsPosition.LEFT);
-        EleFXRadioGroup<EleFXTabsPosition> radioGroup = new EleFXRadioGroup<>(topRadioBtn, rightRadioBtn, bottomRadioBtn, leftRadioBtn);
+        EleFXRadioGroup<EleFXTabsPosition> radioGroup = new EleFXRadioGroup<>(topRadioBtn, rightRadioBtn,
+                bottomRadioBtn, leftRadioBtn);
         radioGroup.setOnChange(event -> {
             tabs.setTabPosition(radioGroup.getSelectedValue());
         });
@@ -97,7 +98,7 @@ public class EleFXTabsFiller {
 
         EleFXTabs tabs = new EleFXTabs(tabPane1, tabPane2, tabPane3, tabPane4);
         tabs.setCurrentName("second");
-//        tabs.setType(EleFXTabsType.CARD);
+        // tabs.setType(EleFXTabsType.CARD);
         tabs.setType(EleFXTabsType.BORDER_CARD);
         tabs.setOnTabClick(event -> {
             System.out.println(event.getPane().getName());
@@ -123,8 +124,7 @@ public class EleFXTabsFiller {
             EleFXTabPane tabPane = new EleFXTabPane(
                     "New Tab",
                     name,
-                    new Label("New Tab Content")
-            );
+                    new Label("New Tab Content"));
             tabs.getPanes().add(tabPane);
             tabs.setCurrentName(name);
         });
@@ -149,5 +149,6 @@ public class EleFXTabsFiller {
         return vBox;
     }
 
-    private EleFXTabsFiller() {}
+    private EleFXTabsFiller() {
+    }
 }

@@ -29,8 +29,9 @@ public class EleFXRateFiller {
         rate3.setShowText(true);
         rate3.setClearable(true);
         rate3.setVoidIcon(new EleFXIcon(EleFXIconType.CALENDAR));
-        rate3.setIcons(List.of(new EleFXIcon(EleFXIconType.AIM), new EleFXIcon(EleFXIconType.APPLE), new EleFXIcon(EleFXIconType.BICYCLE)));
-//        rate3.setDisable(true);
+        rate3.setIcons(List.of(new EleFXIcon(EleFXIconType.AIM), new EleFXIcon(EleFXIconType.APPLE),
+                new EleFXIcon(EleFXIconType.BICYCLE)));
+        // rate3.setDisable(true);
 
         HBox rateHbox = new HBox(rate1, rate2, rate3);
         rateHbox.setPadding(new Insets(10));
@@ -39,5 +40,6 @@ public class EleFXRateFiller {
         vBox.getChildren().addAll(rateHbox);
     }
 
-    private EleFXRateFiller() {}
+    private EleFXRateFiller() {
+    }
 }

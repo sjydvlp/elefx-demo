@@ -69,9 +69,9 @@ public class EleFXImageFiller {
         EleFXButton imageViewerButton = new EleFXButton("preview controlled");
         imageViewerButton.setOnAction(event -> imageViewer.show(stage));
 
-
         vBox.getChildren().addAll(imageHbox, image, imageViewerButton, imageScrollbar);
     }
 
-    private EleFXImageFiller() {}
+    private EleFXImageFiller() {
+    }
 }

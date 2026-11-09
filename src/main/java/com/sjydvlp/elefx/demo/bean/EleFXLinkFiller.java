@@ -21,5 +21,6 @@ public class EleFXLinkFiller {
         vBox.getChildren().addAll(link);
     }
 
-    private EleFXLinkFiller() {}
+    private EleFXLinkFiller() {
+    }
 }

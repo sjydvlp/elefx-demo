@@ -39,5 +39,6 @@ public class EleFXTagFiller {
         vBox.getChildren().addAll(tagHbox);
     }
 
-    private EleFXTagFiller() {}
+    private EleFXTagFiller() {
+    }
 }

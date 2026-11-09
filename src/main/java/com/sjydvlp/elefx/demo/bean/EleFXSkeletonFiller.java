@@ -52,7 +52,7 @@ public class EleFXSkeletonFiller {
         skeleton4.setPrefWidth(240);
         skeleton4.setAnimated(true);
         skeleton4.getContentChildren().addAll(new Label("加载出的内容"));
-//        skeleton4.setLoading(false);
+        // skeleton4.setLoading(false);
         skeleton4.setThrottle(2000);
 
         EleFXButton skeletonButton = new EleFXButton("点击加载");
@@ -67,5 +67,6 @@ public class EleFXSkeletonFiller {
         vBox.getChildren().addAll(skeleton1, skeleton2, skeleton3, skeleton4, skeletonButton);
     }
 
-    private EleFXSkeletonFiller() {}
+    private EleFXSkeletonFiller() {
+    }
 }

@@ -63,11 +63,11 @@ public class EleFXProgressFiller {
 
         EleFXProgress progress7 = new EleFXProgress();
         progress7.setPercentage(50);
-//        progress7.setStrokeWidth(24);
+        // progress7.setStrokeWidth(24);
         progress7.setTextInside(true);
-//        progress7.setStatus(EleFXProgressStatus.SUCCESS);
-//        progress7.setStatus(EleFXProgressStatus.WARNING);
-//        progress7.setStatus(EleFXProgressStatus.EXCEPTION);
+        // progress7.setStatus(EleFXProgressStatus.SUCCESS);
+        // progress7.setStatus(EleFXProgressStatus.WARNING);
+        // progress7.setStatus(EleFXProgressStatus.EXCEPTION);
         progress7.setType(EleFXProgressType.DASHBOARD);
         progress7.setContent(EleFXIcons.of(EleFXIconType.COFFEE));
 
@@ -79,8 +79,7 @@ public class EleFXProgressFiller {
         progress8.setColorStops(
                 new EleFXProgressColorStop(30, Color.web("#f56c6c")),
                 new EleFXProgressColorStop(50, Color.web("#e6a23c")),
-                new EleFXProgressColorStop(80, Color.web("#67c23a"))
-        );
+                new EleFXProgressColorStop(80, Color.web("#67c23a")));
 
         EleFXProgress progress9 = new EleFXProgress();
         progress9.setPercentage(50);
@@ -88,11 +87,11 @@ public class EleFXProgressFiller {
         progress9.setTextInside(true);
         progress9.setStatus(EleFXProgressStatus.EXCEPTION);
         // 根据当前百分比实时决定颜色
-        progress9.setColorFunction(percent ->
-                percent < 30 ? Color.web("#f56c6c")
-                        : percent < 70 ? Color.web("#e6a23c")
-                        : Color.web("#67c23a")
-        );
+        progress9.setColorFunction(percent -> percent < 30
+                ? Color.web("#f56c6c")
+                : percent < 70
+                        ? Color.web("#e6a23c")
+                        : Color.web("#67c23a"));
         EleFXButton progressMinus = new EleFXButton(EleFXIcons.of(EleFXIconType.MINUS));
         EleFXButton progressPlus = new EleFXButton(EleFXIcons.of(EleFXIconType.PLUS));
         progressMinus.setOnAction(event -> {
@@ -121,5 +120,6 @@ public class EleFXProgressFiller {
         vBox.getChildren().addAll(progressVbox);
     }
 
-    private EleFXProgressFiller() {}
+    private EleFXProgressFiller() {
+    }
 }

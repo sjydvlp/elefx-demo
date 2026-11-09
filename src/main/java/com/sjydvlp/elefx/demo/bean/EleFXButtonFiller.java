@@ -45,10 +45,10 @@ public class EleFXButtonFiller {
         FlowPane loadingButtonTest = loadingButtonTest();
         VBox sizesTest = sizesTest();
 
-//        vBox.getChildren().add(basisUsageTest);
-//        vBox.getChildren().add(disabledButtonTest);
-//        vBox.getChildren().add(linkButtonTest);
-//        vBox.getChildren().add(textButtonTest);
+        // vBox.getChildren().add(basisUsageTest);
+        // vBox.getChildren().add(disabledButtonTest);
+        // vBox.getChildren().add(linkButtonTest);
+        // vBox.getChildren().add(textButtonTest);
         vBox.getChildren().add(iconButtonTest);
         vBox.getChildren().add(buttonGroupTest);
         vBox.getChildren().add(loadingButtonTest);
@@ -66,8 +66,7 @@ public class EleFXButtonFiller {
                 new EleFXButton("Success", EleFXButtonType.SUCCESS),
                 new EleFXButton("Info", EleFXButtonType.INFO),
                 new EleFXButton("Warning", EleFXButtonType.WARNING),
-                new EleFXButton("Danger", EleFXButtonType.DANGER)
-        );
+                new EleFXButton("Danger", EleFXButtonType.DANGER));
 
         // 朴素按钮
         FlowPane plainRow = new FlowPane(16, 16);
@@ -93,8 +92,7 @@ public class EleFXButtonFiller {
 
         plainRow.getChildren().addAll(
                 plainDefault, plainPrimary, plainSuccess,
-                plainInfo, plainWarning, plainDanger
-        );
+                plainInfo, plainWarning, plainDanger);
 
         // 圆角按钮
         FlowPane roundRow = new FlowPane(16, 16);
@@ -120,8 +118,7 @@ public class EleFXButtonFiller {
 
         roundRow.getChildren().addAll(
                 roundDefault, roundPrimary, roundSuccess,
-                roundInfo, roundWarning, roundDanger
-        );
+                roundInfo, roundWarning, roundDanger);
 
         // 虚线按钮
         FlowPane dashedRow = new FlowPane(16, 16);
@@ -147,8 +144,7 @@ public class EleFXButtonFiller {
 
         dashedRow.getChildren().addAll(
                 dashedDefault, dashedPrimary, dashedSuccess,
-                dashedInfo, dashedWarning, dashedDanger
-        );
+                dashedInfo, dashedWarning, dashedDanger);
 
         // 圆形图标按钮
         FlowPane circleRow = new FlowPane(16, 16);
@@ -156,35 +152,27 @@ public class EleFXButtonFiller {
         circleRow.getChildren().addAll(
                 new EleFXButton(
                         new EleFXIcon(EleFXIconType.SEARCH),
-                        EleFXButtonType.DEFAULT, true
-                ),
+                        EleFXButtonType.DEFAULT, true),
                 new EleFXButton(
                         new EleFXIcon(EleFXIconType.EDIT),
-                        EleFXButtonType.PRIMARY, true
-                ),
+                        EleFXButtonType.PRIMARY, true),
                 new EleFXButton(
                         new EleFXIcon(EleFXIconType.CHECK),
-                        EleFXButtonType.SUCCESS, true
-                ),
+                        EleFXButtonType.SUCCESS, true),
                 new EleFXButton(
                         new EleFXIcon(EleFXIconType.MESSAGE),
-                        EleFXButtonType.INFO, true
-                ),
+                        EleFXButtonType.INFO, true),
                 new EleFXButton(
                         new EleFXIcon(EleFXIconType.STAR),
-                        EleFXButtonType.WARNING, true
-                ),
+                        EleFXButtonType.WARNING, true),
                 new EleFXButton(
                         new EleFXIcon(EleFXIconType.DELETE),
-                        EleFXButtonType.DANGER, true
-                )
-        );
+                        EleFXButtonType.DANGER, true));
 
         VBox root = new VBox(16);
         root.setPadding(new Insets(24));
         root.getChildren().addAll(
-                normalRow, plainRow, roundRow, dashedRow, circleRow
-        );
+                normalRow, plainRow, roundRow, dashedRow, circleRow);
 
         return root;
     }
@@ -214,8 +202,7 @@ public class EleFXButtonFiller {
 
         normalRow.getChildren().addAll(
                 normalDefault, normalPrimary, normalSuccess,
-                normalInfo, normalWarning, normalDanger
-        );
+                normalInfo, normalWarning, normalDanger);
 
         // 朴素禁用按钮
         FlowPane plainRow = new FlowPane(16, 16);
@@ -247,8 +234,7 @@ public class EleFXButtonFiller {
 
         plainRow.getChildren().addAll(
                 plainDefault, plainPrimary, plainSuccess,
-                plainInfo, plainWarning, plainDanger
-        );
+                plainInfo, plainWarning, plainDanger);
 
         VBox root = new VBox(16);
         root.getChildren().addAll(normalRow, plainRow);
@@ -282,8 +268,7 @@ public class EleFXButtonFiller {
 
         basicRow.getChildren().addAll(
                 basicDefault, basicPrimary, basicSuccess,
-                basicInfo, basicWarning, basicDanger
-        );
+                basicInfo, basicWarning, basicDanger);
 
         // 禁用链接按钮
         Label disabledLabel = new Label("Disabled link button");
@@ -317,14 +302,12 @@ public class EleFXButtonFiller {
 
         disabledRow.getChildren().addAll(
                 disabledDefault, disabledPrimary, disabledSuccess,
-                disabledInfo, disabledWarning, disabledDanger
-        );
+                disabledInfo, disabledWarning, disabledDanger);
 
         VBox root = new VBox(16);
         root.getChildren().addAll(
                 basicLabel, basicRow,
-                disabledLabel, disabledRow
-        );
+                disabledLabel, disabledRow);
 
         return root;
     }
@@ -355,8 +338,7 @@ public class EleFXButtonFiller {
 
         basicRow.getChildren().addAll(
                 basicDefault, basicPrimary, basicSuccess,
-                basicInfo, basicWarning, basicDanger
-        );
+                basicInfo, basicWarning, basicDanger);
 
         // 始终显示背景的文字按钮
         Label backgroundLabel = new Label("Background color always on");
@@ -389,8 +371,7 @@ public class EleFXButtonFiller {
 
         backgroundRow.getChildren().addAll(
                 backgroundDefault, backgroundPrimary, backgroundSuccess,
-                backgroundInfo, backgroundWarning, backgroundDanger
-        );
+                backgroundInfo, backgroundWarning, backgroundDanger);
 
         // 禁用文字按钮
         Label disabledLabel = new Label("Disabled text button");
@@ -423,15 +404,13 @@ public class EleFXButtonFiller {
 
         disabledRow.getChildren().addAll(
                 disabledDefault, disabledPrimary, disabledSuccess,
-                disabledInfo, disabledWarning, disabledDanger
-        );
+                disabledInfo, disabledWarning, disabledDanger);
 
         VBox root = new VBox(16);
         root.getChildren().addAll(
                 basicLabel, basicRow,
                 backgroundLabel, backgroundRow,
-                disabledLabel, disabledRow
-        );
+                disabledLabel, disabledRow);
 
         return root;
     }
@@ -439,30 +418,25 @@ public class EleFXButtonFiller {
     private static FlowPane iconButtonTest() {
         EleFXButton editButton = new EleFXButton(
                 new EleFXIcon(EleFXIconType.EDIT),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton shareButton = new EleFXButton(
                 new EleFXIcon(EleFXIconType.SHARE),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton deleteButton = new EleFXButton(
                 new EleFXIcon(EleFXIconType.DELETE),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton searchButton = new EleFXButton(
                 "Search",
                 new EleFXIcon(EleFXIconType.SEARCH),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton uploadButton = new EleFXButton(
                 "Upload",
                 new EleFXIcon(EleFXIconType.UPLOAD),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
         uploadButton.setContentDisplay(ContentDisplay.RIGHT);
 
         FlowPane root = new FlowPane(12, 16);
@@ -470,8 +444,7 @@ public class EleFXButtonFiller {
         root.setPadding(new Insets(24));
         root.getChildren().addAll(
                 editButton, shareButton, deleteButton,
-                searchButton, uploadButton
-        );
+                searchButton, uploadButton);
 
         return root;
     }
@@ -481,52 +454,42 @@ public class EleFXButtonFiller {
         EleFXButton previousButton = new EleFXButton(
                 "Previous Page",
                 new EleFXIcon(EleFXIconType.ARROW_LEFT),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton nextButton = new EleFXButton(
                 "Next Page",
                 new EleFXIcon(EleFXIconType.ARROW_RIGHT),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
         nextButton.setContentDisplay(ContentDisplay.RIGHT);
 
         EleFXButtonGroup pageGroup = new EleFXButtonGroup(
-                previousButton, nextButton
-        );
+                previousButton, nextButton);
 
         // 方向选择
         EleFXRadio<Orientation> horizontalRadio = new EleFXRadio<>(
-                "Horizontal", Orientation.HORIZONTAL
-        );
+                "Horizontal", Orientation.HORIZONTAL);
         EleFXRadio<Orientation> verticalRadio = new EleFXRadio<>(
-                "Vertical", Orientation.VERTICAL
-        );
+                "Vertical", Orientation.VERTICAL);
 
         EleFXRadioGroup<Orientation> directionGroup = new EleFXRadioGroup<>(
-                horizontalRadio, verticalRadio
-        );
+                horizontalRadio, verticalRadio);
         directionGroup.setValue(Orientation.HORIZONTAL);
 
         // 可切换方向的图标按钮组
         EleFXButton houseButton = new EleFXButton(
                 new EleFXIcon(EleFXIconType.HOUSE),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton operationButton = new EleFXButton(
                 new EleFXIcon(EleFXIconType.OPERATION),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButton notificationButton = new EleFXButton(
                 new EleFXIcon(EleFXIconType.NOTIFICATION),
-                EleFXButtonType.PRIMARY
-        );
+                EleFXButtonType.PRIMARY);
 
         EleFXButtonGroup iconGroup = new EleFXButtonGroup(
-                houseButton, operationButton, notificationButton
-        );
+                houseButton, operationButton, notificationButton);
         iconGroup.directionProperty().bind(directionGroup.valueProperty());
 
         VBox root = new VBox(16);
@@ -545,8 +508,7 @@ public class EleFXButtonFiller {
 
         // 默认加载指示器
         EleFXButton defaultButton = new EleFXButton(
-                "Loading", EleFXButtonType.PRIMARY
-        );
+                "Loading", EleFXButtonType.PRIMARY);
         defaultButton.setLoading(true);
 
         // 自定义 Eleme 加载图标
@@ -554,8 +516,7 @@ public class EleFXButtonFiller {
         elemeIcon.setLoading(true);
 
         EleFXButton elemeButton = new EleFXButton(
-                "Loading", EleFXButtonType.PRIMARY
-        );
+                "Loading", EleFXButtonType.PRIMARY);
         elemeButton.setLoadingGraphic(elemeIcon);
         elemeButton.setLoading(true);
 
@@ -567,8 +528,7 @@ public class EleFXButtonFiller {
                         + "M 25.61 25.61 "
                         + "A 15 15 0 0 1 15 30 "
                         + "A 15 15 0 1 1 27.99 7.5 "
-                        + "L 15 15"
-        );
+                        + "L 15 15");
         path.setFill(Color.TRANSPARENT);
         path.setStroke(Color.WHITE);
         path.setStrokeWidth(4);
@@ -591,8 +551,7 @@ public class EleFXButtonFiller {
         customLoading.setMouseTransparent(true);
 
         RotateTransition rotation = new RotateTransition(
-                Duration.seconds(2), customLoading
-        );
+                Duration.seconds(2), customLoading);
         rotation.setAxis(Rotate.Z_AXIS);
         rotation.setByAngle(360);
         rotation.setInterpolator(Interpolator.LINEAR);
@@ -601,30 +560,23 @@ public class EleFXButtonFiller {
         Timeline dash = new Timeline(
                 new KeyFrame(
                         Duration.ZERO,
-                        new KeyValue(path.strokeDashOffsetProperty(), 0)
-                ),
+                        new KeyValue(path.strokeDashOffsetProperty(), 0)),
                 new KeyFrame(
                         Duration.seconds(0.75),
                         new KeyValue(
                                 path.strokeDashOffsetProperty(),
                                 -60,
-                                Interpolator.EASE_BOTH
-                        )
-                ),
+                                Interpolator.EASE_BOTH)),
                 new KeyFrame(
                         Duration.seconds(1.5),
                         new KeyValue(
                                 path.strokeDashOffsetProperty(),
                                 -240,
-                                Interpolator.EASE_BOTH
-                        )
-                )
-        );
+                                Interpolator.EASE_BOTH)));
         dash.setCycleCount(Animation.INDEFINITE);
 
         EleFXButton customButton = new EleFXButton(
-                "Loading", EleFXButtonType.PRIMARY
-        );
+                "Loading", EleFXButtonType.PRIMARY);
         customButton.setLoadingGraphic(customLoading);
         customButton.setLoading(true);
 
@@ -661,23 +613,19 @@ public class EleFXButtonFiller {
         smallButton.setSize(EleFXButtonSize.SMALL);
 
         EleFXButton largeSearch = new EleFXButton(
-                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14)
-        );
+                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14));
         largeSearch.setSize(EleFXButtonSize.LARGE);
 
         EleFXButton defaultSearch = new EleFXButton(
-                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14)
-        );
+                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14));
 
         EleFXButton smallSearch = new EleFXButton(
-                "Search", new EleFXIcon(EleFXIconType.SEARCH, 12)
-        );
+                "Search", new EleFXIcon(EleFXIconType.SEARCH, 12));
         smallSearch.setSize(EleFXButtonSize.SMALL);
 
         normalRow.getChildren().addAll(
                 largeButton, defaultButton, smallButton,
-                largeSearch, defaultSearch, smallSearch
-        );
+                largeSearch, defaultSearch, smallSearch);
 
         // 圆角按钮
         FlowPane roundRow = new FlowPane(12, 16);
@@ -695,26 +643,22 @@ public class EleFXButtonFiller {
         smallRound.setRound(true);
 
         EleFXButton largeRoundSearch = new EleFXButton(
-                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14)
-        );
+                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14));
         largeRoundSearch.setSize(EleFXButtonSize.LARGE);
         largeRoundSearch.setRound(true);
 
         EleFXButton defaultRoundSearch = new EleFXButton(
-                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14)
-        );
+                "Search", new EleFXIcon(EleFXIconType.SEARCH, 14));
         defaultRoundSearch.setRound(true);
 
         EleFXButton smallRoundSearch = new EleFXButton(
-                "Search", new EleFXIcon(EleFXIconType.SEARCH, 12)
-        );
+                "Search", new EleFXIcon(EleFXIconType.SEARCH, 12));
         smallRoundSearch.setSize(EleFXButtonSize.SMALL);
         smallRoundSearch.setRound(true);
 
         roundRow.getChildren().addAll(
                 largeRound, defaultRound, smallRound,
-                largeRoundSearch, defaultRoundSearch, smallRoundSearch
-        );
+                largeRoundSearch, defaultRoundSearch, smallRoundSearch);
 
         // 圆形图标按钮
         FlowPane circleRow = new FlowPane(12, 16);
@@ -723,30 +667,27 @@ public class EleFXButtonFiller {
         EleFXButton largeCircle = new EleFXButton(
                 new EleFXIcon(EleFXIconType.SEARCH, 14),
                 EleFXButtonType.DEFAULT,
-                true
-        );
+                true);
         largeCircle.setSize(EleFXButtonSize.LARGE);
 
         EleFXButton defaultCircle = new EleFXButton(
                 new EleFXIcon(EleFXIconType.SEARCH, 14),
                 EleFXButtonType.DEFAULT,
-                true
-        );
+                true);
 
         EleFXButton smallCircle = new EleFXButton(
                 new EleFXIcon(EleFXIconType.SEARCH, 12),
                 EleFXButtonType.DEFAULT,
-                true
-        );
+                true);
         smallCircle.setSize(EleFXButtonSize.SMALL);
 
         circleRow.getChildren().addAll(
-                largeCircle, defaultCircle, smallCircle
-        );
+                largeCircle, defaultCircle, smallCircle);
 
         root.getChildren().addAll(normalRow, roundRow, circleRow);
         return root;
     }
 
-    private EleFXButtonFiller() {}
+    private EleFXButtonFiller() {
+    }
 }

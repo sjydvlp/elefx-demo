@@ -20,5 +20,6 @@ public class EleFXAutocompleteFiller {
         vBox.getChildren().addAll(autocomplete);
     }
 
-    private EleFXAutocompleteFiller() {}
+    private EleFXAutocompleteFiller() {
+    }
 }

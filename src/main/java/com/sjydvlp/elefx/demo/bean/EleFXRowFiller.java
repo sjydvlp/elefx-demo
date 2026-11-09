@@ -40,5 +40,6 @@ public class EleFXRowFiller {
         vBox.getChildren().addAll(row1, row2, row3);
     }
 
-    private EleFXRowFiller() {}
+    private EleFXRowFiller() {
+    }
 }

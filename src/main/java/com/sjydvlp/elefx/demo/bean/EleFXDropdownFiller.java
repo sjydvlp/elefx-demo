@@ -33,27 +33,28 @@ public class EleFXDropdownFiller {
 
         EleFXDropdown dropdown = new EleFXDropdown(dropdownItem1, dropdownItem2,
                 dropdownItem3, dropdownItem4, dropdownItem5);
-//        dropdown.setPlacement(EleFXDropdownPlacement.TOP_END);
+        // dropdown.setPlacement(EleFXDropdownPlacement.TOP_END);
         dropdown.setPlacement(EleFXDropdownPlacement.BOTTOM_START);
-//        dropdown.setTriggerIcon(EleFXIcons.of(EleFXIconType.ARROW_DOWN));
+        // dropdown.setTriggerIcon(EleFXIcons.of(EleFXIconType.ARROW_DOWN));
 
-//        EleFXButton dropdownButton = new EleFXButton("Dropdown List", EleFXIcons.of(EleFXIconType.ARROW_DOWN), EleFXButtonType.PRIMARY);
-//        dropdownButton.setContentDisplay(ContentDisplay.RIGHT);
-//        dropdown.setTriggerNode(dropdownButton);
+        // EleFXButton dropdownButton = new EleFXButton("Dropdown List", EleFXIcons.of(EleFXIconType.ARROW_DOWN),
+        // EleFXButtonType.PRIMARY);
+        // dropdownButton.setContentDisplay(ContentDisplay.RIGHT);
+        // dropdown.setTriggerNode(dropdownButton);
 
         dropdown.setSplitButton(true);
         dropdown.setType(EleFXButtonType.PRIMARY);
         dropdown.setOnClick(event -> {
             System.out.println("click");
         });
-//        dropdown.setTrigger(EleFXDropdownTrigger.CLICK);
+        // dropdown.setTrigger(EleFXDropdownTrigger.CLICK);
         dropdown.setTrigger(EleFXDropdownTrigger.CONTEXT_MENU);
-//        dropdown.setHideOnClick(false);
+        // dropdown.setHideOnClick(false);
         dropdown.setOnCommand(event -> {
             System.out.println(event.getItem().getCommand());
         });
         dropdown.setSize(EleFXDropdownSize.LARGE);
-//        dropdown.setShowArrow(true);
+        // dropdown.setShowArrow(true);
         dropdown.setShowArrow(false);
 
         EleFXButton showBubbon = new EleFXButton("点击切换");
@@ -70,7 +71,7 @@ public class EleFXDropdownFiller {
         card.setPrefSize(100, 100);
         card.setOnContextMenuRequested(event -> {
             dropdown.handleOpen();
-//            dropdown.handleOpenAt(event.getScreenX(), event.getScreenY());
+            // dropdown.handleOpenAt(event.getScreenX(), event.getScreenY());
         });
         card.setOnMouseClicked(event -> {
             dropdown.handleClose();
@@ -80,5 +81,6 @@ public class EleFXDropdownFiller {
         vBox.getChildren().addAll(dropdown, showBubbon, card);
     }
 
-    private EleFXDropdownFiller() {}
+    private EleFXDropdownFiller() {
+    }
 }

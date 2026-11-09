@@ -46,15 +46,14 @@ public class EleFXPageHeaderFiller {
         EleFXBreadcrumb breadcrumb = new EleFXBreadcrumb(breadcrumbItem1, breadcrumbItem2,
                 breadcrumbItem3, breadcrumbItem4);
         breadcrumb.setSeparatorIcon(EleFXIcons.of(EleFXIconType.ARROW_RIGHT, 14));
-        breadcrumb.setOnNavigate(event ->
-                System.out.println(event.getItem().getTo())
-        );
+        breadcrumb.setOnNavigate(event -> System.out.println(event.getItem().getTo()));
 
         // 2.content
         EleFXAvatar avatar = new EleFXAvatar();
         avatar.setSize(EleFXAvatarSize.SMALL);
         avatar.setAvatarShape(EleFXAvatarShape.CIRCLE);
-        avatar.setSrc("https://pics2.baidu.com/feed/94cad1c8a786c9175363dab84d7c3edd3ac757a6.jpeg@f_auto?token=a79f9176239f5e1360aa5c6b877afa93");
+        avatar.setSrc(
+                "https://pics2.baidu.com/feed/94cad1c8a786c9175363dab84d7c3edd3ac757a6.jpeg@f_auto?token=a79f9176239f5e1360aa5c6b877afa93");
 
         Label title = new Label("Title");
 
@@ -85,15 +84,19 @@ public class EleFXPageHeaderFiller {
         EleFXDescriptionsItem descriptionsItem2 = new EleFXDescriptionsItem("Telephone", new Label("18100000000"));
         EleFXDescriptionsItem descriptionsItem3 = new EleFXDescriptionsItem("Place", new Label("Suzhou"));
         EleFXDescriptionsItem descriptionsItem4 = new EleFXDescriptionsItem("Remarks", new Label("18100000000"));
-        EleFXDescriptionsItem descriptionsItem5 = new EleFXDescriptionsItem("Address", new Label("No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province"));
-        EleFXDescriptions descriptions = new EleFXDescriptions("User Info", descriptionsItem1, descriptionsItem2, descriptionsItem3, descriptionsItem4, descriptionsItem5);
+        EleFXDescriptionsItem descriptionsItem5 = new EleFXDescriptionsItem("Address",
+                new Label("No.1188, Wuzhong Avenue, Wuzhong District, Suzhou, Jiangsu Province"));
+        EleFXDescriptions descriptions = new EleFXDescriptions("User Info", descriptionsItem1, descriptionsItem2,
+                descriptionsItem3, descriptionsItem4, descriptionsItem5);
         descriptions.setColumn(3);
         descriptions.setBorder(true);
         descriptions.setSize(EleFXDescriptionsSize.DEFAULT);
 
-        EleFXText text = new EleFXText("""
-                Element Plus team uses <b>weekly</b> release strategy under normal circumstance, but critical bug fixes would require hotfix so the actual release number <b>could be</b> more than 1 per week.
-                """, EleFXTextType.WARNING);
+        EleFXText text = new EleFXText(
+                """
+                        Element Plus team uses <b>weekly</b> release strategy under normal circumstance, but critical bug fixes would require hotfix so the actual release number <b>could be</b> more than 1 per week.
+                        """,
+                EleFXTextType.WARNING);
         text.setSize(EleFXTextSize.SMALL);
         text.setTag(EleFXTextTag.BOLD);
         text.setWrapText(true);
@@ -106,7 +109,7 @@ public class EleFXPageHeaderFiller {
         pageHeader.setContent(content);
         pageHeader.setExtra(extra);
         pageHeader.setDefault(pageHeaderDefault);
-//        pageHeader.setIcon(EleFXIcons.of(EleFXIconType.APPLE));
+        // pageHeader.setIcon(EleFXIcons.of(EleFXIconType.APPLE));
         pageHeader.setIcon(null);
 
         pageHeader.setOnBack(event -> {
@@ -116,5 +119,6 @@ public class EleFXPageHeaderFiller {
         vBox.getChildren().addAll(pageHeader);
     }
 
-    private EleFXPageHeaderFiller() {}
+    private EleFXPageHeaderFiller() {
+    }
 }

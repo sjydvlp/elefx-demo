@@ -46,8 +46,7 @@ public class EleFXNotificationFiller {
         autoClose.setOnAction(event -> {
             Label message = new Label("This is a reminder");
             message.setStyle(
-                    "-fx-text-fill: teal; -fx-font-style: italic;"
-            );
+                    "-fx-text-fill: teal; -fx-font-style: italic;");
 
             EleFXNotification.show(new EleFXNotificationOptions()
                     .owner(autoClose.getScene().getWindow())
@@ -55,16 +54,13 @@ public class EleFXNotificationFiller {
                     .messageNode(message));
         });
 
-        EleFXButton manualClose =
-                new EleFXButton("Won't close automatically");
+        EleFXButton manualClose = new EleFXButton("Won't close automatically");
         manualClose.setPlain(true);
-        manualClose.setOnAction(event ->
-                EleFXNotification.show(new EleFXNotificationOptions()
-                        .owner(manualClose.getScene().getWindow())
-                        .title("Prompt")
-                        .message("This is a message that does not automatically close")
-                        .duration(0))
-        );
+        manualClose.setOnAction(event -> EleFXNotification.show(new EleFXNotificationOptions()
+                .owner(manualClose.getScene().getWindow())
+                .title("Prompt")
+                .message("This is a message that does not automatically close")
+                .duration(0)));
 
         HBox root = new HBox(8);
         root.setPadding(new Insets(10));
@@ -76,48 +72,38 @@ public class EleFXNotificationFiller {
     private static HBox withTypesTest() {
         EleFXButton primary = new EleFXButton("Primary");
         primary.setPlain(true);
-        primary.setOnAction(event ->
-                EleFXNotification.primary(new EleFXNotificationOptions()
-                        .owner(primary.getScene().getWindow())
-                        .title("Primary")
-                        .message("This is a primary message"))
-        );
+        primary.setOnAction(event -> EleFXNotification.primary(new EleFXNotificationOptions()
+                .owner(primary.getScene().getWindow())
+                .title("Primary")
+                .message("This is a primary message")));
 
         EleFXButton success = new EleFXButton("Success");
         success.setPlain(true);
-        success.setOnAction(event ->
-                EleFXNotification.success(new EleFXNotificationOptions()
-                        .owner(success.getScene().getWindow())
-                        .title("Success")
-                        .message("This is a success message"))
-        );
+        success.setOnAction(event -> EleFXNotification.success(new EleFXNotificationOptions()
+                .owner(success.getScene().getWindow())
+                .title("Success")
+                .message("This is a success message")));
 
         EleFXButton warning = new EleFXButton("Warning");
         warning.setPlain(true);
-        warning.setOnAction(event ->
-                EleFXNotification.warning(new EleFXNotificationOptions()
-                        .owner(warning.getScene().getWindow())
-                        .title("Warning")
-                        .message("This is a warning message"))
-        );
+        warning.setOnAction(event -> EleFXNotification.warning(new EleFXNotificationOptions()
+                .owner(warning.getScene().getWindow())
+                .title("Warning")
+                .message("This is a warning message")));
 
         EleFXButton info = new EleFXButton("Info");
         info.setPlain(true);
-        info.setOnAction(event ->
-                EleFXNotification.info(new EleFXNotificationOptions()
-                        .owner(info.getScene().getWindow())
-                        .title("Info")
-                        .message("This is an info message"))
-        );
+        info.setOnAction(event -> EleFXNotification.info(new EleFXNotificationOptions()
+                .owner(info.getScene().getWindow())
+                .title("Info")
+                .message("This is an info message")));
 
         EleFXButton error = new EleFXButton("Error");
         error.setPlain(true);
-        error.setOnAction(event ->
-                EleFXNotification.error(new EleFXNotificationOptions()
-                        .owner(error.getScene().getWindow())
-                        .title("Error")
-                        .message("This is an error message"))
-        );
+        error.setOnAction(event -> EleFXNotification.error(new EleFXNotificationOptions()
+                .owner(error.getScene().getWindow())
+                .title("Error")
+                .message("This is an error message")));
 
         HBox root = new HBox(8);
         root.setPadding(new Insets(10));
@@ -129,42 +115,34 @@ public class EleFXNotificationFiller {
     private static HBox customPositionTest() {
         EleFXButton topRight = new EleFXButton("Top Right");
         topRight.setPlain(true);
-        topRight.setOnAction(event ->
-                EleFXNotification.show(new EleFXNotificationOptions()
-                        .owner(topRight.getScene().getWindow())
-                        .title("Custom Position")
-                        .message("I'm at the top right corner"))
-        );
+        topRight.setOnAction(event -> EleFXNotification.show(new EleFXNotificationOptions()
+                .owner(topRight.getScene().getWindow())
+                .title("Custom Position")
+                .message("I'm at the top right corner")));
 
         EleFXButton bottomRight = new EleFXButton("Bottom Right");
         bottomRight.setPlain(true);
-        bottomRight.setOnAction(event ->
-                EleFXNotification.show(new EleFXNotificationOptions()
-                        .owner(bottomRight.getScene().getWindow())
-                        .title("Custom Position")
-                        .message("I'm at the bottom right corner")
-                        .position(EleFXNotificationPosition.BOTTOM_RIGHT))
-        );
+        bottomRight.setOnAction(event -> EleFXNotification.show(new EleFXNotificationOptions()
+                .owner(bottomRight.getScene().getWindow())
+                .title("Custom Position")
+                .message("I'm at the bottom right corner")
+                .position(EleFXNotificationPosition.BOTTOM_RIGHT)));
 
         EleFXButton bottomLeft = new EleFXButton("Bottom Left");
         bottomLeft.setPlain(true);
-        bottomLeft.setOnAction(event ->
-                EleFXNotification.show(new EleFXNotificationOptions()
-                        .owner(bottomLeft.getScene().getWindow())
-                        .title("Custom Position")
-                        .message("I'm at the bottom left corner")
-                        .position(EleFXNotificationPosition.BOTTOM_LEFT))
-        );
+        bottomLeft.setOnAction(event -> EleFXNotification.show(new EleFXNotificationOptions()
+                .owner(bottomLeft.getScene().getWindow())
+                .title("Custom Position")
+                .message("I'm at the bottom left corner")
+                .position(EleFXNotificationPosition.BOTTOM_LEFT)));
 
         EleFXButton topLeft = new EleFXButton("Top Left");
         topLeft.setPlain(true);
-        topLeft.setOnAction(event ->
-                EleFXNotification.show(new EleFXNotificationOptions()
-                        .owner(topLeft.getScene().getWindow())
-                        .title("Custom Position")
-                        .message("I'm at the top left corner")
-                        .position(EleFXNotificationPosition.TOP_LEFT))
-        );
+        topLeft.setOnAction(event -> EleFXNotification.show(new EleFXNotificationOptions()
+                .owner(topLeft.getScene().getWindow())
+                .title("Custom Position")
+                .message("I'm at the top left corner")
+                .position(EleFXNotificationPosition.TOP_LEFT)));
 
         HBox root = new HBox(8);
         root.setPadding(new Insets(10));
@@ -176,13 +154,11 @@ public class EleFXNotificationFiller {
     private static HBox withOffsetTest() {
         EleFXButton button = new EleFXButton("Notification with offset");
         button.setPlain(true);
-        button.setOnAction(event ->
-                EleFXNotification.success(new EleFXNotificationOptions()
-                        .owner(button.getScene().getWindow())
-                        .title("Success")
-                        .message("This is a success message")
-                        .offset(100))
-        );
+        button.setOnAction(event -> EleFXNotification.success(new EleFXNotificationOptions()
+                .owner(button.getScene().getWindow())
+                .title("Success")
+                .message("This is a success message")
+                .offset(100)));
 
         HBox root = new HBox(8);
         root.setPadding(new Insets(10));
@@ -251,8 +227,7 @@ public class EleFXNotificationFiller {
                                     new EleFXProgressColorStop(
                                             80, Color.web("#1989fa")),
                                     new EleFXProgressColorStop(
-                                            100, Color.web("#6f7ad3"))
-                            );
+                                            100, Color.web("#6f7ad3")));
 
                 } else {
                     options.title("No pause on hover")
@@ -273,13 +248,11 @@ public class EleFXNotificationFiller {
         EleFXButton button = new EleFXButton("Hide close button");
         button.setPlain(true);
 
-        button.setOnAction(event ->
-                EleFXNotification.success(new EleFXNotificationOptions()
-                        .owner(button.getScene().getWindow())
-                        .title("Info")
-                        .message("This is a message without close button")
-                        .showClose(false))
-        );
+        button.setOnAction(event -> EleFXNotification.success(new EleFXNotificationOptions()
+                .owner(button.getScene().getWindow())
+                .title("Info")
+                .message("This is a message without close button")
+                .showClose(false)));
 
         HBox root = new HBox(8);
         root.setPadding(new Insets(10));

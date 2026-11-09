@@ -21,5 +21,6 @@ public class EleFXEmptyFiller {
         vBox.getChildren().addAll(empty);
     }
 
-    private EleFXEmptyFiller() {}
+    private EleFXEmptyFiller() {
+    }
 }

@@ -30,5 +30,6 @@ public class EleFXCascaderFiller {
         vBox.getChildren().addAll(cascader);
     }
 
-    private EleFXCascaderFiller() {}
+    private EleFXCascaderFiller() {
+    }
 }

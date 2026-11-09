@@ -20,7 +20,7 @@ public class EleFXFormFiller {
         form.setStyle("-fx-border-color: #ff0000;");
         form.setLabelWidth(100); // 自动对齐到最长标签
         form.setInline(true);
-//        form.setMaxWidth(600);
+        // form.setMaxWidth(600);
 
         TextField name = new TextField();
         EleFXFormItem nameItem = new EleFXFormItem("Name", name);
@@ -41,5 +41,6 @@ public class EleFXFormFiller {
         vBox.getChildren().addAll(form);
     }
 
-    private EleFXFormFiller() {}
+    private EleFXFormFiller() {
+    }
 }

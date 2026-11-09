@@ -25,5 +25,6 @@ public class EleFXUploadFiller {
         vBox.getChildren().addAll(upload);
     }
 
-    private EleFXUploadFiller() {}
+    private EleFXUploadFiller() {
+    }
 }
