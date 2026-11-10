@@ -26,8 +26,8 @@ public class EleFXDividerFiller {
         VBox dashedLineTest = dashedLineTest();
         HBox verticalDividerTest = verticalDividerTest();
 
-//        vBox.getChildren().add(basicUsageTest);
-//        vBox.getChildren().add(customContentTest);
+        // vBox.getChildren().add(basicUsageTest);
+        // vBox.getChildren().add(customContentTest);
         vBox.getChildren().add(dashedLineTest);
         vBox.getChildren().add(verticalDividerTest);
         vBox.setSpacing(10);
@@ -36,8 +36,7 @@ public class EleFXDividerFiller {
     private static VBox basicUsageTest() {
         Label firstText = new Label(
                 "I sit at my window this morning where the world like a passer-by " +
-                        "stops for a moment, nods to me and goes."
-        );
+                        "stops for a moment, nods to me and goes.");
         firstText.setWrapText(true);
 
         // 对应 <el-divider />：默认水平、实线、不带文字
@@ -45,8 +44,7 @@ public class EleFXDividerFiller {
 
         Label secondText = new Label(
                 "There little thoughts are the rustle of leaves; they have their " +
-                        "whisper of joy in my mind."
-        );
+                        "whisper of joy in my mind.");
         secondText.setWrapText(true);
 
         return new VBox(0, firstText, divider, secondText);
@@ -54,8 +52,7 @@ public class EleFXDividerFiller {
 
     private static VBox customContentTest() {
         Label firstText = new Label(
-                "What you are you do not see, what you see is your shadow."
-        );
+                "What you are you do not see, what you see is your shadow.");
         firstText.setWrapText(true);
 
         EleFXDivider leftDivider = new EleFXDivider("Rabindranath Tagore");
@@ -63,27 +60,23 @@ public class EleFXDividerFiller {
 
         Label secondText = new Label(
                 "My wishes are fools, they shout across thy song, my Master. " +
-                        "Let me but listen."
-        );
+                        "Let me but listen.");
         secondText.setWrapText(true);
 
         EleFXDivider iconDivider = new EleFXDivider(
-                new EleFXIcon(EleFXIconType.STAR_FILLED, 14)
-        );
+                new EleFXIcon(EleFXIconType.STAR_FILLED, 14));
 
         Label thirdText = new Label(
-                "I cannot choose the best. The best chooses me."
-        );
+                "I cannot choose the best. The best chooses me.");
         thirdText.setWrapText(true);
 
         EleFXDivider rightDivider = new EleFXDivider("Rabindranath Tagore");
         rightDivider.setContentPosition(EleFXDividerContentPosition.RIGHT);
 
-        for (Label label : new Label[]{firstText, secondText, thirdText}) {
+        for (Label label : new Label[] {firstText, secondText, thirdText}) {
             label.setStyle(
                     "-fx-font-size: 14px;" +
-                            "-fx-text-fill: -elefx-ct-regular;"
-            );
+                            "-fx-text-fill: -elefx-ct-regular;");
         }
 
         VBox root = new VBox(
@@ -93,8 +86,7 @@ public class EleFXDividerFiller {
                 secondText,
                 iconDivider,
                 thirdText,
-                rightDivider
-        );
+                rightDivider);
         root.setPadding(new Insets(24));
 
         return root;
@@ -118,12 +110,11 @@ public class EleFXDividerFiller {
 
         Label fourthText = new Label("The language of eternal silence.");
 
-        for (Label label : new Label[]{ firstText, secondText, thirdText, fourthText }) {
+        for (Label label : new Label[] {firstText, secondText, thirdText, fourthText}) {
             label.setWrapText(true);
             label.setStyle(
                     "-fx-font-size: 14px;" +
-                            "-fx-text-fill: -elefx-ct-regular;"
-            );
+                            "-fx-text-fill: -elefx-ct-regular;");
         }
 
         VBox root = new VBox(
@@ -134,8 +125,7 @@ public class EleFXDividerFiller {
                 dottedDivider,
                 thirdText,
                 doubleDivider,
-                fourthText
-        );
+                fourthText);
         root.setPadding(new Insets(24));
 
         return root;
@@ -146,11 +136,10 @@ public class EleFXDividerFiller {
         Label home = new Label("Home");
         Label grass = new Label("Grass");
 
-        for (Label label : new Label[]{rain, home, grass}) {
+        for (Label label : new Label[] {rain, home, grass}) {
             label.setStyle(
                     "-fx-font-size: 14px;" +
-                            "-fx-text-fill: -elefx-ct-regular;"
-            );
+                            "-fx-text-fill: -elefx-ct-regular;");
         }
 
         EleFXDivider solidDivider = new EleFXDivider();
@@ -161,8 +150,7 @@ public class EleFXDividerFiller {
         dashedDivider.setBorderStyle(EleFXDividerBorderStyle.DASHED);
 
         HBox root = new HBox(
-                0, rain, solidDivider, home, dashedDivider, grass
-        );
+                0, rain, solidDivider, home, dashedDivider, grass);
         root.setPadding(new Insets(24));
         root.setAlignment(Pos.CENTER_LEFT);
 
