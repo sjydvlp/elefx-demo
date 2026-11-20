@@ -23,13 +23,9 @@ import javafx.scene.layout.VBox;
 public class EleFXPopoverFiller {
 
     public static void fill(VBox vBox) {
-        VBox placementTest = placementTest();
-        HBox basicUsageTest = basicUsageTest();
-        HBox nestedOperationTest = nestedOperationTest();
-
-        vBox.getChildren().add(placementTest);
-        vBox.getChildren().add(basicUsageTest);
-        vBox.getChildren().add(nestedOperationTest);
+        vBox.getChildren().add(placementTest());
+        vBox.getChildren().add(basicUsageTest());
+        vBox.getChildren().add(nestedOperationTest());
         vBox.setSpacing(10);
     }
 

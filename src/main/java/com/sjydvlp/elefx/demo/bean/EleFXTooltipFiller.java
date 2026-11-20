@@ -24,19 +24,12 @@ import javafx.scene.layout.VBox;
 public class EleFXTooltipFiller {
 
     public static void fill(VBox vBox) {
-        VBox basicUsageTest = basicUsageTest();
-        HBox themeTest = themeTest();
-        HBox moreContentTest = moreContentTest();
-        HBox advancedUsageTest = advancedUsageTest();
-        HBox controlledTest = controlledTest();
-        HBox animationsTest = animationsTest();
-
-        vBox.getChildren().add(basicUsageTest);
-        vBox.getChildren().add(themeTest);
-        vBox.getChildren().add(moreContentTest);
-        vBox.getChildren().add(advancedUsageTest);
-        vBox.getChildren().add(controlledTest);
-        vBox.getChildren().add(animationsTest);
+        vBox.getChildren().add(basicUsageTest());
+        vBox.getChildren().add(themeTest());
+        vBox.getChildren().add(moreContentTest());
+        vBox.getChildren().add(advancedUsageTest());
+        vBox.getChildren().add(controlledTest());
+        vBox.getChildren().add(animationsTest());
         vBox.setSpacing(10);
     }
 
