@@ -1,7 +1,7 @@
 package com.sjydvlp.elefx.demo.controller;
 
 import cn.hutool.core.io.resource.ResourceUtil;
-import com.sjydvlp.elefx.demo.bean.EleFXTreeFiller;
+import com.sjydvlp.elefx.demo.bean.EleFXAnchorFiller;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -96,7 +96,7 @@ public class DemoController implements Initializable {
         // EleFXContainerFiller.fill(vBox);
         // EleFXLinkFiller.fill(vBox);
         // EleFXTextFiller.fill(vBox);
-        // EleFXScrollbarFiller.fill(vBox);
+//         EleFXScrollbarFiller.fill(vBox);
         // EleFXSpaceFiller.fill(vBox);
         // EleFXSplitterFiller.fill(vBox);
         // EleFXTypographyFiller.fill(vBox);
@@ -133,7 +133,7 @@ public class DemoController implements Initializable {
         // EleFXStatisticFiller.fill(vBox);
         // EleFXSegmentedFiller.fill(vBox);
         // EleFXAffixFiller.fill(vBox);
-        // EleFXAnchorFiller.fill(vBox);
+         EleFXAnchorFiller.fill(vBox);
         // EleFXBacktopFiller.fill(vBox);
         // EleFXBreadcrumbFiller.fill(vBox);
         // EleFXDropdownFiller.fill(vBox);
@@ -154,7 +154,7 @@ public class DemoController implements Initializable {
         // EleFXDividerFiller.fill(vBox);
         // EleFXWatermarkFiller.fill(vBox);
 //        EleFXTableFiller.fill(vBox);
-        EleFXTreeFiller.fill(vBox);
+//        EleFXTreeFiller.fill(vBox);
 
         contentPane.setPadding(new Insets(30));
         contentPane.getChildren().add(vBox);
