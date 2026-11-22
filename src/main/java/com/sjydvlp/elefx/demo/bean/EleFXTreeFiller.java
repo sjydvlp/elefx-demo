@@ -38,10 +38,10 @@ public class EleFXTreeFiller {
 //        vBox.getChildren().add(defaultCheckedAndExpandedTest());
 //        vBox.getChildren().add(checkedNodesTest());
 //        vBox.getChildren().add(customNodeContentTest());
-        vBox.getChildren().add(customNodeLabelStyleTest());
+//        vBox.getChildren().add(customNodeLabelStyleTest());
 //        vBox.getChildren().add(treeNodeFilteringTest());
 //        vBox.getChildren().add(accordionTest());
-//        vBox.getChildren().add(draggableTest());
+        vBox.getChildren().add(draggableTest());
         vBox.setSpacing(10);
     }
 
